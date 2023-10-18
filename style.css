@@ -4,3 +4,76 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
+
+body{
+    background: #222;
+}
+
+.main-card{
+    width: 90%;  /*width of the card*/
+    max-width: 470px;  /*max width of the card*/
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;    /*text color inside the card*/
+    margin: 100px auto 0;   /*center the card and make 100px space from top*/
+    border-radius:20px;   /*make the card have curved edges*/
+    padding: 40px 35px;  /*Internal padding from the border of the card*/
+    text-align: center;   /*Move elements to center*/
+}
+
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center; /*on the vertical axis of the card align it to center*/
+    justify-content: space-between; /*Even distribute items in the horizontal axis of the card*/
+}
+
+.search input{
+    border: 0; /*remove border around the text input box*/
+    outline: 0;  
+    background: #ebfffc; /*background color inside the text input box*/
+    color: #555; /*color of text inside the search input*/
+    padding: 10px 25px; /*padding the text inside the search input box*/
+    height:60px;  /*height of text input box*/
+    border-radius: 30px;  /*cureve the edges of the text box*/
+    flex: 1; 
+    margin-right: 16px;  /*space on right of text input box*/
+    font-size: 18px; /*size of text inside text input box*/
+}
+
+.search button{
+    border: 0; /*remove border around the search button*/
+    outline: 0;
+    background: #ebfffc; /*Color of the search button*/
+    border-radius: 50%;  /*curve the edge of the button*/
+    width: 60px; /*width of the button*/
+    height: 60px; /*height of the button*/
+    cursor: pointer;  /*when hover mouse of button the mouse pointer becomes a finger*/
+}
+
+.search button img{
+    width: 16px; /*width of the image in the button*/
+}
+
+.weather-icon{
+    width: 170px;
+    margin-top: 30px;
+}
+
+.weather h1{
+    font-size: 80px;
+    font-weight:500;
+}
+
+.weather h2{
+    font-size: 45px;
+    font-weight:400;
+    margin-top: -10px;
+}
+
+.details{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
