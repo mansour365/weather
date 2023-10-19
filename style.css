@@ -55,25 +55,41 @@ body{
 }
 
 .weather-icon{
-    width: 170px;
-    margin-top: 30px;
+    width: 170px;  /*width of the current weather image*/
+    margin-top: 30px; /*Space on top of weather image*/
 }
 
 .weather h1{
-    font-size: 80px;
-    font-weight:500;
+    font-size: 80px; /*font size of the temperature*/
+    font-weight:500; /*font weight of the temperature*/
 }
 
 .weather h2{
-    font-size: 45px;
-    font-weight:400;
-    margin-top: -10px;
+    font-size: 45px; /*font size of the city*/
+    font-weight:400; /*font weight of the city*/
+    margin-top: -10px; /*Space above the city text*/
 }
 
 .details{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 50px;
+    display:flex;   /*Everything in details cointainer gets put into flex mode*/
+    align-items: center; /*align the items on the vertical axis*/
+    justify-content: space-between; /*align items on the horizontal axis*/
+    padding: 0 20px; /*Give those items in the flex box to have padding on left and right*/
+    margin-top: 50px; /*gives space on top of details container*/
+}
+
+.col{
+    display: flex;  /*add flex mode inside the col containers*/
+    align-items: center;  /*align items inside flex container to the center of vertical axis*/
+    text-align: left; /*align text in col container to the left*/
+}
+
+.col img{
+    width: 40px; /*width of image inside col container*/
+    margin-right: 10px; /*margin to the right of image in the col conatiner*/
+}
+
+.humidity, .wind {
+    font-size: 28px;  /*font size of the humidity/wind containers (humidity value / wind value text) */
+    margin-top: -6px;   /*space on top of the humidity / wind containers */
 }
