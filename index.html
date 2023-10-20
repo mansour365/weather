@@ -24,14 +24,14 @@
 
         <div class="weather">
             <img src="images2/rain.png" class = "weather-icon">
-            <h1 class="temp">22°C</h1>
-            <h2 class="city">New York</h2>
+            <h1 class="temp">0°C</h1>
+            <h2 class="city">Nowhere</h2>
 
             <div class="details">
                 <div class="col">
                     <img src="images2/humidity.png">
                     <div>
-                        <p class="humidity">50%</p>
+                        <p class="humidity">0%</p>
                         <p>Humidity</p>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="col">
                     <img src="images2/wind.png">
                     <div>
-                        <p class="wind">15 km/h</p>
+                        <p class="wind">0 km/h</p>
                         <p>Wind Speed</p>
                     </div>
                 </div>
@@ -47,6 +47,39 @@
         </div>
 
     </div>
+
+<script>
+
+    
+   
+    const apiURL = "https://api.weatherapi.com/v1/";
+    const current = "current.json?"
+    const key = "key=135f15ba9e1e49d3a64160722231710&q=";
+    const airData = "&agi=yes"
+
+    const searchBox = document.querySelector(".search input");
+    const searchBtn = document.querySelector(".search button");
+
+    /*const apiRequest = apiURL + current + key + city + end;*/
+
+    async function checkWeather(city){
+        const response = await fetch(apiURL + current + key + city + airData);
+        var data = await response.json();
+
+        console.log(data);
+
+        document.querySelector(".city").innerHTML = data.location.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
+        document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
+    }
+
+    searchBtn.addEventListener("click", ()=>{
+        checkWeather(searchBox.value);
+    })
+
+    
+</script>
 
     
 </body>
