@@ -14,20 +14,27 @@
 </head>
 
 <body>
-
-    <div class = "main-card">
+    <!--current-card is for current weather-->
+    <div class = "current-card">
 
         <div class="search">
+            <!--Search bar-->
             <input type = "text" placeholder = "enter city name" spellcheck = "false"> 
+            <!--Search button-->
             <button><img src="images2/search.png"></button>
         </div>
 
         <div class="weather">
+            <!--Current Weather image-->
             <img src="images2/rain.png" class = "weather-icon">
+            <!--Current weather temperature-->
             <h1 class="temp">0°C</h1>
-            <h2 class="city">Nowhere</h2>
+            <!--Cuurent Weather location-->
+            <h2 class="city">Location</h2>
 
+            <!--Details for current weather-->
             <div class="details">
+                <!--Column for humidity-->
                 <div class="col">
                     <img src="images2/humidity.png">
                     <div>
@@ -35,7 +42,7 @@
                         <p>Humidity</p>
                     </div>
                 </div>
-
+                <!--Column for Wind-->
                 <div class="col">
                     <img src="images2/wind.png">
                     <div>
@@ -74,10 +81,12 @@
         document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
     }
 
+    /*Event listener for clicking search button*/
     searchBtn.addEventListener("click", ()=>{
         checkWeather(searchBox.value);
     })
 
+    /*Event listener for pressing the enter key*/
     searchBox.addEventListener("keypress", ()=>{
         if(event.key === "Enter"){
             checkWeather(searchBox.value);
