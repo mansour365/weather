@@ -18,26 +18,18 @@
     <div class = "current-card">
 
         <div class="search">
-            <!--Search bar-->
-            <input type = "text" placeholder = "enter city name" spellcheck = "false"> 
-            <!--Search button-->
-            <button><img src="images2/search.png"></button>
+            <input type = "text" placeholder = "enter city name" spellcheck = "false"> <!--Search bar-->
+            <button><img src="images2/search.png"></button> <!--search button-->
         </div>
 
         <div class="weather">
-            <!--Current Weather image-->
-            <img id = "icon" src="images2/clear.png" class = "weather-icon">
-            <!--Current Weather location-->
-            <h2 class="city">Location</h2>
-            <!--Current weather temperature-->
-            <h1 class="temp">0°C</h1>
-            <!--Feels like temperatur-->
-            <h3 class="feel">Feels Like 0°C</h3>
-            <!--Current Condition-->
-            <h3 class="condition">Condition</h3>
+            <img id = "icon" src="images2/clear.png" class = "weather-icon"> <!--Current Weather image-->
+            <h2 class="city">Location</h2>   <!--Current Weather location-->
+            <p class="region">Region,</p> <p class="country">Country</p>
+            <h1 class="temp">0°C</h1>    <!--Current weather temperature-->
+            <h3 class="feel">Feels Like 0°C</h3>    <!--Feels like temperatur-->
+            <h3 class="condition">Condition</h3>  <!--Current Condition-->
             <br>
-
-            
 
             <!--Details for current weather-->
             <div class="details">
@@ -117,6 +109,8 @@
         /*Put current weather data into website*/
         document.getElementById("icon").src= currentData.current.condition.icon;
         document.querySelector(".city").innerHTML = currentData.location.name;
+        document.querySelector(".region").innerHTML = currentData.location.region;
+        document.querySelector(".country").innerHTML = currentData.location.country;
         document.querySelector(".temp").innerHTML = Math.round(currentData.current.temp_c) + "°C";
         document.querySelector(".feel").innerHTML = "Feels Like " + Math.round(currentData.current.feelslike_c) + "°C";
         document.querySelector(".condition").innerHTML = currentData.current.condition.text;
