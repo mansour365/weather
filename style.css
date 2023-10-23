@@ -56,7 +56,7 @@ body{
 }
 
 .weather-icon{
-    width: 170px;  /*width of the current weather image*/
+    width: 75px;  /*width of the current weather image*/
     margin-top: 30px; /*Space on top of weather image*/
 }
 

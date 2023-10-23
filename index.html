@@ -26,13 +26,15 @@
 
         <div class="weather">
             <!--Current Weather image-->
-            <img src="images2/rain.png" class = "weather-icon">
+            <img id = "icon" src="images2/clear.png" class = "weather-icon">
             <!--Current Weather location-->
             <h2 class="city">Location</h2>
             <!--Current weather temperature-->
             <h1 class="temp">0°C</h1>
             <!--Feels like temperatur-->
             <h3 class="feel">Feels Like 0°C</h3>
+            <!--Current Condition-->
+            <h3 class="condition">Condition</h3>
             <br>
 
             
@@ -113,11 +115,13 @@
         console.log(astroData);
 
         /*Put current weather data into website*/
+        document.getElementById("icon").src= currentData.current.condition.icon;
         document.querySelector(".city").innerHTML = currentData.location.name;
         document.querySelector(".temp").innerHTML = Math.round(currentData.current.temp_c) + "°C";
+        document.querySelector(".feel").innerHTML = "Feels Like " + Math.round(currentData.current.feelslike_c) + "°C";
+        document.querySelector(".condition").innerHTML = currentData.current.condition.text;
         document.querySelector(".humidity").innerHTML = currentData.current.humidity + "%";
         document.querySelector(".wind").innerHTML = currentData.current.wind_kph + " km/h";
-        document.querySelector(".feel").innerHTML = "Feels Like " + Math.round(currentData.current.feelslike_c) + "°C";
         /*Put astronomy data into website*/
         document.querySelector(".sunrise").innerHTML = astroData.astronomy.astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = astroData.astronomy.astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
