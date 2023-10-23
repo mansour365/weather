@@ -62,12 +62,20 @@ body{
 .weather h1{
     font-size: 80px; /*font size of the temperature*/
     font-weight:500; /*font weight of the temperature*/
+    color: #fee962; /*Color of the temperature output*/
 }
 
 .weather h2{
     font-size: 45px; /*font size of the city*/
     font-weight:400; /*font weight of the city*/
     margin-top: -10px; /*Space above the city text*/
+}
+
+.weather h3{
+    font-size: 20px; /*Font size of the feels like*/
+    font-weight: 100; /*font weight of the feels like*/
+    margin-top: 10px; /*margin-top of the feels like*/
+    margin-bottom: 20px; /*margin-bottom of the feels like*/
 }
 
 .details{
@@ -89,7 +97,7 @@ body{
     margin-right: 10px; /*margin to the right of image in the col conatiner*/
 }
 
-.humidity, .wind {
+.humidity, .wind, .sunrise, .sunset{
     font-size: 28px;  /*font size of the humidity/wind containers (humidity value / wind value text) */
     margin-top: -6px;   /*space on top of the humidity / wind containers */
 }
