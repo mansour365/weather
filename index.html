@@ -233,26 +233,6 @@
         </div>
     </div>
 
-    <div id="root">
-    </div>
-
-    <script type="text/babel">
-    
-      function MyApp() {
-        return 
-            <div class="hour">
-                <p>23</p>
-                <img src="images2/clear.png"></img>
-                <p>0°</p>
-            </div>;
-      }
-
-      const container = document.getElementById('root');
-      const root = ReactDOM.createRoot(container);
-      root.render(<MyApp />);
-
-    </script>
-
 
     
 
@@ -290,8 +270,24 @@
         document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
 
-        /*try to store hourly temp data into a list called temps*/
-        const temps = 6;
+        /*Instead of storing in array store each as an object*/
+        /*try to store hourly temp data into a list */
+        let dayOneTemps=[];
+        for (let i = 0 ; i < 24 ; i++){
+            dayOneTemps.push(data.forecast.forecastday[0].hour[i].temp_c) ;
+        }
+
+        let dayTwoTemps=[];
+        for (let i = 0 ; i < 24 ; i++){
+            dayTwoTemps.push(data.forecast.forecastday[1].hour[i].temp_c) ;
+        }
+
+        /*Combine both arrays*/
+        let _48HourTemps = dayOneTemps.concat(dayTwoTemps);
+
+        /*display the array*/
+        /*document.getElementById("root").innerHTML = _48HourTemps.length; */
+
     }
 
     /*For hourly weather need to take the current time in that location, start at the next integer
@@ -302,10 +298,6 @@
     3. store the hourly temp data into a list like const temps
 
     later get current time for that area
-
-
-
-
     */
 
     /*Event listener for clicking search button*/
@@ -319,11 +311,9 @@
             checkWeather(searchBox.value);
         }
     })
-
-
-
-    
 </script>
+
+
 
     
 </body>
