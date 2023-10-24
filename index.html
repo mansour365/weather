@@ -85,7 +85,7 @@
         <h1>Hourly Forecast</h1>
 
         <div class="hourly-weather">
-            
+           <!-- 
             <div class="hour">
                 <p>00</p>
                 <img src="images2/clear.png">
@@ -229,8 +229,13 @@
                 <img src="images2/clear.png">
                 <p>0°</p>
             </div>
+        -->
 
         </div>
+    </div>
+
+    <div class="root">
+
     </div>
 
 
@@ -284,6 +289,21 @@
 
         /*Combine both arrays*/
         let _48HourTemps = dayOneTemps.concat(dayTwoTemps);
+
+        //method that does not use the saved array
+        for(let i = 0; i < 24; i++)
+        {
+            document.querySelector(".hourly-weather").innerHTML += '<div class="hour"><p>'+i+'</p><img id = hourIcon src="images2/clear.png"><p>'+data.forecast.forecastday[0].hour[i].temp_c +'°</p></div>';
+            /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
+        }
+
+
+
+        
+        
+
+
+
 
         /*display the array*/
         /*document.getElementById("root").innerHTML = _48HourTemps.length; */
