@@ -127,6 +127,6 @@ body{
 }
 
 .hour img{
-    width: 40px; /*width of image inside col container*/
+    width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
 }

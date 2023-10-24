@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <!--API KEY: 135f15ba9e1e49d3a64160722231710  -->
     <!--API URL: https://www.weatherapi.com/my/ -->
 
@@ -82,183 +87,198 @@
         <div class="hourly-weather">
             
             <div class="hour">
-                <p>0°C</p>
-                <p>0:00</p>
-                <img src="images2/sunrise.png">
+                <p>00</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>1 AM</p>
-                <img src="images2/sunset.png">
+                <p>01</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>2 AM</p>
-                <img src="images2/sunrise.png">
+                <p>02</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>3 AM</p>
-                <img src="images2/sunset.png">
+                <p>03</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>4 AM</p>
-                <img src="images2/sunrise.png">
+                <p>04</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>5 AM</p>
-                <img src="images2/sunset.png">
+                <p>05</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>6 AM</p>
-                <img src="images2/sunrise.png">
+                <p>06</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>7 AM</p>
-                <img src="images2/sunset.png">
+                <p>07</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>8 AM</p>
-                <img src="images2/sunrise.png">
+                <p>08</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>9 AM</p>
-                <img src="images2/sunset.png">
+                <p>09</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>10 AM</p>
-                <img src="images2/sunrise.png">
+                <p>10</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>11 AM</p>
-                <img src="images2/sunset.png">
+                <p>11</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>12 PM</p>
-                <img src="images2/sunrise.png">
+                <p>12</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>13:00</p>
-                <img src="images2/sunset.png">
+                <p>13</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>14:00</p>
-                <img src="images2/sunrise.png">
+                <p>14</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>15:00</p>
-                <img src="images2/sunset.png">
+                <p>15</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>16:00</p>
-                <img src="images2/sunrise.png">
+                <p>16</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>17:00</p>
-                <img src="images2/sunset.png">
+                <p>17</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>18:00</p>
-                <img src="images2/sunrise.png">
+                <p>18</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>19:00</p>
-                <img src="images2/sunset.png">
+                <p>19</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>20:00</p>
-                <img src="images2/sunrise.png">
+                <p>20</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>21:00</p>
-                <img src="images2/sunset.png">
+                <p>21</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
             <div class="hour">
-                <p>0°C</p>
-                <p>22:00</p>
-                <img src="images2/sunrise.png">
+                <p>22</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
             
             <div class="hour">
-                <p>0°C</p>
-                <p>23:00</p>
-                <img src="images2/sunset.png">
+                <p>23</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
             </div>
 
         </div>
     </div>
 
+    <div id="root">
+    </div>
+
+    <script type="text/babel">
+    
+      function MyApp() {
+        return 
+            <div class="hour">
+                <p>23</p>
+                <img src="images2/clear.png"></img>
+                <p>0°</p>
+            </div>;
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+
+    </script>
+
 
     
 
 <script>
-    const date = new Date();  /*create a data object (need date to fetch sunrise/sunset data from api)*/
-    let currentDate = date.toJSON().slice(0, 10);  /*slice only the portion for the data ex: "2023-01-07" */
-    /*Date functionality from https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/*/
-   
     const apiURL = "https://api.weatherapi.com/v1/";
-    const current = "current.json?"
+    const forecast = "forecast.json?";
     const key = "key=135f15ba9e1e49d3a64160722231710&q=";
-    const airData = "&agi=yes"
-    const astro = "astronomy.json?"
-    const astroEnd = "&dt="+currentDate;
+    const days = "&days=3";
+    const airQual = "&aqi=yes";
+    const airData = "&agi=yes";
+    const alerts = "&alerts=yes";
 
 
     const searchBox = document.querySelector(".search input");
     const searchBtn = document.querySelector(".search button");
 
-    /*const apiRequest = apiURL + current + key + city + end;*/
 
     async function checkWeather(city){
 
         /*fetch 3 day weather data*/
-        const response = await fetch(apiURL + "forecast.json?"+ key + city + "&days=3&aqi=yes&alerts=yes");
+        const response = await fetch(apiURL + forecast + key + city + days + airQual + alerts);
         var data = await response.json();
-
 
         console.log(data);
 
-        /*Put current weather data into website*/
+        /*Put current weather data into website elements*/
         document.getElementById("icon").src= data.current.condition.icon;
         document.querySelector(".city").innerHTML = data.location.name;
         document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
@@ -269,6 +289,9 @@
         document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
         document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
+
+        /*try to store hourly temp data into a list called temps*/
+        const temps = 6;
     }
 
     /*For hourly weather need to take the current time in that location, start at the next integer
@@ -276,7 +299,7 @@
     Steps
     1. Request forcast for 3 days (most allowed for free version)
     2. Get hourly for 24 hours
-    3. disaply each hour in its own block i guess use flex
+    3. store the hourly temp data into a list like const temps
 
     later get current time for that area
 
