@@ -120,3 +120,13 @@ body{
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
 }
+
+
+.hourly-weather{
+    display: flex;  /*add flex mode inside the col containers*/
+}
+
+.hour img{
+    width: 40px; /*width of image inside col container*/
+    margin-right: 0px; /*margin to the right of image in the col conatiner*/
+}
