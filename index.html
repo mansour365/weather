@@ -25,7 +25,7 @@
         <div class="weather">
             <img id = "icon" src="images2/clear.png" class = "weather-icon"> <!--Current Weather image-->
             <h2 class="city">Location</h2>   <!--Current Weather location-->
-            <p class="region">Region,</p> <p class="country">Country</p>
+            <p class="region">Region</p> <!--<p class="country">Country</p>-->
             <h1 class="temp">0°C</h1>    <!--Current weather temperature-->
             <h3 class="feel">Feels Like 0°C</h3>    <!--Feels like temperatur-->
             <h3 class="condition">Condition</h3>  <!--Current Condition-->
@@ -76,6 +76,15 @@
 
     </div>
 
+    <div class="hourly-card">
+        <div class="hourly-weather">
+            <h1>Hourly Forecast</h1>
+        </div>
+    </div>
+
+
+    
+
 <script>
     const date = new Date();  /*create a data object (need date to fetch sunrise/sunset data from api)*/
     let currentDate = date.toJSON().slice(0, 10);  /*slice only the portion for the data ex: "2023-01-07" */
@@ -109,8 +118,7 @@
         /*Put current weather data into website*/
         document.getElementById("icon").src= currentData.current.condition.icon;
         document.querySelector(".city").innerHTML = currentData.location.name;
-        document.querySelector(".region").innerHTML = currentData.location.region;
-        document.querySelector(".country").innerHTML = currentData.location.country;
+        document.querySelector(".region").innerHTML = currentData.location.region +" "+currentData.location.country;
         document.querySelector(".temp").innerHTML = Math.round(currentData.current.temp_c) + "°C";
         document.querySelector(".feel").innerHTML = "Feels Like " + Math.round(currentData.current.feelslike_c) + "°C";
         document.querySelector(".condition").innerHTML = currentData.current.condition.text;
@@ -120,6 +128,20 @@
         document.querySelector(".sunrise").innerHTML = astroData.astronomy.astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = astroData.astronomy.astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
     }
+
+    /*For hourly weather need to take the current time in that location, start at the next integer
+    Or show the entire 24 hours and highlight the one youe currently on
+    Steps
+    1. Request forcast for 3 days (most allowed for free version)
+    2. Get hourly for 24 hours
+    3. disaply each hour in its own block i guess use flex
+
+    later get current time for that area
+    
+
+
+
+    */
 
     /*Event listener for clicking search button*/
     searchBtn.addEventListener("click", ()=>{

@@ -76,7 +76,13 @@ body{
     font-size: 20px; /*Font size of the feels like*/
     font-weight: 100; /*font weight of the feels like*/
     margin-top: 10px; /*margin-top of the feels like*/
-    margin-bottom: 20px; /*margin-bottom of the feels like*/
+    margin-bottom: 40px; /*margin-bottom of the feels like*/
+}
+
+.region{
+    font-size: 15px;
+    font-weight:100;
+    margin-bottom: 20px;
 }
 
 .details{
@@ -84,7 +90,7 @@ body{
     align-items: center; /*align the items on the vertical axis*/
     justify-content: space-between; /*align items on the horizontal axis*/
     padding: 0 20px; /*Give those items in the flex box to have padding on left and right*/
-    margin-top: 50px; /*gives space on top of details container*/
+    margin-top: 30px; /*gives space on top of details container*/
 }
 
 .col{
@@ -101,4 +107,16 @@ body{
 .humidity, .wind, .sunrise, .sunset{
     font-size: 28px;  /*font size of the humidity/wind containers (humidity value / wind value text) */
     margin-top: -6px;   /*space on top of the humidity / wind containers */
+}
+
+.hourly-card{
+    width: 90%;  /*width of the card*/
+    /*max-width: 470px;  /*max width of the card*/
+    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
+    background: linear-gradient(135deg, #4498a7, #3b317e);
+    color: #fff;    /*text color inside the card*/
+    margin: 100px auto 0;   /*center the card and make 100px space from top*/
+    border-radius:20px;   /*make the card have curved edges*/
+    padding: 40px 35px;  /*Internal padding from the border of the card*/
+    text-align: center;   /*Move elements to center*/
 }
