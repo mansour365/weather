@@ -104,29 +104,25 @@
     /*const apiRequest = apiURL + current + key + city + end;*/
 
     async function checkWeather(city){
-        /*fetch the current weather data*/
-        const response1 = await fetch(apiURL + current + key + city + airData);
-        var currentData = await response1.json();
 
-        /*fetch the astronomy data*/
-        const response2 = await fetch(apiURL + astro + key + city + astroEnd);
-        var astroData = await response2.json();
+        /*fetch 3 day weather data*/
+        const response = await fetch(apiURL + "forecast.json?"+ key + city + "&days=3&aqi=yes&alerts=yes");
+        var data = await response.json();
 
-        console.log(currentData);
-        console.log(astroData);
+
+        console.log(data);
 
         /*Put current weather data into website*/
-        document.getElementById("icon").src= currentData.current.condition.icon;
-        document.querySelector(".city").innerHTML = currentData.location.name;
-        document.querySelector(".region").innerHTML = currentData.location.region +" "+currentData.location.country;
-        document.querySelector(".temp").innerHTML = Math.round(currentData.current.temp_c) + "°C";
-        document.querySelector(".feel").innerHTML = "Feels Like " + Math.round(currentData.current.feelslike_c) + "°C";
-        document.querySelector(".condition").innerHTML = currentData.current.condition.text;
-        document.querySelector(".humidity").innerHTML = currentData.current.humidity + "%";
-        document.querySelector(".wind").innerHTML = currentData.current.wind_kph + " km/h";
-        /*Put astronomy data into website*/
-        document.querySelector(".sunrise").innerHTML = astroData.astronomy.astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
-        document.querySelector(".sunset").innerHTML = astroData.astronomy.astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
+        document.getElementById("icon").src= data.current.condition.icon;
+        document.querySelector(".city").innerHTML = data.location.name;
+        document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
+        document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
+        document.querySelector(".feel").innerHTML = "Feels Like " + Math.round(data.current.feelslike_c) + "°C";
+        document.querySelector(".condition").innerHTML = data.current.condition.text;
+        document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
+        document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
+        document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
     }
 
     /*For hourly weather need to take the current time in that location, start at the next integer
@@ -137,7 +133,7 @@
     3. disaply each hour in its own block i guess use flex
 
     later get current time for that area
-    
+
 
 
 
