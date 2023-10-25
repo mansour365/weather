@@ -131,6 +131,10 @@ body{
     border: solid rgb(221, 224, 14) 2px;
 }
 
+.hourNum{
+    font-style: italic;
+}
+
 .hour img{
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/

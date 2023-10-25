@@ -158,14 +158,21 @@
         while (counter < 24)
         {
             document.querySelector(".hourly-weather").innerHTML +=  '<div class="hour">'+
-                                                                      '<p>'+theHour%24+"</p>"+    
+                                                                      '<p class=hourNum>'+theHour%24+"</p>"+ 
+                                                                      
+                                                                      '<img id = "hourIcon" src="images2/clear.png">'+
+                                                                      
                                                                       '<p>'+Math.round(_48HourTemps[theHour]) +'°</p>'+
+                                                                      
                                                                     '</div>';
             theHour = theHour + 1;
             counter = counter + 1;
         }
        
-       
+       /*is it possible to make an array of images*/
+       /*Need to store the images src string into an array of string
+       will probbably need two arays and them combine them*/
+       /*new bug its using the array of data from the first city that was searched and puttiung the same hourly data on every other seaerch*/
 
 
         /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
