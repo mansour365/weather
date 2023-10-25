@@ -141,7 +141,9 @@
             elements[0].parentNode.removeChild(elements[0]);
         }
 
-        let cityTime = data.location.localtime.substring(11, 13); //take the time date time from datapack and cut the hour portion
+        let cityTime = data.current.last_updated.substring(11, 13); //take the time date time from datapack and cut the hour portion
+        /*remove white spaces from string*/
+        cityTime = cityTime.split(" ").join("");
         let theTime = cityTime.replace(/^0+/,"");   //remove any leading 0's from the hour portion
         let theHour = Number(theTime);      //convert the string into a number
 
@@ -152,20 +154,20 @@
         let counter = 0;
 
 
-        
         while (counter < 24)
         {
             document.querySelector(".hourly-weather").innerHTML +=  
             
             '<div class="hour">'+
 
-                '<p class=hourNum>'+theHour%24+"</p>"+ 
+                '<p class=hourNum>'+theHour%24+'</p>'+ 
                                                                       
-                '<img id = "hourIcon" src="images2/clear.png">'+
+                '<img id = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+
                                                                       
                 '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c); +'°</p>'+
                                                                       
             '</div>';
+
             if (theHour == 23){
                 currentDay = 1;
                 theHour = -1;
