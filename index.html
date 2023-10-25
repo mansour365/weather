@@ -85,151 +85,7 @@
         <h1>Hourly Forecast</h1>
 
         <div class="hourly-weather">
-           <!-- 
-            <div class="hour">
-                <p>00</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>01</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>02</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>03</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>04</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>05</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>06</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>07</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>08</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>09</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>10</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>11</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>12</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>13</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>14</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>15</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>16</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>17</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>18</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>19</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>20</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>21</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-
-            <div class="hour">
-                <p>22</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>23</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-        -->
+           
 
         </div>
     </div>
@@ -290,20 +146,42 @@
         /*Combine both arrays*/
         let _48HourTemps = dayOneTemps.concat(dayTwoTemps);
 
+        let cityTime = data.location.localtime;
+        let currentTime = cityTime.substring(11, 13);
+        let theTime = currentTime.replace(/^0+/,"");
+        
+        console.log(theTime);
         //method that does not use the saved array
-        for(let i = 0; i < 24; i++)
+        for(let i = theTime; i < 24; i++)
         {
-            document.querySelector(".hourly-weather").innerHTML += '<div class="hour"><p>'+i+'</p><img id = hourIcon src="images2/clear.png"><p>'+data.forecast.forecastday[0].hour[i].temp_c +'°</p></div>';
-            /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
+            document.querySelector(".hourly-weather").innerHTML +=  '<div class="hour">'+
+                                                                      '<p>'+i+"</p>"+    
+                                                                      '<p>'+Math.round(data.forecast.forecastday[0].hour[i].temp_c) +'°</p>'+
+                                                                    '</div>';
         }
+       
+
+
+        /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
+       
+        /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
 
 
 
+        /*
+            <div class="hour">
+                <p>00</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
+            </div>
+            
+            <div class="hour">
+                <p>01</p>
+                <img src="images2/clear.png">
+                <p>0°</p>
+            </div>
+        */
         
-        
-
-
-
 
         /*display the array*/
         /*document.getElementById("root").innerHTML = _48HourTemps.length; */
@@ -338,3 +216,5 @@
     
 </body>
 </html>
+
+

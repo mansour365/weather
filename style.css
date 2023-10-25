@@ -126,6 +126,10 @@ body{
     display: flex;  /*add flex mode inside the col containers*/
 }
 
+.hour{
+    margin-right: 35px;
+}
+
 .hour img{
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
