@@ -150,11 +150,25 @@
         let theTime = cityTime.replace(/^0+/,"");   //remove any leading 0's from the hour portion
         let theHour = Number(theTime);      //convert the string into a number
 
-        console.log("the hour: "+theHour);
+        console.log("the hour : "+theHour);
+        //Adding plus 1 to the hour
+        theHour = theHour + 1;
+        console.log("the hour : "+theHour);
+
         //method that does not use the saved array
 
         let currentDay = 0;
         let counter = 0;
+
+        //Added current temp as first entry into houlry-weather
+        document.querySelector(".hourly-weather").innerHTML +=  
+            
+            '<div class="hour">'+
+                '<p class=hourNum> Now </p>'+                                                      
+                '<img id = "hourIcon" src='+ data.current.condition.icon +'>'+                                             
+                '<p>'+Math.round(data.current.temp_c) +'°</p>'+                                             
+            '</div>';
+        
 
 
         while (counter < 24)
@@ -162,13 +176,9 @@
             document.querySelector(".hourly-weather").innerHTML +=  
             
             '<div class="hour">'+
-
-                '<p class=hourNum>'+theHour%24+'</p>'+ 
-                                                                      
-                '<img id = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+
-                                                                      
-                '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+
-                                                                      
+                '<p class=hourNum>'+theHour%24+'</p>'+                                             
+                '<img id = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+                                     
+                '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
             '</div>';
 
             if (theHour == 23){
