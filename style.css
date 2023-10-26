@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -6,14 +7,14 @@
 }
 
 body{
-    background: #222;
+    background: #273553;
 }
 
 .current-card{
     width: 90%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: linear-gradient(135deg, #45a2b3, #3b317e);
+    /*background: linear-gradient(135deg, #45a2b3, #3b317e);*/
     color: #fff;    /*text color inside the card*/
     margin: 100px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
@@ -97,8 +98,6 @@ body{
     margin-bottom: 10px;
 }
 
-
-
 .HL{
     display:flex;
     justify-content: center;
@@ -136,14 +135,16 @@ body{
     font-size: 28px;  /*font size of the humidity/wind containers (humidity value / wind value text) */
     margin-top: -6px;   /*space on top of the humidity / wind containers */
 }
-
+.other-cards{
+    display:flex;
+}
 .hourly-card{
-    width: 90%;  /*width of the card*/
+    width: 75%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: linear-gradient(135deg, #4498a7, #3b317e);
+    background: #003b72;
     color: #fff;    /*text color inside the card*/
-    margin: 100px auto 0;   /*center the card and make 100px space from top*/
+    margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
@@ -155,9 +156,11 @@ body{
     text-align: left;
 }
 
-
 .hourly-weather{
     display: flex;  /*add flex mode inside the col containers*/
+    /*border: solid rgb(221, 224, 14) 2px;*/
+    overflow: auto;  /*give the hourly weather a horizontal scroll bar*/
+    
 }
 
 .hour{
@@ -172,4 +175,23 @@ body{
 .hour img{
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
+}
+
+
+.airQual-card{
+    width: 15%;  /*width of the card*/
+    /*max-width: 470px;  /*max width of the card*/
+    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
+    background: linear-gradient(135deg, #55c464, #d19b4a);
+    color: #fff;    /*text color inside the card*/
+    margin: 50px auto 0;   /*center the card and make 100px space from top*/
+    border-radius:20px;   /*make the card have curved edges*/
+    padding: 40px 35px;  /*Internal padding from the border of the card*/
+    text-align: center;   /*Move elements to center*/
+}
+
+.airQual-card h1{
+    font-size: 17px;
+    font-weight: 100;
+    text-align: left;
 }
