@@ -30,10 +30,15 @@
         <div class="weather">
             <img id = "icon" src="images2/clear.png" class = "weather-icon"> <!--Current Weather image-->
             <h2 class="city">Location</h2>   <!--Current Weather location-->
-            <p class="region">Region</p> <!--<p class="country">Country</p>-->
+            <p class="region">Region</p> <!---->
             <h1 class="temp">0°C</h1>    <!--Current weather temperature-->
-            <h3 class="feel">Feels Like 0°C</h3>    <!--Feels like temperatur-->
+            <h3 class="feel">Feels like 0°</h3>    <!--Feels like temperature-->
             <h3 class="condition">Condition</h3>  <!--Current Condition-->
+            <div class = "HL">
+                <p class="H">H:0°</p>
+                <p class="L">L:0°</p>
+            </div>
+            
             <br>
 
             <!--Details for current weather-->
@@ -86,16 +91,12 @@
 
         <div class="hourly-weather">
 
-
-            
-            
-           
-
         </div>
     </div>
 
-    <div class="root">
 
+
+    <div class="root">
     </div>
 
 
@@ -128,8 +129,10 @@
         document.querySelector(".city").innerHTML = data.location.name;
         document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
         document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
-        document.querySelector(".feel").innerHTML = "Feels Like " + Math.round(data.current.feelslike_c) + "°C";
+        document.querySelector(".feel").innerHTML = "Feels like " + Math.round(data.current.feelslike_c) + "°";
         document.querySelector(".condition").innerHTML = data.current.condition.text;
+        document.querySelector(".H").innerHTML = "H:"+Math.round(data.forecast.forecastday[0].day.maxtemp_c) + "°";
+        document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
         document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
         document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
         document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
@@ -164,7 +167,7 @@
                                                                       
                 '<img id = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+
                                                                       
-                '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c); +'°</p>'+
+                '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+
                                                                       
             '</div>';
 
@@ -187,24 +190,7 @@
        
         /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
 
-
-
-        
-
-        /*display the array*/
-        /*document.getElementById("root").innerHTML = _48HourTemps.length; */
-
     }
-
-    /*For hourly weather need to take the current time in that location, start at the next integer
-    Or show the entire 24 hours and highlight the one youe currently on
-    Steps
-    1. Request forcast for 3 days (most allowed for free version)
-    2. Get hourly for 24 hours
-    3. store the hourly temp data into a list like const temps
-
-    later get current time for that area
-    */
 
     /*Event listener for clicking search button*/
     searchBtn.addEventListener("click", ()=>{
@@ -263,6 +249,9 @@ Previous method storing data from json to arrays
         /*
         let _48HourTemps = dayOneTemps.concat(dayTwoTemps);
         */
+
+        /*display the array*/
+        /*document.getElementById("root").innerHTML = _48HourTemps.length; */
 
 
 

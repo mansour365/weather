@@ -55,34 +55,62 @@ body{
     width: 16px; /*width of the image in the button*/
 }
 
+/*Current weather Icon*/
 .weather-icon{
     width: 75px;  /*width of the current weather image*/
     margin-top: 30px; /*Space on top of weather image*/
 }
 
-.weather h1{
-    font-size: 80px; /*font size of the temperature*/
-    font-weight:500; /*font weight of the temperature*/
-    color: #fee962; /*Color of the temperature output*/
-}
-
-.weather h2{
+/*City Text*/
+.weather .city{
     font-size: 45px; /*font size of the city*/
     font-weight:400; /*font weight of the city*/
     margin-top: -10px; /*Space above the city text*/
 }
 
-.weather h3{
-    font-size: 20px; /*Font size of the feels like*/
-    font-weight: 100; /*font weight of the feels like*/
-    margin-top: 10px; /*margin-top of the feels like*/
-    margin-bottom: 40px; /*margin-bottom of the feels like*/
-}
-
+/*Country region text*/
 .region{
     font-size: 15px;
     font-weight:100;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+/*Current Temperature*/
+.weather .temp{
+    font-size: 80px; /*font size of the temperature*/
+    font-weight:100; /*font weight of the temperature*/
+    color: #fee962; /*Color of the temperature output*/
+}
+
+/*Feels like text*/
+.weather .feel{
+    font-size: 20px; /*Font size of the feels like*/
+    font-weight: 100; /*font weight of the feels like*/
+    margin-top: 10px; /*margin-top of the feels like*/
+    margin-bottom: 10px; /*margin-bottom of the feels like*/
+}
+
+/*Current Condition*/
+.weather .condition{
+    font-weight: 100;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+
+.HL{
+    display:flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.H{
+    margin-right: 5px;
+}
+
+.L{
+    margin-left: 5px;
 }
 
 .details{
