@@ -88,7 +88,9 @@
 
     <div class="hourly-card">
         <h1>Hourly Forecast</h1>
-
+        <br>
+        <hr>
+        <br>
         <div class="hourly-weather">
 
         </div>
@@ -138,6 +140,30 @@
         document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
 
+        //Save the sunset time, Used for hourly
+        let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");
+        console.log(sunsetTime);
+        //format is something like "5:51 PM"
+        
+        const array1 = sunsetTime.split(" ");
+        let amPM = array1[1];
+
+        const array = sunsetTime.split(":"); //Take hour portion
+        let sunsetHour = Number(array[0]);
+
+        let rightPortion = array[1];
+        let array3 = rightPortion.split(" ");
+        let sunsetMin = Number(array3[0]);
+
+        //Check if AM or PM
+        if (amPM == "PM"){
+            sunsetHour = sunsetHour + 12;  //convert to 24 hour time
+        }
+        console.log("sunsetHour: "+sunsetHour);
+        console.log("sunsetMin: "+sunsetMin);
+       
+
+
         /*Remove the old houly data, if there is one from a previous search*/
         const elements = document.getElementsByClassName("hour");
         while(elements.length > 0){
@@ -162,15 +188,12 @@
 
         //Added current temp as first entry into houlry-weather
         document.querySelector(".hourly-weather").innerHTML +=  
-            
             '<div class="hour">'+
                 '<p class=hourNum> Now </p>'+                                                      
                 '<img id = "hourIcon" src='+ data.current.condition.icon +'>'+                                             
                 '<p>'+Math.round(data.current.temp_c) +'°</p>'+                                             
             '</div>';
         
-
-
         while (counter < 24)
         {
             document.querySelector(".hourly-weather").innerHTML +=  
@@ -185,9 +208,22 @@
                 currentDay = 1;
                 theHour = -1;
             }
+            
+            //Check if the next entry should be a sunset entry
+            if(theHour == sunsetHour)
+            {
+                //insert the sunset slot now
+                document.querySelector(".hourly-weather").innerHTML +=  
+                '<div class="hour">'+
+                    '<p class=hourNum>'+sunsetHour+':'+sunsetMin+'</p>'+                                                      
+                    '<img id = "hourIcon" src=images2/sunset.png>'+                                             
+                    '<p>Sunset</p>'+                                             
+                '</div>';
+
+            }
+            sunsetUsed = 1;
             theHour = theHour + 1;
             counter = counter + 1;
-            
         }
         
        /*is it possible to make an array of images*/

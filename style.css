@@ -149,6 +149,12 @@ body{
     text-align: center;   /*Move elements to center*/
 }
 
+.hourly-card   h1{
+    font-size: 17px;
+    font-weight: 100;
+    text-align: left;
+}
+
 
 .hourly-weather{
     display: flex;  /*add flex mode inside the col containers*/
@@ -156,11 +162,11 @@ body{
 
 .hour{
     margin-right: 35px;
-    border: solid rgb(221, 224, 14) 2px;
+    /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
 .hourNum{
-    font-style: italic;
+    font-size: 15px;
 }
 
 .hour img{
