@@ -160,12 +160,13 @@
         let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         console.log(sunsetTime);
         
+        
         const array = sunsetTime.split(":"); //Take hour portion
         let sunsetHour = Number(array[0]);
 
         let rightPortion = array[1];  //Something like "32 PM"
         const array1 = rightPortion.split(" ");
-        let sunsetMin = Number(array1[0]);   //left part is minute
+        let sunsetMin = array1[0];   //left part is minute
         let amPM = array1[1];                //right part is AM/PM
         
         //Check if AM or PM
