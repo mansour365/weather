@@ -221,10 +221,18 @@
         
         while (counter < 24)
         {
+            let newHour;
+            //conver single digit hour to double digit hours before outputting
+            if(theHour.toString().length ==  1){
+                newHour = theHour.toString().padStart(2, '0');
+            }
+            else{
+                newHour = theHour%24;
+            }
+
             document.querySelector(".hourly-weather").innerHTML +=  
-            
             '<div class="hour">'+
-                '<p class=hourNum>'+theHour%24+'</p>'+                                             
+                '<p class=hourNum>'+newHour+'</p>'+                                             
                 '<img id = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+                                     
                 '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
             '</div>';
@@ -235,8 +243,7 @@
             }
             
             //Check if the next entry should be a sunset entry
-            if(theHour == sunsetHour)
-            {
+            if(theHour == sunsetHour){
                 //insert the sunset slot now
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
@@ -244,11 +251,9 @@
                     '<img id = "hourIcon" src=images2/sunset.png>'+                                             
                     '<p>Sunset</p>'+                                             
                 '</div>';
-
             }
             //check if next extry should be sunrise time
-            if(theHour == sunriseHour)
-            {
+            if(theHour == sunriseHour){
                 //insert the sunrise slot now
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
@@ -263,16 +268,8 @@
             counter = counter + 1;
         }
         
-       /*is it possible to make an array of images*/
-       /*Need to store the images src string into an array of string
-       will probbably need two arays and them combine them*/
-       /*new bug its using the array of data from the first city that was searched and puttiung the same hourly data on every other seaerch*/
-
-
         /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
-       
         /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
-
     }
 
     /*Event listener for clicking search button*/
