@@ -158,16 +158,13 @@
 
         //Save the sunset time, Used for hourly
         let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
-        console.log(sunsetTime);
-        
-        
-        const array = sunsetTime.split(":"); //Take hour portion
-        let sunsetHour = Number(array[0]);
+        const array = sunsetTime.split(":"); 
+        let sunsetHour = Number(array[0]);   //Take hour portion
 
         let rightPortion = array[1];  //Something like "32 PM"
         const array1 = rightPortion.split(" ");
         let sunsetMin = array1[0];   //left part is minute
-        let amPM = array1[1];                //right part is AM/PM
+        let amPM = array1[1];        //right part is AM/PM
         
         //Check if AM or PM
         if (amPM == "PM"){
@@ -185,11 +182,6 @@
     
         
 
-        
-
-       
-
-
         /*Remove the old houly data, if there is one from a previous search*/
         const elements = document.getElementsByClassName("hour");
         while(elements.length > 0){
@@ -197,20 +189,11 @@
         }
 
         let cityTime = data.current.last_updated.substring(11, 13); //take the time date time from datapack and cut the hour portion
-        /*remove white spaces from string*/
-        cityTime = cityTime.split(" ").join("");
+        cityTime = cityTime.split(" ").join("");  //remove white spaces from string
         let theTime = cityTime.replace(/^0+/,"");   //remove any leading 0's from the hour portion
         let theHour = Number(theTime);      //convert the string into a number
+        theHour = theHour + 1;   //Adding plus 1 to the hour (because we want to start hourly on the next hour)
 
-        console.log("the hour : "+theHour);
-        //Adding plus 1 to the hour
-        theHour = theHour + 1;
-        console.log("the hour : "+theHour);
-
-        //method that does not use the saved array
-
-        let currentDay = 0;
-        let counter = 0;
 
         //Added current temp as first entry into houlry-weather
         document.querySelector(".hourly-weather").innerHTML +=  
@@ -220,17 +203,27 @@
                 '<p>'+Math.round(data.current.temp_c) +'°</p>'+                                             
             '</div>';
         
+        let currentDay = 0;
+        let counter = 0;
+
         while (counter < 24)
         {
-            let newHour;
-            //conver single digit hour to double digit hours before outputting
+            //Need this incase the current hour of a city is on (theHour = 23) + 1  = 24
+            //Need to increment the day and hour, otherwise it won't have the chance to change the day, result in error
+            if(theHour == 24){
+                currentDay = 1;
+                theHour = 0;
+            }
+
+            let newHour;  //variable used for output purposes and not for calculations
             if(theHour.toString().length ==  1){
-                newHour = theHour.toString().padStart(2, '0');
+                newHour = theHour.toString().padStart(2, '0');  //convert single digit hour to double digit hours before outputting
             }
             else{
                 newHour = theHour%24;
             }
 
+            
             document.querySelector(".hourly-weather").innerHTML +=  
             '<div class="hour">'+
                 '<p class=hourNum>'+newHour+'</p>'+                                             
@@ -263,8 +256,6 @@
                     '<p>Sunrise</p>'+                                             
                 '</div>';
             }
-
-            sunsetUsed = 1;
             theHour = theHour + 1;
             counter = counter + 1;
         }
