@@ -7,17 +7,26 @@
 }
 
 body{
-    background: #273553;
+    background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148));
 }
 
+
+/*Color of the search placeholder text*/
+::placeholder {
+    color: white;
+    opacity: 0.7; /* Firefox */
+  }
+
+
 .current-card{
-    width: 90%;  /*width of the card*/
+    /*width: 90%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: linear-gradient(135deg, #45a2b3, #3b317e);
+    /*background: linear-gradient(135deg, #45a2b3, #3b317e);*/
+    /*background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148));*/
     color: #fff;    /*text color inside the card*/
-    margin: 100px auto 0;   /*center the card and make 100px space from top*/
-    border-radius:20px;   /*make the card have curved edges*/
+    /*margin: 100px auto 0;   /*center the card and make 100px space from top*/
+    /*border-radius:20px;   /*make the card have curved edges*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
 }
@@ -32,8 +41,8 @@ body{
 .search input{
     border: 0; /*remove border around the text input box*/
     outline: 0;  
-    background: #ebfffc; /*background color inside the text input box*/
-    color: #555; /*color of text inside the search input*/
+    background: rgb(19, 71, 117); /*background color inside the text input box*/
+    color: white; /*color of text inside the search input*/
     padding: 10px 25px; /*padding the text inside the search input box*/
     height:60px;  /*height of text input box*/
     border-radius: 30px;  /*cureve the edges of the text box*/
@@ -142,7 +151,7 @@ body{
     width: 75%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: #003b72;
+    background: rgb(37, 113, 181);
     color: #fff;    /*text color inside the card*/
     margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
@@ -182,7 +191,7 @@ body{
     width: 15%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: linear-gradient(135deg, #55c464, #d19b4a);
+    background: rgb(37, 113, 181);
     color: #fff;    /*text color inside the card*/
     margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
