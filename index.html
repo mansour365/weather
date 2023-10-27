@@ -157,26 +157,35 @@
         document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
 
         //Save the sunset time, Used for hourly
-        let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");
+        let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         console.log(sunsetTime);
-        //format is something like "5:51 PM"
         
-        const array1 = sunsetTime.split(" ");
-        let amPM = array1[1];
-
         const array = sunsetTime.split(":"); //Take hour portion
         let sunsetHour = Number(array[0]);
 
-        let rightPortion = array[1];
-        let array3 = rightPortion.split(" ");
-        let sunsetMin = Number(array3[0]);
-
+        let rightPortion = array[1];  //Something like "32 PM"
+        const array1 = rightPortion.split(" ");
+        let sunsetMin = Number(array1[0]);   //left part is minute
+        let amPM = array1[1];                //right part is AM/PM
+        
         //Check if AM or PM
         if (amPM == "PM"){
             sunsetHour = sunsetHour + 12;  //convert to 24 hour time
         }
-        console.log("sunsetHour: "+sunsetHour);
-        console.log("sunsetMin: "+sunsetMin);
+
+
+        //Save the sunrise time
+        let sunriseTime = data.forecast.forecastday[0].astro.sunrise;
+        const array2 = sunriseTime.split(" ");  
+        sunriseTime = array2[0];    //remove the AM/PM portion will now look like "05:21"
+        //get the sunrise hour
+        const array3 = sunriseTime.split(":")
+        let sunriseHour = array3[0].replace(/^0+/,""); // looks like "5"
+    
+        
+
+        
+
        
 
 
@@ -237,6 +246,18 @@
                 '</div>';
 
             }
+            //check if next extry should be sunrise time
+            if(theHour == sunriseHour)
+            {
+                //insert the sunrise slot now
+                document.querySelector(".hourly-weather").innerHTML +=  
+                '<div class="hour">'+
+                    '<p class=hourNum>'+sunriseTime+'</p>'+                                                      
+                    '<img id = "hourIcon" src=images2/sunrise.png>'+                                             
+                    '<p>Sunrise</p>'+                                             
+                '</div>';
+            }
+
             sunsetUsed = 1;
             theHour = theHour + 1;
             counter = counter + 1;
