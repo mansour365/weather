@@ -200,7 +200,7 @@ body{
 }
 
 .nextThreeDaysCard{
-    width: 75%;  /*width of the card*/
+    width: 50%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
     background: rgb(37, 113, 181);
@@ -228,7 +228,7 @@ body{
 }
 
 .airQual-card{
-    width: 15%;  /*width of the card*/
+    width: 40%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
     background: rgb(37, 113, 181);

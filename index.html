@@ -100,7 +100,7 @@
             <hr>
             <br>
             <p class = uvIndex>0</p>
-            <p class = uvDesc>Low</p>
+            <p class = uvDesc>None</p>
         </div>
     </div>
 
@@ -147,7 +147,11 @@
             <br>
             <hr>
             <br>
-            <p>36 - Good</p>
+            <p class="airQual">0 - None</p>
+            <br>
+            <p class="airDesc">Description</p>
+            <br>
+            <p class="airNote"></p>
         </div>
 
         
@@ -215,6 +219,49 @@
             uvDescription = "Low";
         }
         document.querySelector(".uvDesc").innerHTML = uvDescription;
+
+        /*
+        Based on the US - EPA standard
+        1 means Good
+        2 means Moderate
+        3 means Unhealthy for sensitive group
+        4 means Unhealthy
+        5 means Very Unhealthy
+        6 means Hazardous
+        */
+        //Get air quality data and place into widget
+        let airQualWord;
+        if(data.forecast.forecastday[0].day.air_quality.aqi_data == "null"){
+            document.querySelector(".airQual").innerHTML = "Air Quality inforation is currently not available for this location";
+        } 
+        else{
+            switch(data.forecast.forecastday[0].day.air_quality["us-epa-index"]){
+                case 1:
+                    airQualWord = "Good";
+                    break;
+                case 2:
+                    airQualWord = "Moderate";
+                    break;
+                case 3:
+                    airQualWord = "Unhealthy for sensitive people";
+                    break;
+                case 4:
+                    airQualWord = "Unhealthy";
+                    break;
+                case 5:
+                    airQualWord = "Very Unhealthy";
+                    break;
+                case 6:
+                    airQualWord = "Hazardous";
+                    break;
+                default:
+                    airQualWord = "No info";
+            }
+            document.querySelector(".airQual").innerHTML = data.forecast.forecastday[0].day.air_quality["us-epa-index"];
+            document.querySelector(".airDesc").innerHTML = airQualWord;
+            document.querySelector(".airNote").innerHTML = "Based on US EPA Standard"
+
+        }
 
 
 
