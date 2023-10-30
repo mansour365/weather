@@ -186,8 +186,7 @@ body{
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
 }
 
-
-.airQual-card{
+.uv-card{
     width: 15%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
@@ -197,12 +196,7 @@ body{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
-}
 
-.airQual-card h1{
-    font-size: 17px;
-    font-weight: 100;
-    text-align: left;
 }
 
 .nextThreeDaysCard{
@@ -224,11 +218,6 @@ body{
     
 }
 
-.fourCards{
-
-
-}
-
 .dayCard{
     display: flex;
 }
@@ -236,4 +225,16 @@ body{
 .dayCard img{
     width: 30px; /*width of image inside col container*/
     margin:0;
+}
+
+.airQual-card{
+    width: 15%;  /*width of the card*/
+    /*max-width: 470px;  /*max width of the card*/
+    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
+    background: rgb(37, 113, 181);
+    color: #fff;    /*text color inside the card*/
+    margin: 50px auto 0;   /*center the card and make 100px space from top*/
+    border-radius:20px;   /*make the card have curved edges*/
+    padding: 40px 35px;  /*Internal padding from the border of the card*/
+    text-align: center;   /*Move elements to center*/
 }

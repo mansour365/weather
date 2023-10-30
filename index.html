@@ -83,7 +83,7 @@
 
     <div class="other-cards">
         <div class="hourly-card">
-            <h1>Hourly Forecast</h1>
+            <h1>HOURLY FORECAST</h1>
             <br>
             <hr>
             <br>
@@ -92,17 +92,21 @@
             </div>
         </div>
 
-        <div class="airQual-card">
-            <h1>Air Quality</h1>
+
+
+        <div class="uv-card">
+            <p>UV INDEX</p>
             <br>
             <hr>
             <br>
+            <p class = uvIndex>0</p>
+            <p class = uvDesc>Low</p>
         </div>
     </div>
 
     <div class="other-cards">
         <div class="nextThreeDaysCard">
-            <h1>Next Three Days</h1>
+            <h1>3-DAY FORECAST</h1>
             <br>
             <hr>
             <br>
@@ -138,8 +142,19 @@
 
         </div>
 
+        <div class="airQual-card">
+            <p>AIR QUALITY</p>
+            <br>
+            <hr>
+            <br>
+            <p>36 - Good</p>
+        </div>
+
+        
+
 
     </div>
+    <br>
 
     
 
@@ -180,6 +195,28 @@
         document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
         document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
+
+        //Get UV-index place into its widget
+        document.querySelector(".uvIndex").innerHTML = data.current.uv;
+        let uvDescription;
+        if(data.current.uv > 10){
+            uvDescription = "Extreme";
+        }
+        else if(data.current.uv > 7){
+            uvDescription = "Very High";
+        }
+        else if(data.current.uv > 5){
+            uvDescription = "High";
+        }
+        else if(data.current.uv > 2){
+            uvDescription = "Moderate";
+        }
+        else{
+            uvDescription = "Low";
+        }
+        document.querySelector(".uvDesc").innerHTML = uvDescription;
+
+
 
         //Save the sunset time, Used for hourly
         let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
