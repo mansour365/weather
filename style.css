@@ -144,7 +144,7 @@ body{
     font-size: 28px;  /*font size of the humidity/wind containers (humidity value / wind value text) */
     margin-top: -6px;   /*space on top of the humidity / wind containers */
 }
-.other-cards{
+.card-row{
     display:flex;
 }
 .hourly-card{
@@ -199,7 +199,7 @@ body{
 
 }
 
-.nextThreeDaysCard{
+.daily-card{
     width: 50%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
@@ -211,18 +211,18 @@ body{
     text-align: center;   /*Move elements to center*/
 }
 
-.nextThreeDaysCard   h1{
+.daily-card   h1{
     font-size: 17px;
     font-weight: 100;
     text-align: left;
     
 }
 
-.dayCard{
+.dayWeather{
     display: flex;
 }
 
-.dayCard img{
+.dayWeather img{
     width: 30px; /*width of image inside col container*/
     margin:0;
 }

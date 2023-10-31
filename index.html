@@ -81,7 +81,8 @@
         </div>
     </div>
 
-    <div class="other-cards">
+    <div class="card-row">
+
         <div class="hourly-card">
             <h1>HOURLY FORECAST</h1>
             <br>
@@ -92,54 +93,48 @@
             </div>
         </div>
 
-
-
         <div class="uv-card">
             <p>UV INDEX</p>
             <br>
             <hr>
             <br>
-            <p class = uvIndex>0</p>
-            <p class = uvDesc>None</p>
+            <p class = uvIndex></p>
+            <p class = uvDesc></p>
         </div>
+
     </div>
 
-    <div class="other-cards">
-        <div class="nextThreeDaysCard">
+    <div class="card-row">
+
+        <div class="daily-card">
             <h1>3-DAY FORECAST</h1>
             <br>
             <hr>
             <br>
-            <div class="fourCards">
-                <div class="dayCard">
-                    <p>Today</p>
-                    <img src="images2/clear.png">
-                    <p>POP: 0 % </p>
-                    <p>L: 0° </p>
-                    <p>H: 10° </p>
 
-                </div>
-                <hr><br>
-                <div class="dayCard">
-                    <p>Day 1</p>
-                    <img src="images2/clear.png">
-                    <p>POP: 0 % </p>
-                    <p>L: 0° </p>
-                    <p>H: 10° </p>
-
-                </div>
-                <hr><br>
-                <div class="dayCard">
-                    <p>Day 2</p>
-                    <img src="images2/clear.png">
-                    <p>POP: 0 % </p>
-                    <p>L: 0° </p>
-                    <p>H: 10° </p>
-
-                </div>
-
+            <div class="dayWeather">
+                <p>Today</p>
+                <img src="images2/clear.png">
+                <p class="day0pop">POP: 0 % </p>
+                <p class="day0low">L: 0° </p>
+                <p class="day0high">H: 10° </p>
             </div>
-
+            <hr><br>
+            <div class="dayWeather">
+                <p>Day 1</p>
+                <img src="images2/clear.png">
+                <p class="day1pop">POP: 0 % </p>
+                <p class="day1low">L: 0° </p>
+                <p class="day1high">H: 10° </p>
+            </div>
+            <hr><br>
+            <div class="dayWeather">
+                <p>Day 2</p>
+                <img src="images2/clear.png">
+                <p class="day2pop">POP: 0 % </p>
+                <p class="day2low">L: 0° </p>
+                <p class="day2high">H: 10° </p>
+            </div>
         </div>
 
         <div class="airQual-card">
@@ -147,9 +142,9 @@
             <br>
             <hr>
             <br>
-            <p class="airQual">0 - None</p>
+            <p class="airQual"></p>
             <br>
-            <p class="airDesc">Description</p>
+            <p class="airDesc"></p>
             <br>
             <p class="airNote"></p>
         </div>
@@ -204,9 +199,6 @@
         
         checkForAirQuality();
 
-
-
-
         //Save the sunset time, Used for hourly
         let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         const array = sunsetTime.split(":"); 
@@ -228,13 +220,10 @@
         //get the sunrise hour
         const array3 = sunriseTime.split(":")
         let sunriseHour = array3[0].replace(/^0+/,""); // looks like "5"
+
+
+        removeOldHourlyData();
     
-        
-        /*Remove the old houly data, if there is one from a previous search*/
-        const elements = document.getElementsByClassName("hour");
-        while(elements.length > 0){
-            elements[0].parentNode.removeChild(elements[0]);
-        }
 
         //get the current Hour of the city (used in houly forecast)
         let cityTime = data.current.last_updated.substring(11, 13); //take the time date time from datapack and cut the hour portion
@@ -308,16 +297,22 @@
             counter = counter + 1;
         }
         
-
-
-
-
-
+        //Need to build the 3 day forecast
         
+
+
+
+
+
+
+
         /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
         /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
 
         /**Functions**/
+
+
+
         function buildUVData()
         {
             //Get UV-index place into its widget
@@ -382,6 +377,7 @@
             }
             else{
                 console.log("Air quality object not found in the JSON");
+                document.querySelector(".airQual").innerHTML = "Air Quality inforation is currently not available at this time";
             }
             /*Based on the US - EPA standard
             1 means Good (Green)
@@ -390,6 +386,16 @@
             4 means Unhealthy (Red)
             5 means Very Unhealthy (Purple)
             6 means Hazardous (Maroon) */
+        }
+
+
+
+        function removeOldHourlyData(){
+            /*Remove the old houly data, if there is one from a previous search*/
+            const elements = document.getElementsByClassName("hour");
+            while(elements.length > 0){
+                elements[0].parentNode.removeChild(elements[0]);
+            }
         }
 
 
