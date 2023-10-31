@@ -121,29 +121,7 @@ body{
     margin-left: 5px;
 }
 
-.details{
-    display:flex;   /*Everything in details cointainer gets put into flex mode*/
-    align-items: center; /*align the items on the vertical axis*/
-    justify-content: space-between; /*align items on the horizontal axis*/
-    padding: 0 20px; /*Give those items in the flex box to have padding on left and right*/
-    margin-top: 30px; /*gives space on top of details container*/
-}
 
-.col{
-    display: flex;  /*add flex mode inside the col containers*/
-    align-items: center;  /*align items inside flex container to the center of vertical axis*/
-    text-align: left; /*align text in col container to the left*/
-}
-
-.col img{
-    width: 40px; /*width of image inside col container*/
-    margin-right: 10px; /*margin to the right of image in the col conatiner*/
-}
-
-.humidity, .wind, .sunrise, .sunset{
-    font-size: 28px;  /*font size of the humidity/wind containers (humidity value / wind value text) */
-    margin-top: -6px;   /*space on top of the humidity / wind containers */
-}
 .card-row{
     display:flex;
 }
@@ -284,4 +262,16 @@ body{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
+}
+
+.sunrise-card img{
+    width: 70px; /*width of image inside col container*/
+    margin-right: 10px; /*margin to the right of image in the col conatiner*/
+
+}
+
+.sunset-card img{
+    width: 70px; /*width of image inside col container*/
+    margin-right: 10px; /*margin to the right of image in the col conatiner*/
+
 }
