@@ -34,14 +34,13 @@
                 <p class="H">H:0°</p>
                 <p class="L">L:0°</p>
             </div>
-            <br>
         </div>
     </div>
 
     <div class="card-row">
 
         <div class="hourly-card">
-            <h1>HOURLY FORECAST</h1>
+            <p class="card-title">HOURLY FORECAST</p>
             <br>
             <hr>
             <br>
@@ -50,8 +49,8 @@
             </div>
         </div>
 
-        <div class="humidity-card">
-            <p>HUMIDITY</p>
+        <div class="square-card">
+            <p class="card-title">HUMIDITY</p>
             <br>
             <hr>
             <br>
@@ -59,8 +58,8 @@
             <img src="images2/humidity.png">
         </div>
 
-        <div class="uv-card">
-            <p>UV INDEX</p>
+        <div class="square-card">
+            <p class="card-title">UV INDEX</p>
             <br>
             <hr>
             <br>
@@ -72,8 +71,8 @@
 
     <div class="card-row">
 
-        <div class="wind-card">
-            <p>WIND</p>
+        <div class="square-card">
+            <p class="card-title">WIND</p>
             <br>
             <hr>
             <br>
@@ -82,8 +81,8 @@
             <p class = windDirection></p>
         </div>
 
-        <div class="sunrise-card">
-            <p>SUNRISE</p>
+        <div class="square-card">
+            <p class="card-title">SUNRISE</p>
             <br>
             <hr>
             <br>
@@ -91,8 +90,8 @@
             <img src="images2/sunrise.png">
         </div>
 
-        <div class="sunset-card">
-            <p>SUNSET</p>
+        <div class="square-card">
+            <p class="card-title">SUNSET</p>
             <br>
             <hr>
             <br>
@@ -100,43 +99,38 @@
             <img src="images2/sunset.png">
         </div>
 
+        <div class="square-card">
+            <p class="card-title">VISIBILITY</p>
+            <br>
+            <hr>
+            <br>
+            <p class="visibility">0 km</p>
+        </div>
+
+        <div class="square-card">
+            <p class="card-title">PRECIPITATION</p>
+            <br>
+            <hr>
+            <br>
+            <p class="precipitation">0 mm</p>
+            <p>Today</p>
+            <p class="future-precipitation">0 mm expected tomorrow.</p>
+
+        </div>
+
     </div>
 
     <div class="card-row">
 
         <div class="daily-card">
-            <h1>3-DAY FORECAST</h1>
+            <p class="card-title">3-DAY FORECAST</p>
             <br>
             <hr>
             <br>
-
-            <div class="dayWeather">
-                <p>Today</p>
-                <img src="images2/clear.png">
-                <p class="day0pop">POP: 0 % </p>
-                <p class="day0low">L: 0° </p>
-                <p class="day0high">H: 10° </p>
-            </div>
-            <hr><br>
-            <div class="dayWeather">
-                <p>Day 1</p>
-                <img src="images2/clear.png">
-                <p class="day1pop">POP: 0 % </p>
-                <p class="day1low">L: 0° </p>
-                <p class="day1high">H: 10° </p>
-            </div>
-            <hr><br>
-            <div class="dayWeather">
-                <p>Day 2</p>
-                <img src="images2/clear.png">
-                <p class="day2pop">POP: 0 % </p>
-                <p class="day2low">L: 0° </p>
-                <p class="day2high">H: 10° </p>
-            </div>
         </div>
 
         <div class="airQual-card">
-            <p>AIR QUALITY</p>
+            <p class="card-title">AIR QUALITY</p>
             <br>
             <hr>
             <br>
@@ -192,6 +186,10 @@
         document.querySelector(".wind").innerHTML = data.current.wind_kph + " km/h";
         document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
+        document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
+        document.querySelector(".precipitation").innerHTML = Math.round(data.forecast.forecastday[0].day.totalprecip_mm) + " mm";
+        document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected tomorrow.";
+
 
         buildUVData();
         
@@ -295,7 +293,14 @@
             counter = counter + 1;
         }
         
-        //Need to build the 3 day forecast
+
+
+        removeOldThreeDayData();
+
+        buildThreeDayWidget();
+       
+
+        
         
 
 
@@ -307,8 +312,10 @@
         /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
         /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
 
-        /**Functions**/
 
+
+
+        /**********Functions**********/
 
 
         function buildUVData()
@@ -396,6 +403,56 @@
             }
         }
 
+        function removeOldThreeDayData(){
+            /*Remove the old houly data, if there is one from a previous search*/
+            const elements = document.getElementsByClassName("daily-weather");
+            while(elements.length > 0){
+                elements[0].parentNode.removeChild(elements[0]);
+            }
+        }
+
+        function buildThreeDayWidget()
+        {
+            const weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+            //create a date object using the date string value from json
+            //Need to change from 2023-10-31 to 2023/10/31 to get correct date for some reason (might be javascript glitch or inconsistency)
+            let dt = new Date(data.forecast.forecastday[0].date.replace(/-/g, '\/'));  
+
+            document.querySelector(".daily-card").innerHTML += '<div class = "daily-weather"></div>';
+
+            dayCounter = 0;
+            let theDay;
+            while(dayCounter < 3)
+            {
+                //Check if it's the first day, if so, set text to "Today"
+                if(dayCounter == 0){
+                    theDay = "Today";
+                }
+                else{
+                    theDay = weekday[dt.getDay() + dayCounter];
+                }
+
+                document.querySelector(".daily-weather").innerHTML +=  
+                    '<div class="dayWeather">'+
+                        '<p>'+theDay+'</p>'+
+                        '<img src='+data.forecast.forecastday[0].day.condition.icon+'>'+        
+                        '<p class="daylow">L: '+Math.round(data.forecast.forecastday[dayCounter].day.mintemp_c)+'°</p>'+                                       
+                        '<p class="dayhigh">H: '+Math.round(data.forecast.forecastday[dayCounter].day.maxtemp_c)+'°</p>'+
+                        '<p class="daypop">POP: '+data.forecast.forecastday[dayCounter].day.daily_chance_of_rain+'%</p>'+                                             
+                    '</div>';
+                
+                //Make sure the last row does not print a horizontal rule <hr>
+                if(dayCounter != 2){
+                    document.querySelector(".daily-weather").innerHTML +=  '<hr><br>';
+                }
+                //Increment day counter
+                dayCounter = dayCounter + 1;
+            }
+        }
+
+
+
+
 
 
 
@@ -432,22 +489,6 @@
 
 
 <!--
-
-Previous hour structure
-
-        /*
-            <div class="hour">
-                <p>00</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-            
-            <div class="hour">
-                <p>01</p>
-                <img src="images2/clear.png">
-                <p>0°</p>
-            </div>
-        */
 
 Previous method storing data from json to arrays
 

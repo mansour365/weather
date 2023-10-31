@@ -125,6 +125,13 @@ body{
 .card-row{
     display:flex;
 }
+
+.card-title{
+    font-size: 15px;
+    font-weight: 100;
+    text-align: left;
+}
+
 .hourly-card{
     width: 60%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
@@ -137,17 +144,10 @@ body{
     text-align: center;   /*Move elements to center*/
 }
 
-.hourly-card   h1{
-    font-size: 17px;
-    font-weight: 100;
-    text-align: left;
-}
-
 .hourly-weather{
     display: flex;  /*add flex mode inside the col containers*/
     /*border: solid rgb(221, 224, 14) 2px;*/
     overflow: auto;  /*give the hourly weather a horizontal scroll bar*/
-    
 }
 
 .hour{
@@ -164,7 +164,7 @@ body{
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
 }
 
-.uv-card{
+.square-card{
     width: 15%;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
@@ -176,52 +176,10 @@ body{
     text-align: center;   /*Move elements to center*/
 }
 
-.wind-card{
-    width: 15%;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: rgb(37, 113, 181);
-    color: #fff;    /*text color inside the card*/
-    margin: 50px auto 0;   /*center the card and make 100px space from top*/
-    border-radius:20px;   /*make the card have curved edges*/
-    padding: 40px 35px;  /*Internal padding from the border of the card*/
-    text-align: center;   /*Move elements to center*/
-}
+.square-card img{
+    width: 70px; /*width of image inside col container*/
+    margin-right: 10px; /*margin to the right of image in the col conatiner*/
 
-.sunrise-card{
-    width: 15%;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: rgb(37, 113, 181);
-    color: #fff;    /*text color inside the card*/
-    margin: 50px auto 0;   /*center the card and make 100px space from top*/
-    border-radius:20px;   /*make the card have curved edges*/
-    padding: 40px 35px;  /*Internal padding from the border of the card*/
-    text-align: center;   /*Move elements to center*/
-}
-
-.sunset-card{
-    width: 15%;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: rgb(37, 113, 181);
-    color: #fff;    /*text color inside the card*/
-    margin: 50px auto 0;   /*center the card and make 100px space from top*/
-    border-radius:20px;   /*make the card have curved edges*/
-    padding: 40px 35px;  /*Internal padding from the border of the card*/
-    text-align: center;   /*Move elements to center*/
-}
-
-.humidity-card{
-    width: 15%;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: rgb(37, 113, 181);
-    color: #fff;    /*text color inside the card*/
-    margin: 50px auto 0;   /*center the card and make 100px space from top*/
-    border-radius:20px;   /*make the card have curved edges*/
-    padding: 40px 35px;  /*Internal padding from the border of the card*/
-    text-align: center;   /*Move elements to center*/
 }
 
 .daily-card{
@@ -234,13 +192,6 @@ body{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
-}
-
-.daily-card   h1{
-    font-size: 17px;
-    font-weight: 100;
-    text-align: left;
-    
 }
 
 .dayWeather{
@@ -264,14 +215,5 @@ body{
     text-align: center;   /*Move elements to center*/
 }
 
-.sunrise-card img{
-    width: 70px; /*width of image inside col container*/
-    margin-right: 10px; /*margin to the right of image in the col conatiner*/
 
-}
 
-.sunset-card img{
-    width: 70px; /*width of image inside col container*/
-    margin-right: 10px; /*margin to the right of image in the col conatiner*/
-
-}
