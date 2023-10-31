@@ -200,68 +200,10 @@
         document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
 
-        //Get UV-index place into its widget
-        document.querySelector(".uvIndex").innerHTML = data.current.uv;
-        let uvDescription;
-        if(data.current.uv > 10){
-            uvDescription = "Extreme";
-        }
-        else if(data.current.uv > 7){
-            uvDescription = "Very High";
-        }
-        else if(data.current.uv > 5){
-            uvDescription = "High";
-        }
-        else if(data.current.uv > 2){
-            uvDescription = "Moderate";
-        }
-        else{
-            uvDescription = "Low";
-        }
-        document.querySelector(".uvDesc").innerHTML = uvDescription;
+        buildUVData();
+        
+        checkForAirQuality();
 
-        /*
-        Based on the US - EPA standard
-        1 means Good (Green)
-        2 means Moderate (Yellow)
-        3 means Unhealthy for sensitive group (Orange)
-        4 means Unhealthy (Red)
-        5 means Very Unhealthy (Purple)
-        6 means Hazardous (Maroon)
-        */
-        //Get air quality data and place into widget
-        let airQualWord;
-        if(data.forecast.forecastday[0].day.air_quality.aqi_data == "null"){
-            document.querySelector(".airQual").innerHTML = "Air Quality inforation is currently not available for this location";
-        } 
-        else{
-            switch(data.forecast.forecastday[0].day.air_quality["us-epa-index"]){
-                case 1:
-                    airQualWord = "Good";
-                    break;
-                case 2:
-                    airQualWord = "Moderate";
-                    break;
-                case 3:
-                    airQualWord = "Unhealthy for sensitive people";
-                    break;
-                case 4:
-                    airQualWord = "Unhealthy";
-                    break;
-                case 5:
-                    airQualWord = "Very Unhealthy";
-                    break;
-                case 6:
-                    airQualWord = "Hazardous";
-                    break;
-                default:
-                    airQualWord = "No info";
-            }
-            document.querySelector(".airQual").innerHTML = data.forecast.forecastday[0].day.air_quality["us-epa-index"];
-            document.querySelector(".airDesc").innerHTML = airQualWord;
-            document.querySelector(".airNote").innerHTML = "Based on US EPA Standard"
-
-        }
 
 
 
@@ -366,8 +308,95 @@
             counter = counter + 1;
         }
         
+
+
+
+
+
+        
         /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
         /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
+
+        /**Functions**/
+        function buildUVData()
+        {
+            //Get UV-index place into its widget
+            document.querySelector(".uvIndex").innerHTML = data.current.uv;
+            let uvDescription;
+            if(data.current.uv > 10){
+                uvDescription = "Extreme";
+            }
+            else if(data.current.uv > 7){
+                uvDescription = "Very High";
+            }
+            else if(data.current.uv > 5){
+                uvDescription = "High";
+            }
+            else if(data.current.uv > 2){
+                uvDescription = "Moderate";
+            }
+            else{
+                uvDescription = "Low";
+            }
+            document.querySelector(".uvDesc").innerHTML = uvDescription;
+
+        }
+
+
+
+
+        function checkForAirQuality(){
+            if(data.hasOwnProperty("air_quality"))
+            {
+                let airQualWord;
+                if(data.forecast.forecastday[0].day.air_quality.aqi_data == "null"){
+                    document.querySelector(".airQual").innerHTML = "Air Quality inforation is currently not available for this location";
+                } 
+                else{
+                    switch(data.forecast.forecastday[0].day.air_quality["us-epa-index"]){
+                        case 1:
+                            airQualWord = "Good";
+                            break;
+                        case 2:
+                            airQualWord = "Moderate";
+                            break;
+                        case 3:
+                            airQualWord = "Unhealthy for sensitive people";
+                            break;
+                        case 4:
+                            airQualWord = "Unhealthy";
+                            break;
+                        case 5:
+                            airQualWord = "Very Unhealthy";
+                            break;
+                        case 6:
+                            airQualWord = "Hazardous";
+                            break;
+                        default:
+                            airQualWord = "No info";
+                    }
+                    document.querySelector(".airQual").innerHTML = data.forecast.forecastday[0].day.air_quality["us-epa-index"];
+                    document.querySelector(".airDesc").innerHTML = airQualWord;
+                    document.querySelector(".airNote").innerHTML = "Based on US EPA Standard";
+                }
+            }
+            else{
+                console.log("Air quality object not found in the JSON");
+            }
+            /*Based on the US - EPA standard
+            1 means Good (Green)
+            2 means Moderate (Yellow)
+            3 means Unhealthy for sensitive group (Orange)
+            4 means Unhealthy (Red)
+            5 means Very Unhealthy (Purple)
+            6 means Hazardous (Maroon) */
+        }
+
+
+
+
+
+
     }
 
     /*Event listener for clicking search button*/
@@ -381,6 +410,15 @@
             checkWeather(searchBox.value);
         }
     })
+
+
+
+
+
+
+
+
+
 </script>
 
 
