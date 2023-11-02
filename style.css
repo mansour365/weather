@@ -145,6 +145,10 @@ body{
     grid-column: span 2 / auto;
 }
 
+.airQual-card img{
+    width:380px;
+}
+
 
 
 
