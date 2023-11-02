@@ -10,13 +10,11 @@ body{
     background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148));
 }
 
-
 /*Color of the search placeholder text*/
 ::placeholder {
     color: white;
     opacity: 0.7; /* Firefox */
   }
-
 
 .current-card{
     /*width: 90%;  /*width of the card*/
@@ -122,11 +120,36 @@ body{
 }
 
 
+
+
 .my-grid{
+    width:1340px;
     display:grid;
-    gap: 1rem;
-    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));  /*auto the number of columns, each element minimum 200px wide*/
+    grid-auto-rows: 200px;
+    margin: auto;
+    /*border: solid rgb(221, 224, 14) 2px;*/
 }
+
+.hourly-card{
+    grid-column: span 4 / auto;      
+}
+
+.daily-card{
+    grid-column: span 2 / auto;
+    grid-row: span 2 / auto;
+}
+
+.airQual-card{
+    grid-column: span 2 / auto;
+}
+
+
+
+
+
+
 
 
 .card-title{
@@ -137,7 +160,7 @@ body{
 }
 
 .hourly-card{
-    /*width: 60%;  /*width of the card*/
+    width: 877px;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
     background: rgb(37, 113, 181);
@@ -146,7 +169,7 @@ body{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
-    border: solid rgb(221, 224, 14) 2px;
+    /*border: solid rgb(14, 224, 59) 2px;*/
 }
 
 .hourly-weather{
@@ -170,7 +193,7 @@ body{
 }
 
 .square-card{
-    /*width: 200px;  /*width of the card*/
+    width: 200px;  /*width of the card*/
     /*height: 200px; /*height of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
@@ -180,7 +203,7 @@ body{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
-    border: solid rgb(221, 224, 14) 2px;
+    /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
 .square-card img{
@@ -190,7 +213,7 @@ body{
 }
 
 .daily-card{
-    /*width: 600px;  /*width of the card*/
+    width: 425px;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
     background: rgb(37, 113, 181);
@@ -199,7 +222,7 @@ body{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
-    border: solid rgb(221, 224, 14) 2px;
+    /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
 .dayWeather{
@@ -212,7 +235,7 @@ body{
 }
 
 .airQual-card{
-    /*width: 40%;  /*width of the card*/
+    width: 425px;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
     /*background: linear-gradient(135deg, #00feba, #5b548a);*/
     background: rgb(37, 113, 181);
@@ -221,8 +244,28 @@ body{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
-    border: solid rgb(221, 224, 14) 2px;
+    /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
+@media screen and (max-width: 1340px){
+    .my-grid{
+        width:1100px;
+    }
+}
 
+@media screen and (max-width: 1119px){
+    .my-grid{
+        width:880px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .my-grid{
+        width:430px;
+    }
+    .hourly-card{
+        width: 425px;
+        grid-column: span 2 / auto; 
+    }
+}
 
