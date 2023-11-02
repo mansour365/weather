@@ -40,7 +40,10 @@
     <div class="my-grid">
 
         <div class="hourly-card">
-            <p class="card-title">HOURLY FORECAST</p>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">HOURLY FORECAST</p>
+            </div>
             <br>
             <hr>
             <br>
@@ -49,84 +52,104 @@
         </div>
 
         <div class="square-card">
-            <p class="card-title">HUMIDITY</p>
-            <br>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">HUMIDITY</p>
+            </div>
             <br>
             <p class="humidity">0%</p>
-            <img src="images2/humidity.png">
+            
         </div>
 
         <div class="square-card">
-            <p class="card-title">PRECIPITATION</p>
-            <br>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">PRECIPITATION</p>
+            </div>
             <br>
             <p class="precipitation">0 mm</p>
-            <p>Today</p>
+            <p class="precipitation-desc">Today</p>
             <p class="future-precipitation">0 mm expected tomorrow.</p>
         </div>
 
         <div class="daily-card">
-            <p class="card-title">3-DAY FORECAST</p>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">3-DAY FORECAST</p>
+            </div>
             <br>
             <hr>
             <br>
         </div>
 
         <div class="airQual-card">
-            <p class="card-title">AIR QUALITY</p>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">AIR QUALITY</p>
+            </div>
             <br>
+            <p class="airDesc">Good</p>
             <br>
-            <p class="airQual"></p>
-            <br>
-            <p class="airDesc"></p>
-            <br>
-            <p class="airNote"></p>
+            <p class="airNote">Based on US EPA Standard</p>
             <img src="images2/aqi line.png">
         </div>
 
         <div class="square-card">
-            <p class="card-title">WIND</p>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">WIND</p>
+            </div>
             <br>
             <p class="wind">0 km/h</p>
             <p class = windDirection>N</p>
-            <img src="images2/wind.png">
             <p class = windGust>With wind gusts of 0 km/h</p>
         </div>
 
         <div class="square-card">
-            <p class="card-title">UV INDEX</p>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">UV INDEX</p>
+            </div>
             <br>
-            <br>
-            <p class = uvIndex></p>
-            <p class = uvDesc></p>
+            <p class = uvIndex>0</p>
+            <p class = uvDesc>Low</p>
+            <img class="uvimg" src = "images2/uv-line.png">
         </div>
 
         <div class="square-card">
-            <p class="card-title">SUNRISE</p>
-            <br>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">SUNRISE</p>
+            </div>
             <br>
             <p class="sunrise">0:00 PM</p>
             <img src="images2/sunrise.png">
         </div>
 
         <div class="square-card">
-            <p class="card-title">SUNSET</p>
-            <br>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">SUNSET</p>
+            </div>
             <br>
             <p class="sunset">0:00 AM</p>
             <img src="images2/sunset.png">
         </div>
 
         <div class="square-card">
-            <p class="card-title">VISIBILITY</p>
-            <br>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">VISIBILITY</p>
+            </div>
             <br>
             <p class="visibility">0 km</p>
         </div>
 
         <div class="square-card">
-            <p class="card-title">PRESSURE</p>
-            <br>
+            <div class = "full-title">
+                <img class = "icon" src="icons/sun-icon.png">
+                <p class="card-title">PRESSURE</p>
+            </div>
             <br>
             <p class="pressure">0 hPa</p>
         </div>
@@ -170,6 +193,7 @@
         document.querySelector(".condition").innerHTML = data.current.condition.text;
         document.querySelector(".H").innerHTML = "H:"+Math.round(data.forecast.forecastday[0].day.maxtemp_c) + "°";
         document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
+
         document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
         document.querySelector(".wind").innerHTML = Math.round(data.current.wind_kph) + " km/h";
         document.querySelector(".windDirection").innerHTML = data.current.wind_dir;
@@ -303,6 +327,7 @@
         /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
         /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
         //https://media.idownloadblog.com/wp-content/uploads/2021/07/Air-quality-index.jpeg
+        //https://discuss.tidbyt.com/uploads/db2982/original/2X/a/aac34789ec36960b097645564653eb35b7a4413f.jpeg
 
 
 
@@ -364,7 +389,6 @@
                         default:
                             airQualWord = "No info";
                     }
-                    document.querySelector(".airQual").innerHTML = data.current.air_quality["us-epa-index"];
                     document.querySelector(".airDesc").innerHTML = airQualWord;
                     document.querySelector(".airNote").innerHTML = "Based on US EPA Standard";
                 }

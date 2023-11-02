@@ -163,6 +163,16 @@ body{
     color: rgb(136, 199, 252);
 }
 
+.full-title{
+    display: flex;
+}
+
+.full-title .icon{
+    width: 20px;
+    margin-right: 5px;
+    margin-left: -5px;
+}
+
 .hourly-card{
     width: 877px;  /*width of the card*/
     /*max-width: 470px;  /*max width of the card*/
@@ -206,9 +216,73 @@ body{
     /*margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
-    text-align: center;   /*Move elements to center*/
+    text-align: left;   /*Move elements to center*/
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
+
+.humidity{
+    font-size: 2em;
+}
+
+.precipitation{
+    font-size: 2em;
+}
+
+.future-precipitation{
+    padding-top: 30px;
+}
+
+.precipitation-desc{
+    font-size: 1.3em;
+}
+
+.airDesc{
+    font-size: 2em;
+}
+
+.airNote{
+    padding-top: 30px;
+}
+
+.wind{
+    font-size: 2em;
+}
+
+.windDirection{
+    font-size: 1.3em;
+}
+
+.windGust{
+    padding-top: 30px;
+}
+
+.uvIndex{
+    font-size:2em;
+}
+.uvDesc{
+    font-size: 1.3em;
+}
+.uvimg{
+    padding-top:50px;
+}
+
+.sunset{
+    font-size: 2em;
+}
+
+.sunrise{
+    font-size: 2em;
+}
+
+.visibility{
+    font-size: 2em;
+}
+
+.pressure{
+    font-size: 2em;
+}
+
+
 
 .square-card img{
     width: 70px; /*width of image inside col container*/
@@ -229,6 +303,11 @@ body{
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
+/*Image inside the UV index card*/
+.square-card .uvimg{
+    width: 160px;
+}
+
 .dayWeather{
     display: flex;
 }
@@ -247,7 +326,7 @@ body{
     /*margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
-    text-align: center;   /*Move elements to center*/
+    text-align: left;   /*Move elements to center*/
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
