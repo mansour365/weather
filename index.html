@@ -122,7 +122,7 @@
                 <p class="card-title">SUNRISE</p>
             </div>
             <br>
-            <p class="sunrise">0:00 PM</p>
+            <p class="sunrise">00:00</p>
             <img src="images2/sunrise.png">
         </div>
 
@@ -132,7 +132,7 @@
                 <p class="card-title">SUNSET</p>
             </div>
             <br>
-            <p class="sunset">0:00 AM</p>
+            <p class="sunset">00:00</p>
             <img src="images2/sunset.png">
         </div>
 
@@ -198,8 +198,6 @@
         document.querySelector(".wind").innerHTML = Math.round(data.current.wind_kph) + " km/h";
         document.querySelector(".windDirection").innerHTML = data.current.wind_dir;
         document.querySelector(".windGust").innerHTML = "With wind gusts of "+Math.round(data.current.gust_kph)+" km/h";
-        document.querySelector(".sunrise").innerHTML = data.forecast.forecastday[0].astro.sunrise.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
-        document.querySelector(".sunset").innerHTML = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,""); /*Remove begining 0's with replace(regex)*/
         document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
         document.querySelector(".precipitation").innerHTML = Math.round(data.forecast.forecastday[0].day.totalprecip_mm) + " mm";
         document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected tomorrow.";
@@ -211,18 +209,21 @@
         checkForAirQuality();
 
         //Save the sunset time, Used for hourly
-        let sunsetTime = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
-        const array = sunsetTime.split(":"); 
+        let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
+        const array = sunsetT.split(":"); 
         let sunsetHour = Number(array[0]);   //Take hour portion
         let rightPortion = array[1];  //Something like "32 PM"
         const array1 = rightPortion.split(" ");
         let sunsetMin = array1[0];   //left part is minute
         let amPM = array1[1];        //right part is AM/PM
-        
+
         //Check if AM or PM
         if (amPM == "PM"){
             sunsetHour = sunsetHour + 12;  //convert to 24 hour time
         }
+        let sunsetTime = sunsetHour+":"+sunsetMin;
+
+
 
         //Save the sunrise time
         let sunriseTime = data.forecast.forecastday[0].astro.sunrise;
@@ -289,7 +290,7 @@
                 //insert the sunset slot now
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
-                    '<p class=hourNum>'+sunsetHour+':'+sunsetMin+'</p>'+                                                      
+                    '<p class=hourNum>'+sunsetTime+'</p>'+                                                      
                     '<img id = "hourIcon" src=images2/sunset.png>'+                                             
                     '<p>Sunset</p>'+                                             
                 '</div>';
@@ -313,16 +314,15 @@
         removeOldThreeDayData();
 
         buildThreeDayWidget();
+
+        buildSunriseWidget();
+
+        buildSunsetWidget();
+
+        
        
 
-        
-        
-
-
-
-
-
-
+    
 
         /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
         /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
@@ -355,7 +355,6 @@
                 uvDescription = "Low";
             }
             document.querySelector(".uvDesc").innerHTML = uvDescription;
-
         }
 
 
@@ -457,6 +456,15 @@
                 //Increment day counter
                 dayCounter = dayCounter + 1;
             }
+        }
+
+
+        function buildSunriseWidget(){
+            document.querySelector(".sunrise").innerHTML = sunriseTime; 
+        }
+
+        function buildSunsetWidget(){
+            document.querySelector(".sunset").innerHTML = sunsetTime; 
         }
 
 
