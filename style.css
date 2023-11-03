@@ -296,6 +296,44 @@ body{
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
+.dailycol1{
+    margin: auto;
+    
+}
+
+.dailycol2{
+    margin:auto;
+    text-align: left;
+    
+}
+
+.dayWeather img{
+    
+    display:flex;
+    
+}
+
+.theDay{
+    font-weight: 600;
+    margin: auto;
+}
+
+.daylow{
+    color:rgb(136, 199, 252);
+    font-weight: 600;
+    margin: auto;
+}
+
+.dayhigh{
+    font-weight: 600;
+    margin: auto;
+}
+
+.daypop{
+    font-weight: 600;
+    margin: auto;
+}
+
 /*Image inside the UV index card*/
 .square-card .uvimg{
     width: 160px;
@@ -303,6 +341,7 @@ body{
 
 .dayWeather{
     display: flex;
+    margin-bottom: 50px;
 }
 
 .dayWeather img{

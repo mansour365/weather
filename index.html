@@ -84,6 +84,19 @@
             <br>
             <hr>
             <br>
+            <div class = "daily-weather">
+                <div class="dayWeather">
+                    <div class = dailycol1>
+                        <p class="theDay">Today</p>
+                        <img src="images2/clear.png">
+                    </div>
+                    <div class = dailycol2>  
+                        <p class="dayhigh">H: 5°</p>    
+                        <p class="daylow">L: 0°</p>   
+                    </div>                                     
+                    <p class="daypop">POP: 0%</p>                                            
+                </div>
+            </div>
         </div>
 
         <div class="airQual-card">
@@ -326,8 +339,8 @@
 
     
 
-        /*document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;*/
-        /*https://9to5mac.com/2023/01/08/macos-ventura-weather-app/*/
+        //document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;
+        //https://9to5mac.com/2023/01/08/macos-ventura-weather-app/
         //https://media.idownloadblog.com/wp-content/uploads/2021/07/Air-quality-index.jpeg
         //https://discuss.tidbyt.com/uploads/db2982/original/2X/a/aac34789ec36960b097645564653eb35b7a4413f.jpeg
 
@@ -458,11 +471,15 @@
 
                 document.querySelector(".daily-weather").innerHTML +=  
                     '<div class="dayWeather">'+
-                        '<p>'+theDay+'</p>'+
-                        '<img src='+data.forecast.forecastday[0].day.condition.icon+'>'+        
-                        '<p class="daylow">L: '+Math.round(data.forecast.forecastday[dayCounter].day.mintemp_c)+'°</p>'+                                       
-                        '<p class="dayhigh">H: '+Math.round(data.forecast.forecastday[dayCounter].day.maxtemp_c)+'°</p>'+
-                        '<p class="daypop">POP: '+data.forecast.forecastday[dayCounter].day.daily_chance_of_rain+'%</p>'+                                             
+                        '<div class = "dailycol1">'+
+                            '<p class = "theDay">'+theDay+'</p>'+
+                            '<img src='+data.forecast.forecastday[0].day.condition.icon+'>'+  
+                        '</div>'+
+                        '<div class = "dailycol2">'+    
+                            '<p class="dayhigh">H: '+Math.round(data.forecast.forecastday[dayCounter].day.maxtemp_c)+'°</p>'+  
+                            '<p class="daylow">L: '+Math.round(data.forecast.forecastday[dayCounter].day.mintemp_c)+'°</p>'+  
+                        '</div>'+                                     
+                        '<p class="daypop">POP: '+data.forecast.forecastday[dayCounter].day.daily_chance_of_rain+'%</p>'+                                    
                     '</div>';
                 
                 //Make sure the last row does not print a horizontal rule <hr>
