@@ -7,7 +7,7 @@
 }
 
 body{
-    background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148));
+    background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148)); /*Background color of entire page*/
 }
 
 /*Color of the search placeholder text*/
