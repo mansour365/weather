@@ -164,6 +164,8 @@
             </div>
             <br>
             <p class="visibility">0 km</p>
+            <p class="visibility-desc">Poor visibility.</p>
+
         </div>
 
         <div class="square-card">
@@ -341,6 +343,19 @@
         buildSunriseWidget();
 
         buildSunsetWidget();
+
+        //Choose correct visibility descroption
+        let visibility = data.current.vis_km;
+        let description = "None";
+        if(visibility < 2){
+            description = "Poor visibility."
+        }
+        else{
+            description = "It's perfectly clear right now."
+        }
+        //document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
+
+        document.querySelector(".visibility-desc").innerHTML = "It's perfectly clear right now.";
 
         
        
