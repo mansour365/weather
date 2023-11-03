@@ -165,7 +165,7 @@ body{
 }
 
 .full-title .icon{
-    width: 20px;
+    width: 15px;
     margin-right: 5px;
     margin-left: -5px;
 }
@@ -203,14 +203,10 @@ body{
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
 }
 
-.square-card{
+.square-card {
     width: 200px;  /*width of the card*/
-    /*height: 200px; /*height of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
     background: rgb(37, 113, 181);
     color: #fff;    /*text color inside the card*/
-    /*margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: left;   /*Move elements to center*/
