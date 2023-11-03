@@ -350,6 +350,13 @@ body{
     margin: auto;
 }
 
+.daily-condition{
+    text-align:left;
+    font-size: 0.95em;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
 /*Image inside the UV index card*/
 .square-card .uvimg{
     width: 160px;
@@ -357,7 +364,7 @@ body{
 
 .dayWeather{
     display: flex;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .dayWeather img{

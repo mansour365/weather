@@ -97,6 +97,8 @@
                     </div>                                     
                     <p class="daypop">POP: 0%</p>                                            
                 </div>
+                <p class = daily-condition>The condition</p>
+
             </div>
         </div>
 
@@ -486,7 +488,8 @@
                             '<p class="daylow">L: '+Math.round(data.forecast.forecastday[dayCounter].day.mintemp_c)+'°</p>'+  
                         '</div>'+                                     
                         '<p class="daypop">POP: '+data.forecast.forecastday[dayCounter].day.daily_chance_of_rain+'%</p>'+                                    
-                    '</div>';
+                    '</div>'+
+                    '<p class="daily-condition">'+data.forecast.forecastday[dayCounter].day.condition.text +'</p>';
                 
                 //Make sure the last row does not print a horizontal rule <hr>
                 if(dayCounter != 2){
