@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
 
+    <!--Notable things acheived-->
+    <!--CSS Grid-->
+    <!--weather API (rest api or api?)-->
+
+
     <!--API KEY: 135f15ba9e1e49d3a64160722231710  -->
     <!--API URL: https://www.weatherapi.com/my/ -->
 
@@ -58,7 +63,6 @@
             </div>
             <br>
             <p class="humidity">0%</p>
-            
         </div>
 
         <div class="square-card">
@@ -211,7 +215,7 @@
         //Save the sunset time, Used for hourly
         let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         const array = sunsetT.split(":"); 
-        let sunsetHour = Number(array[0]);   //Take hour portion
+        let sunsetHour = Number(array[0]);   //Take hour portion (sunsetHour is used by others)
         let rightPortion = array[1];  //Something like "32 PM"
         const array1 = rightPortion.split(" ");
         let sunsetMin = array1[0];   //left part is minute
@@ -221,18 +225,16 @@
         if (amPM == "PM"){
             sunsetHour = sunsetHour + 12;  //convert to 24 hour time
         }
-        let sunsetTime = sunsetHour+":"+sunsetMin;
+        let sunsetTime = sunsetHour+":"+sunsetMin; //sunsetTime is used by others
 
 
+        
 
-        //Save the sunrise time
-        let sunriseTime = data.forecast.forecastday[0].astro.sunrise;
-        const array2 = sunriseTime.split(" ");  
-        sunriseTime = array2[0];    //remove the AM/PM portion will now look like "05:21"
-        //get the sunrise hour
-        const array3 = sunriseTime.split(":")
-        let sunriseHour = array3[0].replace(/^0+/,""); // looks like "5"
+        let sunriseTime = getSunriseTime();
 
+
+        let sunriseHour = getSunriseHour(sunriseTime);
+        
 
         removeOldHourlyData();
     
@@ -402,6 +404,20 @@
         }
 
 
+        function getSunriseTime(){
+            //Save the sunrise time
+            let sunriseTime = data.forecast.forecastday[0].astro.sunrise;
+            const array2 = sunriseTime.split(" ");  
+            sunriseTime = array2[0];    //remove the AM/PM portion will now look like "05:21" (sunriseTime is used by others)
+            return sunriseTime;
+        }
+
+        function getSunriseHour(someTime){
+            //get the sunrise hour
+            const array3 = someTime.split(":")
+            let sunriseHour = array3[0].replace(/^0+/,""); // looks like "5"  (sunriseHour is used by others)
+            return sunriseHour;
+        }
 
         function removeOldHourlyData(){
             /*Remove the old houly data, if there is one from a previous search*/
