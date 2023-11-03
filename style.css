@@ -276,9 +276,20 @@ body{
 .sunset{
     font-size: 2em;
 }
+.sunset-img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 .sunrise{
     font-size: 2em;
+}
+
+.sunrise-img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .visibility{
