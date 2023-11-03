@@ -208,7 +208,7 @@
         document.querySelector(".pressure").innerHTML = data.current.pressure_mb+" hPa"; 
 
 
-        buildUVData();
+        buildUVWidget();
         
         checkForAirQuality();
 
@@ -336,7 +336,7 @@
         /**********Functions**********/
 
 
-        function buildUVData()
+        function buildUVWidget()
         {
             //Get UV-index place into its widget
             document.querySelector(".uvIndex").innerHTML = data.current.uv;
@@ -453,7 +453,7 @@
                     theDay = "Today";
                 }
                 else{
-                    theDay = weekday[dt.getDay() + dayCounter];
+                    theDay = weekday[(dt.getDay() + dayCounter) % 7];
                 }
 
                 document.querySelector(".daily-weather").innerHTML +=  
