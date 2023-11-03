@@ -63,6 +63,7 @@
             </div>
             <br>
             <p class="humidity">0%</p>
+            <p class = "dewpoint">The dew point is 0° right now.</p>
         </div>
 
         <div class="square-card">
@@ -118,8 +119,9 @@
             </div>
             <br>
             <p class="wind">0 km/h</p>
-            <p class = windDirection>N</p>
-            <p class = windGust>With wind gusts of 0 km/h</p>
+            <p class = "windDirection">Direction: N</p>
+            <p class = "gusttext"> With wind gusts of </p>
+            <p class = windGust>0 km/h.</p>
         </div>
 
         <div class="square-card">
@@ -185,9 +187,7 @@
     const key = "key=135f15ba9e1e49d3a64160722231710&q=";
     const days = "&days=3";
     const airQual = "&aqi=yes";
-    const airData = "&agi=yes";
     const alerts = "&alerts=yes";
-
 
     const searchBox = document.querySelector(".search input");
     const searchBtn = document.querySelector(".search button");
@@ -212,9 +212,10 @@
         document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
 
         document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
+        
         document.querySelector(".wind").innerHTML = Math.round(data.current.wind_kph) + " km/h";
-        document.querySelector(".windDirection").innerHTML = data.current.wind_dir;
-        document.querySelector(".windGust").innerHTML = "With wind gusts of "+Math.round(data.current.gust_kph)+" km/h";
+        document.querySelector(".windDirection").innerHTML = "Direction: "+data.current.wind_dir;
+        document.querySelector(".windGust").innerHTML = Math.round(data.current.gust_kph)+" km/h.";
         document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
         document.querySelector(".precipitation").innerHTML = Math.round(data.forecast.forecastday[0].day.totalprecip_mm) + " mm";
         document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected tomorrow.";
@@ -258,6 +259,11 @@
         let theTime = cityTime.replace(/^0+/,"");   //remove any leading 0's from the hour portion
         let theHour = Number(theTime);      //convert the string into a number
         theHour = theHour + 1;   //Adding plus 1 to the hour (because we want to start hourly on the next hour)
+        let dewpointHour = theHour - 1;
+
+        //Get dew point data (It needs the current Hour)
+        document.querySelector(".dewpoint").innerHTML = 'The dew point is '+Math.round(data.forecast.forecastday[0].hour[dewpointHour].dewpoint_c)+'° right now.';
+
 
         //Added current temp as first entry into houlry-weather
         document.querySelector(".hourly-weather").innerHTML +=  
@@ -473,7 +479,7 @@
                     '<div class="dayWeather">'+
                         '<div class = "dailycol1">'+
                             '<p class = "theDay">'+theDay+'</p>'+
-                            '<img src='+data.forecast.forecastday[0].day.condition.icon+'>'+  
+                            '<img src='+data.forecast.forecastday[dayCounter].day.condition.icon+'>'+  
                         '</div>'+
                         '<div class = "dailycol2">'+    
                             '<p class="dayhigh">H: '+Math.round(data.forecast.forecastday[dayCounter].day.maxtemp_c)+'°</p>'+  

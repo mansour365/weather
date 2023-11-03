@@ -217,12 +217,18 @@ body{
     font-size: 2em;
 }
 
+.dewpoint{
+    font-size: 0.95em;
+    padding-top: 60px;
+}
+
 .precipitation{
     font-size: 2em;
 }
 
 .future-precipitation{
-    padding-top: 30px;
+    padding-top: 36px;
+    font-size: 0.95em;
 }
 
 .precipitation-desc{
@@ -235,6 +241,7 @@ body{
 
 .airNote{
     padding-top: 30px;
+    font-size: 0.95em;
 }
 
 .wind{
@@ -243,10 +250,17 @@ body{
 
 .windDirection{
     font-size: 1.3em;
+    padding-top: 0px;
+}
+
+.gusttext{
+    font-size: 0.95em;
+    padding-top: 36px;
 }
 
 .windGust{
-    padding-top: 30px;
+    padding-top: 0px;
+    font-size: 0.95em;
 }
 
 .uvIndex{
@@ -298,12 +312,14 @@ body{
 
 .dailycol1{
     margin: auto;
-    
+    width: 33.33%;
+    text-align: left;
 }
 
 .dailycol2{
     margin:auto;
     text-align: left;
+    width: 33.33%
     
 }
 
