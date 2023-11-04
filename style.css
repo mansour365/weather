@@ -230,48 +230,59 @@ hr{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
-    /*border: solid rgb(221, 224, 14) 2px;*/
+    /*border: solid rgb(221, 224, 14) 1px;*/
+}
+.daily-weather{
+    margin-left: -5px;
+    margin-right: -5px;
+    /*border: solid rgb(14, 196, 224) 1px;*/
+}
+.dayWeather{  /*Container containing the three columns*/
+    display: flex;
+    margin-bottom: 25px;
+    /*border: solid rgb(224, 84, 14) 1px;*/
 }
 .dailycol1{  /*First column of daily-card*/
     margin: auto;
     width: 33.33%;
     text-align: left;
+    /*border: solid rgb(49, 224, 14) 1px;*/
 }
 .dailycol2{  /*Second column of daily card*/
     margin:auto;
     text-align: left;
     width: 33.33%;
+    /*border: solid rgb(49, 224, 14) 1px;*/
 }
-.dayWeather{
-    display: flex;
-    margin-bottom: 25px;
+.daypop{   /*The POP % portion of the daily card*/
+    font-weight: 600;
+    margin: auto;
+    /*border: solid rgb(49, 224, 14) 1px;*/
 }
-.dayWeather img{
+
+.theDay{   /*Day name portion of the daily card*/
+    font-weight: 600;
+    margin: auto;
+}
+.dayWeather img{  /*Weather icon associated with the day*/
     display:flex; /* Not sure why i put the img as flex, might not be needed*/
     width: 30px; /*width of image inside col container*/
     margin:0;
 }
-.theDay{   /*Day name portion of the daily card*/
+.dayhigh{  /*the high temperature of the daily card*/
     font-weight: 600;
     margin: auto;
+    margin-bottom: 9px;
 }
 .daylow{   /*The low temperature of the daily card*/
     color:rgb(136, 199, 252);
     font-weight: 600;
     margin: auto;
 }
-.dayhigh{  /*the high temperature of the daily card*/
-    font-weight: 600;
-    margin: auto;
-}
-.daypop{   /*The POP % portion of the daily card*/
-    font-weight: 600;
-    margin: auto;
-}
 .daily-condition{   /*the condition text portion of the daily card*/
     text-align:left;
     font-size: 0.95em;
-    padding-left: 10px;
+    padding-left: 12px;
     padding-bottom: 10px;
 }
 

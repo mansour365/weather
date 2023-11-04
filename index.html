@@ -87,15 +87,18 @@
             <br>
             <div class = "daily-weather">
                 <div class="dayWeather">
-                    <div class = dailycol1>
+                    <div class = "dailycol1">
                         <p class="theDay">Today</p>
                         <img src="images2/clear.png">
                     </div>
-                    <div class = dailycol2>  
+                    <div class = "dailycol2">  
                         <p class="dayhigh">H: 5°</p>    
                         <p class="daylow">L: 0°</p>   
-                    </div>                                     
-                    <p class="daypop">POP: 0%</p>                                            
+                    </div>   
+                    <div class = "dailycol3">                                  
+                        <p class="daypop">POP: 0%</p> 
+                        <p class="dayprecip">0 mm</p> 
+                    </div>                                          
                 </div>
                 <p class = daily-condition>Moderate or heavy showers of ice pellets</p>
 
@@ -500,8 +503,11 @@
                         '<div class = "dailycol2">'+    
                             '<p class="dayhigh">H: '+Math.round(data.forecast.forecastday[dayCounter].day.maxtemp_c)+'°</p>'+  
                             '<p class="daylow">L: '+Math.round(data.forecast.forecastday[dayCounter].day.mintemp_c)+'°</p>'+  
-                        '</div>'+                                     
-                        '<p class="daypop">POP: '+data.forecast.forecastday[dayCounter].day.daily_chance_of_rain+'%</p>'+                                    
+                        '</div>'+
+                        '<div class = "dailycol3">'+                                     
+                            '<p class="daypop">POP: '+data.forecast.forecastday[dayCounter].day.daily_chance_of_rain+'%</p>'+  
+                            '<p class="dayprecip">0 mm</p> '
+                        '</div>'                                  
                     '</div>'+
                     '<p class="daily-condition">'+data.forecast.forecastday[dayCounter].day.condition.text +'</p>';
                 
