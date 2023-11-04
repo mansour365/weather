@@ -10,7 +10,12 @@ body{
     background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148)); /*Background color of entire page*/
 }
 
-
+hr{
+    height: 1px;
+    /*Setting border to 0 and border-top to 1px, get a true 1px hr*/
+    border:0;
+    border-top: 1px solid rgb(136, 199, 252); /*For light mode*/
+}
 
 .current-card{
     color: #fff;    /*text color inside the card*/
@@ -28,6 +33,7 @@ body{
 }
 .search input{
     border: 0; /*remove border around the text input box*/
+    outline:0; /*remove border around text input when click on text box*/
     background: rgb(19, 71, 117); /*background color inside the text input box*/
     color: white; /*color of text inside the search input*/
     padding: 10px 25px; /*padding the text inside the search input box*/
