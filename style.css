@@ -102,48 +102,47 @@ body{
     margin-bottom: 10px;
 }
 
+/*The div that holds both the H and L values of the current card*/
 .HL{
     display:flex;
     justify-content: center;
     font-size: 20px;
 }
 
+/*The H value in the current card*/
 .H{
     margin-right: 5px;
 }
 
+/*The L value in the current card*/
 .L{
     margin-left: 5px;
 }
 
 
-
-
+/*The rest of the elements belong to the CSS Grid layout*/
+/*Basic setup for my grid layout*/
 .my-grid{
-    width:1340px;
-    display:grid;
-    gap: 1.5rem;
+    display:grid;  /*set grid mode for the my-grid div*/
+    width:1340px;  /*width of the grid*/
+    gap: 1.5rem;  /*Space between each element in the grid*/
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));  /*auto the number of columns, each element minimum 200px wide*/
-    grid-auto-rows: 200px;
+    grid-auto-rows: 200px; /*the grid rows are 200px tall*/
     margin: auto;
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
-
 .hourly-card{
-    grid-column: span 4 / auto;      
+    grid-column: span 4 / auto; /*hourly card spans 4 columns*/      
 }
-
 .daily-card{
-    grid-column: span 2 / auto;
-    grid-row: span 2 / auto;
+    grid-column: span 2 / auto; /*daily card spans 2 columns wide*/
+    grid-row: span 2 / auto; /*daily card spans 2 rows tall*/
 }
-
 .airQual-card{
-    grid-column: span 2 / auto;
+    grid-column: span 2 / auto;  /*air quality card spans 2 rows wide*/
 }
-
 .airQual-card img{
-    width:380px;
+    width:380px;  /*width of the image inside the air quality card*/
 }
 
 
@@ -152,31 +151,29 @@ body{
 
 
 
-
+/*Title of cards setup*/
+.full-title{
+    display: flex;
+}
 .card-title{
     font-size: 14px;
     font-weight: 600;
     text-align: left;
     color: rgb(136, 199, 252);
 }
-
-.full-title{
-    display: flex;
-}
-
 .full-title .icon{
     width: 15px;
     margin-right: 5px;
     margin-left: -5px;
 }
 
+
+
+
 .hourly-card{
     width: 877px;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: rgb(37, 113, 181);
+    background: rgb(37, 113, 181); /*background color of hourly card*/
     color: #fff;    /*text color inside the card*/
-    /*margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
@@ -213,24 +210,30 @@ body{
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
 
+/*??????????? I forgot why i added this ??????????*/
+.square-card img{
+    width: 70px; /*width of image inside col container*/
+    /*margin-right: 10px; /*margin to the right of image in the col conatiner*/
+
+}
+
+/* Humidity card */
 .humidity{
     font-size: 2em;
 }
-
 .dewpoint{
     font-size: 0.95em;
     padding-top: 60px;
 }
 
+/* Precipitation card */
 .precipitation{
     font-size: 2em;
 }
-
 .future-precipitation{
     padding-top: 36px;
     font-size: 0.95em;
 }
-
 .precipitation-desc{
     font-size: 1.3em;
 }
@@ -244,25 +247,24 @@ body{
     font-size: 0.95em;
 }
 
+/* Wind card */
 .wind{
     font-size: 2em;
 }
-
 .windDirection{
     font-size: 1.3em;
     padding-top: 0px;
 }
-
 .gusttext{
     font-size: 0.95em;
     padding-top: 36px;
 }
-
 .windGust{
     padding-top: 0px;
     font-size: 0.95em;
 }
 
+/* UV-index card */
 .uvIndex{
     font-size:2em;
 }
@@ -273,6 +275,7 @@ body{
     padding-top:50px;
 }
 
+/* Sunset card */
 .sunset{
     font-size: 2em;
 }
@@ -282,45 +285,37 @@ body{
     margin-right:auto;
 }
 
+/* Sunrise card */
 .sunrise{
     font-size: 2em;
 }
-
 .sunrise-img{
     display:block;
     margin-left:auto;
     margin-right:auto;
 }
 
+/* Visibility card */
 .visibility{
     font-size: 2em;
 }
-
-.visibility-desc{
+.visible-note{
     font-size: 0.95em;
 }
 
-
-
+/* Pressure card */
 .pressure{
     font-size: 2em;
 }
 
 
 
-.square-card img{
-    width: 70px; /*width of image inside col container*/
-    /*margin-right: 10px; /*margin to the right of image in the col conatiner*/
 
-}
 
 .daily-card{
     width: 425px;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
-    background: rgb(37, 113, 181);
+    background: rgb(37, 113, 181); /*background color of the daily card*/
     color: #fff;    /*text color inside the card*/
-    /*margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
@@ -336,14 +331,11 @@ body{
 .dailycol2{
     margin:auto;
     text-align: left;
-    width: 33.33%
-    
+    width: 33.33%;
 }
 
 .dayWeather img{
-    
     display:flex;
-    
 }
 
 .theDay{
@@ -391,11 +383,8 @@ body{
 
 .airQual-card{
     width: 425px;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
-    /*background: linear-gradient(135deg, #00feba, #5b548a);*/
     background: rgb(37, 113, 181);
     color: #fff;    /*text color inside the card*/
-    /*margin: 50px auto 0;   /*center the card and make 100px space from top*/
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: left;   /*Move elements to center*/
