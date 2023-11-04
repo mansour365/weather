@@ -10,21 +10,15 @@ body{
     background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148)); /*Background color of entire page*/
 }
 
-/*Color of the search placeholder text*/
-::placeholder {
-    color: white;
-    opacity: 0.7; /* Firefox */
-  }
+
 
 .current-card{
-    /*width: 90%;  /*width of the card*/
-    /*max-width: 470px;  /*max width of the card*/
     color: #fff;    /*text color inside the card*/
-    /*margin: 100px auto 0;   /*center the card and make 100px space from top*/
-    /*border-radius:20px;   /*make the card have curved edges*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
 }
+
+
 
 .search{
     width: 100%;
@@ -32,10 +26,8 @@ body{
     align-items: center; /*on the vertical axis of the card align it to center*/
     justify-content: space-between; /*Even distribute items in the horizontal axis of the card*/
 }
-
 .search input{
     border: 0; /*remove border around the text input box*/
-    outline: 0;  
     background: rgb(19, 71, 117); /*background color inside the text input box*/
     color: white; /*color of text inside the search input*/
     padding: 10px 25px; /*padding the text inside the search input box*/
@@ -45,48 +37,47 @@ body{
     margin-right: 16px;  /*space on right of text input box*/
     font-size: 18px; /*size of text inside text input box*/
 }
-
+::placeholder {    /*Color of the search placeholder text*/
+    color: white;
+    opacity: 0.7; /* Firefox */
+  }
 .search button{
     border: 0; /*remove border around the search button*/
-    outline: 0;
     background: #ebfffc; /*Color of the search button*/
     border-radius: 50%;  /*curve the edge of the button*/
     width: 60px; /*width of the button*/
     height: 60px; /*height of the button*/
     cursor: pointer;  /*when hover mouse of button the mouse pointer becomes a finger*/
 }
-
 .search button img{
     width: 16px; /*width of the image in the button*/
 }
+
+
 
 /*Current weather Icon*/
 .weather-icon{
     width: 75px;  /*width of the current weather image*/
     margin-top: 30px; /*Space on top of weather image*/
 }
-
 /*City Text*/
 .weather .city{
     font-size: 45px; /*font size of the city*/
     font-weight:400; /*font weight of the city*/
     margin-top: -10px; /*Space above the city text*/
 }
-
 /*Country region text*/
 .region{
     font-size: 15px;
     font-weight:100;
     margin-bottom: 10px;
 }
-
 /*Current Temperature*/
 .weather .temp{
     font-size: 80px; /*font size of the temperature*/
     font-weight:100; /*font weight of the temperature*/
     color: #fee962; /*Color of the temperature output*/
 }
-
 /*Feels like text*/
 .weather .feel{
     font-size: 20px; /*Font size of the feels like*/
@@ -94,30 +85,28 @@ body{
     margin-top: 10px; /*margin-top of the feels like*/
     margin-bottom: 10px; /*margin-bottom of the feels like*/
 }
-
 /*Current Condition*/
 .weather .condition{
     font-weight: 100;
     font-size: 20px;
     margin-bottom: 10px;
 }
-
 /*The div that holds both the H and L values of the current card*/
 .HL{
     display:flex;
     justify-content: center;
     font-size: 20px;
 }
-
 /*The H value in the current card*/
 .H{
     margin-right: 5px;
 }
-
 /*The L value in the current card*/
 .L{
     margin-left: 5px;
 }
+
+
 
 
 /*The rest of the elements belong to the CSS Grid layout*/
@@ -141,9 +130,6 @@ body{
 .airQual-card{
     grid-column: span 2 / auto;  /*air quality card spans 2 rows wide*/
 }
-
-
-
 
 
 
@@ -175,12 +161,7 @@ body{
     text-align: left;   /*Move elements to center*/
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
-/*??????????? I forgot why i added this ??????????*/
-.square-card img{
-    width: 70px; /*width of image inside col container*/
-    /*margin-right: 10px; /*margin to the right of image in the col conatiner*/
 
-}
 
 
 .hourly-card{
@@ -353,6 +334,7 @@ body{
     display:block;
     margin-left:auto;
     margin-right:auto;
+    width: 70px;
 }
 
 
@@ -364,6 +346,7 @@ body{
     display:block;
     margin-left:auto;
     margin-right:auto;
+    width: 70px;
 }
 
 
