@@ -506,8 +506,8 @@
                         '</div>'+
                         '<div class = "dailycol3">'+                                     
                             '<p class="daypop">POP: '+data.forecast.forecastday[dayCounter].day.daily_chance_of_rain+'%</p>'+  
-                            '<p class="dayprecip">0 mm</p> '
-                        '</div>'                                  
+                            '<p class="dayprecip">'+Math.round(data.forecast.forecastday[dayCounter].day.totalprecip_mm)+' mm</p>'+
+                        '</div>'+                                  
                     '</div>'+
                     '<p class="daily-condition">'+data.forecast.forecastday[dayCounter].day.condition.text +'</p>';
                 

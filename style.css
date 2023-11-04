@@ -254,12 +254,12 @@ hr{
     width: 33.33%;
     /*border: solid rgb(49, 224, 14) 1px;*/
 }
-.daypop{   /*The POP % portion of the daily card*/
-    font-weight: 600;
-    margin: auto;
+.dailycol3{
+    margin:auto;
+    text-align: left;
+    width: 20%;
     /*border: solid rgb(49, 224, 14) 1px;*/
 }
-
 .theDay{   /*Day name portion of the daily card*/
     font-weight: 600;
     margin: auto;
@@ -278,6 +278,15 @@ hr{
     color:rgb(136, 199, 252);
     font-weight: 600;
     margin: auto;
+}
+.daypop{   /*The POP % portion of the daily card*/
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 9px;
+    /*border: solid rgb(49, 224, 14) 1px;*/
+}
+.dayprecip{
+    color:rgb(136, 199, 252);
 }
 .daily-condition{   /*the condition text portion of the daily card*/
     text-align:left;
