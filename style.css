@@ -141,9 +141,6 @@ body{
 .airQual-card{
     grid-column: span 2 / auto;  /*air quality card spans 2 rows wide*/
 }
-.airQual-card img{
-    width:380px;  /*width of the image inside the air quality card*/
-}
 
 
 
@@ -169,6 +166,22 @@ body{
 
 
 
+.square-card {
+    width: 200px;  /*width of the card*/
+    background: rgb(37, 113, 181);
+    color: #fff;    /*text color inside the card*/
+    border-radius:20px;   /*make the card have curved edges*/
+    padding: 20px 20px;  /*Internal padding from the border of the card*/
+    text-align: left;   /*Move elements to center*/
+    /*border: solid rgb(221, 224, 14) 2px;*/
+}
+/*??????????? I forgot why i added this ??????????*/
+.square-card img{
+    width: 70px; /*width of image inside col container*/
+    /*margin-right: 10px; /*margin to the right of image in the col conatiner*/
+
+}
+
 
 .hourly-card{
     width: 877px;  /*width of the card*/
@@ -179,43 +192,25 @@ body{
     text-align: center;   /*Move elements to center*/
     /*border: solid rgb(14, 224, 59) 2px;*/
 }
-
 .hourly-weather{
     display: flex;  /*add flex mode inside the col containers*/
     /*border: solid rgb(221, 224, 14) 2px;*/
     overflow: auto;  /*give the hourly weather a horizontal scroll bar*/
 }
-
 .hour{
     margin-right: 35px;
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
-
 .hourNum{
     font-size: 13px;
 }
-
 .hour img{
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
 }
 
-.square-card {
-    width: 200px;  /*width of the card*/
-    background: rgb(37, 113, 181);
-    color: #fff;    /*text color inside the card*/
-    border-radius:20px;   /*make the card have curved edges*/
-    padding: 20px 20px;  /*Internal padding from the border of the card*/
-    text-align: left;   /*Move elements to center*/
-    /*border: solid rgb(221, 224, 14) 2px;*/
-}
 
-/*??????????? I forgot why i added this ??????????*/
-.square-card img{
-    width: 70px; /*width of image inside col container*/
-    /*margin-right: 10px; /*margin to the right of image in the col conatiner*/
 
-}
 
 /* Humidity card */
 .humidity{
@@ -225,6 +220,7 @@ body{
     font-size: 0.95em;
     padding-top: 60px;
 }
+
 
 /* Precipitation card */
 .precipitation{
@@ -238,6 +234,74 @@ body{
     font-size: 1.3em;
 }
 
+
+/* The three day card (should probably rename the div for this card)*/
+.daily-card{
+    width: 425px;  /*width of the card*/
+    background: rgb(37, 113, 181); /*background color of the daily card*/
+    color: #fff;    /*text color inside the card*/
+    border-radius:20px;   /*make the card have curved edges*/
+    padding: 20px 20px;  /*Internal padding from the border of the card*/
+    text-align: center;   /*Move elements to center*/
+    /*border: solid rgb(221, 224, 14) 2px;*/
+}
+.dailycol1{  /*First column of daily-card*/
+    margin: auto;
+    width: 33.33%;
+    text-align: left;
+}
+.dailycol2{  /*Second column of daily card*/
+    margin:auto;
+    text-align: left;
+    width: 33.33%;
+}
+.dayWeather{
+    display: flex;
+    margin-bottom: 25px;
+}
+.dayWeather img{
+    display:flex; /* Not sure why i put the img as flex, might not be needed*/
+    width: 30px; /*width of image inside col container*/
+    margin:0;
+}
+.theDay{   /*Day name portion of the daily card*/
+    font-weight: 600;
+    margin: auto;
+}
+.daylow{   /*The low temperature of the daily card*/
+    color:rgb(136, 199, 252);
+    font-weight: 600;
+    margin: auto;
+}
+.dayhigh{  /*the high temperature of the daily card*/
+    font-weight: 600;
+    margin: auto;
+}
+.daypop{   /*The POP % portion of the daily card*/
+    font-weight: 600;
+    margin: auto;
+}
+.daily-condition{   /*the condition text portion of the daily card*/
+    text-align:left;
+    font-size: 0.95em;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* Air quality card */
+.airQual-card{
+    width: 425px;  /*width of the card*/
+    background: rgb(37, 113, 181);
+    color: #fff;    /*text color inside the card*/
+    border-radius:20px;   /*make the card have curved edges*/
+    padding: 20px 20px;  /*Internal padding from the border of the card*/
+    text-align: left;   /*Move elements to center*/
+    /*border: solid rgb(221, 224, 14) 2px;*/
+}
+.airQual-card img{
+    width:380px;  /*width of the image inside the air quality card*/
+}
 .airDesc{
     font-size: 2em;
 }
@@ -246,6 +310,7 @@ body{
     padding-top: 30px;
     font-size: 0.95em;
 }
+
 
 /* Wind card */
 .wind{
@@ -264,6 +329,7 @@ body{
     font-size: 0.95em;
 }
 
+
 /* UV-index card */
 .uvIndex{
     font-size:2em;
@@ -274,16 +340,10 @@ body{
 .uvimg{
     padding-top:50px;
 }
+.square-card .uvimg{   /*Image inside the UV index card (not sure why this css is weird)*/
+    width: 160px;
+}
 
-/* Sunset card */
-.sunset{
-    font-size: 2em;
-}
-.sunset-img{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-}
 
 /* Sunrise card */
 .sunrise{
@@ -295,6 +355,18 @@ body{
     margin-right:auto;
 }
 
+
+/* Sunset card */
+.sunset{
+    font-size: 2em;
+}
+.sunset-img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
 /* Visibility card */
 .visibility{
     font-size: 2em;
@@ -303,93 +375,13 @@ body{
     font-size: 0.95em;
 }
 
+
 /* Pressure card */
 .pressure{
     font-size: 2em;
 }
 
 
-
-
-
-.daily-card{
-    width: 425px;  /*width of the card*/
-    background: rgb(37, 113, 181); /*background color of the daily card*/
-    color: #fff;    /*text color inside the card*/
-    border-radius:20px;   /*make the card have curved edges*/
-    padding: 20px 20px;  /*Internal padding from the border of the card*/
-    text-align: center;   /*Move elements to center*/
-    /*border: solid rgb(221, 224, 14) 2px;*/
-}
-
-.dailycol1{
-    margin: auto;
-    width: 33.33%;
-    text-align: left;
-}
-
-.dailycol2{
-    margin:auto;
-    text-align: left;
-    width: 33.33%;
-}
-
-.dayWeather img{
-    display:flex;
-}
-
-.theDay{
-    font-weight: 600;
-    margin: auto;
-}
-
-.daylow{
-    color:rgb(136, 199, 252);
-    font-weight: 600;
-    margin: auto;
-}
-
-.dayhigh{
-    font-weight: 600;
-    margin: auto;
-}
-
-.daypop{
-    font-weight: 600;
-    margin: auto;
-}
-
-.daily-condition{
-    text-align:left;
-    font-size: 0.95em;
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-
-/*Image inside the UV index card*/
-.square-card .uvimg{
-    width: 160px;
-}
-
-.dayWeather{
-    display: flex;
-    margin-bottom: 25px;
-}
-
-.dayWeather img{
-    width: 30px; /*width of image inside col container*/
-    margin:0;
-}
-
-.airQual-card{
-    width: 425px;  /*width of the card*/
-    background: rgb(37, 113, 181);
-    color: #fff;    /*text color inside the card*/
-    border-radius:20px;   /*make the card have curved edges*/
-    padding: 20px 20px;  /*Internal padding from the border of the card*/
-    text-align: left;   /*Move elements to center*/
-    /*border: solid rgb(221, 224, 14) 2px;*/
-}
 
 @media screen and (max-width: 1340px){
     .my-grid{
