@@ -165,8 +165,10 @@ hr{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: left;   /*Move elements to center*/
-    /*border: solid rgb(221, 224, 14) 2px;*/
+    /*border: solid rgb(224, 56, 14) 1px;*/
+    position: relative;  /*position: relative;  so we can use this as a parent div and position div elements in it */
 }
+
 
 
 
@@ -382,6 +384,9 @@ hr{
 }
 .visible-note{
     font-size: 0.95em;
+    position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
+    bottom: 15px;  /*Position in the parent div*/
+    /*border: solid rgb(221, 224, 14) 1px;*/
 }
 
 
