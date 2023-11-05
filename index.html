@@ -344,18 +344,10 @@
 
         buildSunsetWidget();
 
-        //Choose correct visibility descroption
-        let visibility = data.current.vis_km;
-        let description = "None";
-        if(visibility < 2){
-            description = "Poor visibility."
-        }
-        else{
-            description = "It's perfectly clear right now."
-        }
-        //document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
+        buildVisibilityWidget();
 
-        document.querySelector(".visible-note").innerHTML = "It's perfectly clear right now.";
+        
+       
 
         
        
@@ -366,6 +358,8 @@
         //https://9to5mac.com/2023/01/08/macos-ventura-weather-app/
         //https://media.idownloadblog.com/wp-content/uploads/2021/07/Air-quality-index.jpeg
         //https://discuss.tidbyt.com/uploads/db2982/original/2X/a/aac34789ec36960b097645564653eb35b7a4413f.jpeg
+        //Source for visbility
+        //https://www.semanticscholar.org/paper/Analysis-of-the-atmospheric-visibility-Restoration-Deshpande/662237bb893d2b50a728751880f20cf1f8225aef
 
 
 
@@ -525,6 +519,25 @@
 
         function buildSunsetWidget(){
             document.querySelector(".sunset").innerHTML = sunsetTime; 
+        }
+
+        function buildVisibilityWidget(){
+            //Choose correct visibility descroption
+            let visibility = data.current.vis_km;
+            let description = "None";
+            if(visibility < 3){
+                description = "Poor visibility at the moment.";
+            }
+            else if(visibility < 6){
+                description = "Fair visibility at the moment.";
+            }
+            else if(visibility < 10){
+                description = "Clear visibility at the moment.";
+            }
+            else{
+                description = "It's perfectly clear right now.";
+            }
+            document.querySelector(".visible-note").innerHTML = description;
         }
 
 
