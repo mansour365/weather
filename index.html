@@ -63,7 +63,7 @@
             </div>
             <br>
             <p class="humidity">0%</p>
-            <p class = "dewpoint">The dew point is 0° right now.</p>
+            <p class = "dewpoint">The dew point is 0° <br />right now.</p>
         </div>
 
         <div class="square-card">
@@ -74,7 +74,7 @@
             <br>
             <p class="precipitation">0 mm</p>
             <p class="precipitation-desc">Today</p>
-            <p class="future-precipitation">0 mm expected tomorrow.</p>
+            <p class="future-precipitation">0 mm expected <br /> tomorrow.</p>
         </div>
 
         <div class="daily-card">
@@ -125,8 +125,7 @@
             <br>
             <p class="wind">0 km/h</p>
             <p class = "windDirection">Direction: N</p>
-            <p class = "gusttext"> With wind gusts of </p>
-            <p class = windGust>0 km/h.</p>
+            <p class = windGust>With wind gusts of <br /> 0 km/h.</p>
         </div>
 
         <div class="square-card">
@@ -221,10 +220,10 @@
         
         document.querySelector(".wind").innerHTML = Math.round(data.current.wind_kph) + " km/h";
         document.querySelector(".windDirection").innerHTML = "Direction: "+data.current.wind_dir;
-        document.querySelector(".windGust").innerHTML = Math.round(data.current.gust_kph)+" km/h.";
+        document.querySelector(".windGust").innerHTML = " With wind gusts of <br />"+Math.round(data.current.gust_kph)+" km/h.";
         document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
         document.querySelector(".precipitation").innerHTML = Math.round(data.forecast.forecastday[0].day.totalprecip_mm) + " mm";
-        document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected tomorrow.";
+        document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected <br /> tomorrow.";
         document.querySelector(".pressure").innerHTML = data.current.pressure_mb+" hPa"; 
 
 
@@ -267,7 +266,7 @@
         let dewpointHour = theHour - 1;
 
         //Get dew point data (It needs the current Hour)
-        document.querySelector(".dewpoint").innerHTML = 'The dew point is '+Math.round(data.forecast.forecastday[0].hour[dewpointHour].dewpoint_c)+'° right now.';
+        document.querySelector(".dewpoint").innerHTML = 'The dew point is '+Math.round(data.forecast.forecastday[0].hour[dewpointHour].dewpoint_c)+'° <br />right now.';
 
 
         //Added current temp as first entry into houlry-weather

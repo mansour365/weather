@@ -207,7 +207,8 @@ hr{
 }
 .dewpoint{
     font-size: 0.95em;
-    padding-top: 60px;
+    position: absolute;  /*Parent div is square-card, with use position:absolute to specify where in parent*/
+    bottom: 15px;  /*Position in the parent div*/
 }
 
 
@@ -216,8 +217,9 @@ hr{
     font-size: 2em;
 }
 .future-precipitation{
-    padding-top: 36px;
     font-size: 0.95em;
+    position: absolute; /*Parent div is square-card, with use position:absolute to specify where in parent*/
+    bottom: 15px;  /*Position in the parent div*/
 }
 .precipitation-desc{
     font-size: 1.3em;
@@ -329,13 +331,11 @@ hr{
     font-size: 1.3em;
     padding-top: 0px;
 }
-.gusttext{
-    font-size: 0.95em;
-    padding-top: 36px;
-}
 .windGust{
-    padding-top: 0px;
+    
     font-size: 0.95em;
+    position: absolute; /*Parent div is square-card, with use position:absolute to specify where in parent*/
+    bottom: 15px; /*Position in the parent div*/
 }
 
 
