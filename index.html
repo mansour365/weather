@@ -114,7 +114,7 @@
             <p class="airDesc">Good</p>
             <br>
             <p class="airNote">Based on US EPA Standard</p>
-            <img src="images2/aqi line.png">
+            <img id = aqi-img src="images2/aqi line.png">
         </div>
 
         <div class="square-card">
@@ -346,6 +346,16 @@
 
         buildVisibilityWidget();
 
+        //For pressure in hPa
+        //min low <= 900
+        //mid low == 950
+        //mid == 1000
+        //mid high == 1050
+        //max high >= 1100
+
+        //5 images
+        // 950,  975,  1000,  1025,  1050
+
         
        
 
@@ -401,21 +411,27 @@
                     switch(data.current.air_quality["us-epa-index"]){
                         case 1:
                             airQualWord = "Good";
+                            document.getElementById("aqi-img").src = "images2/aqi/green.png";
                             break;
                         case 2:
                             airQualWord = "Moderate";
+                            document.getElementById("aqi-img").src = "images2/aqi/yellow.png";
                             break;
                         case 3:
                             airQualWord = "Unhealthy for sensitive people";
+                            document.getElementById("aqi-img").src = "images2/aqi/orange.png";
                             break;
                         case 4:
                             airQualWord = "Unhealthy";
+                            document.getElementById("aqi-img").src = "images2/aqi/red.png";
                             break;
                         case 5:
                             airQualWord = "Very Unhealthy";
+                            document.getElementById("aqi-img").src = "images2/aqi/purple.png";
                             break;
                         case 6:
                             airQualWord = "Hazardous";
+                            document.getElementById("aqi-img").src = "images2/aqi/maroon.png";
                             break;
                         default:
                             airQualWord = "No info";
