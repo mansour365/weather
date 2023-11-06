@@ -137,6 +137,7 @@
             <p class = uvIndex>0</p>
             <p class = uvDesc>Low</p>
             <img id="uvimg" src = "images2/uv-line.png">
+            <p class = "uvNote">Minimal danger from <br /> sun's UV rays.</p>
         </div>
 
         <div class="square-card">
@@ -399,7 +400,6 @@
             }
         }
 
-
         function buildPrecipitationWidget(){
             document.querySelector(".precipitation").innerHTML = Math.round(data.forecast.forecastday[0].day.totalprecip_mm) + " mm";
             document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected <br /> tomorrow.";
@@ -414,24 +414,32 @@
             if(data.current.uv > 10){
                 uvDescription = "Extreme";  //purple
                 document.getElementById("uvimg").src = "images2/uv/purple.png";
+                document.querySelector(".uvNote").innerHTML = "Very high risk of harm <br /> from sun exposure.";
             }
             else if(data.current.uv > 7){
                 uvDescription = "Very High";  //red
                 document.getElementById("uvimg").src = "images2/uv/red.png";
+                document.querySelector(".uvNote").innerHTML = "High risk of harm <br />from sun exposure.";
             }
             else if(data.current.uv > 5){
                 uvDescription = "High";   //orange
                 document.getElementById("uvimg").src = "images2/uv/orange.png";
+                document.querySelector(".uvNote").innerHTML = "Moderate risk of harm <br /> from sun exposure.";
             }
             else if(data.current.uv > 2){
                 uvDescription = "Moderate";  //yellow
                 document.getElementById("uvimg").src = "images2/uv/yellow.png";
+                document.querySelector(".uvNote").innerHTML = "Low risk of harm from <br /> sun exposure.";
             }
             else{
                 uvDescription = "Low";  //green
                 document.getElementById("uvimg").src = "images2/uv/green.png";
+                document.querySelector(".uvNote").innerHTML = "Minimal danger from <br /> sun's UV rays.";
             }
             document.querySelector(".uvDesc").innerHTML = uvDescription;
+
+            
+
         }
 
         function checkForAirQuality(){

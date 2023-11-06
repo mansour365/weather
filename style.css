@@ -358,8 +358,16 @@ hr{
     margin-top:50px;
 }
 .square-card #uvimg{   /*Image inside the UV index card (not sure why this css is weird)*/
-    width: 163px;
+    width: 161px;
     border-radius:20px;
+    margin-top: 25px;
+   
+}
+.uvNote{
+    position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
+    bottom: 15px;  /*Position in the parent div*/
+    font-size: 0.95em;
+    
 }
 
 
