@@ -245,6 +245,21 @@
             }
         }
 
+        function convert24to12NoEnding(number){
+            if(number == 0){
+                return "12";
+            }
+            else if(number < 12){
+                return number+"";
+            }
+            else if(number == 12){
+                return "12";
+            }
+            else if(number > 12){
+                return (number-12)+"";
+            }
+        }
+
         //Save the sunset time, Used for hourly
         let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         const array = sunsetT.split(":"); 
@@ -307,7 +322,7 @@
 
             let newHour;  //variable used for output purposes and not for calculations
             if(theHour.toString().length ==  1){
-                newHour = theHour.toString().padStart(2, '0');  //convert single digit hour to double digit hours before outputting
+                newHour = theHour; //.toString().padStart(2, '0');  //convert single digit hour to double digit hours before outputting
             }
             else{
                 newHour = theHour%24;
@@ -333,7 +348,7 @@
                 //insert the sunset slot now
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
-                    '<p class=hourNum>'+sunsetTime+'</p>'+                                                      
+                    '<p class=hourNum>'+convert24to12NoEnding(sunsetHour)+":"+sunsetMin+'<span>PM</span></p>'+                                                      
                     '<img id = "hourIcon" src=images2/sunset.png>'+                                             
                     '<p>Sunset</p>'+                                             
                 '</div>';
@@ -343,7 +358,7 @@
                 //insert the sunrise slot now
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
-                    '<p class=hourNum>'+sunriseTime+'</p>'+                                                      
+                    '<p class=hourNum>'+sunriseTime+'<span>AM</span></p>'+                                                      
                     '<img id = "hourIcon" src=images2/sunrise.png>'+                                             
                     '<p>Sunrise</p>'+                                             
                 '</div>';
@@ -469,6 +484,8 @@
             let sunriseTime = data.forecast.forecastday[0].astro.sunrise;
             const array2 = sunriseTime.split(" ");  
             sunriseTime = array2[0];    //remove the AM/PM portion will now look like "05:21" (sunriseTime is used by others)
+            //remove padded zero from front
+            sunriseTime = sunriseTime.replace(/^0+/,"");
             return sunriseTime;
         }
 
