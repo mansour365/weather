@@ -316,11 +316,13 @@ hr{
     border-radius:20px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: left;   /*Move elements to center*/
+    position: relative;
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
-.airQual-card img{
+#aqi-img{
     width:385px;  /*width of the image inside the air quality card*/
     border-radius:20px;
+    margin-top: 50px;
 }
 .airDesc{
     font-size: 1.3em;
@@ -328,6 +330,8 @@ hr{
 .airNote{
     padding-top: 30px;
     font-size: 0.95em;
+    position: absolute;
+    bottom: 15px;
 }
 
 
