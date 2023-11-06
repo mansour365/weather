@@ -229,36 +229,7 @@
         
         checkForAirQuality();
 
-        //takes a number from 0 to 23 and outputs the string in AM or PM
-        function convert24to12(number){
-            if(number == 0){
-                return "12<span>AM</span>";
-            }
-            else if(number < 12){
-                return number+"<span>AM</span>";
-            }
-            else if(number == 12){
-                return "12<span>PM<span>";
-            }
-            else if(number > 12){
-                return (number-12)+"<span>PM<span>";
-            }
-        }
 
-        function convert24to12NoEnding(number){
-            if(number == 0){
-                return "12";
-            }
-            else if(number < 12){
-                return number+"";
-            }
-            else if(number == 12){
-                return "12";
-            }
-            else if(number > 12){
-                return (number-12)+"";
-            }
-        }
 
         //Save the sunset time, Used for hourly
         let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
@@ -396,6 +367,37 @@
 
 
         /**********Functions**********/
+
+        //takes a number from 0 to 23 and outputs the string in AM or PM
+        function convert24to12(number){
+            if(number == 0){
+                return "12<span>AM</span>";
+            }
+            else if(number < 12){
+                return number+"<span>AM</span>";
+            }
+            else if(number == 12){
+                return "12<span>PM<span>";
+            }
+            else if(number > 12){
+                return (number-12)+"<span>PM<span>";
+            }
+        }
+
+        function convert24to12NoEnding(number){
+            if(number == 0){
+                return "12";
+            }
+            else if(number < 12){
+                return number+"";
+            }
+            else if(number == 12){
+                return "12";
+            }
+            else if(number > 12){
+                return (number-12)+"";
+            }
+        }
 
 
         function buildPrecipitationWidget(){
@@ -560,11 +562,11 @@
         }
 
         function buildSunriseWidget(){
-            document.querySelector(".sunrise").innerHTML = sunriseTime; 
+            document.querySelector(".sunrise").innerHTML = sunriseTime +"<span>AM</span>"; 
         }
 
         function buildSunsetWidget(){
-            document.querySelector(".sunset").innerHTML = sunsetTime; 
+            document.querySelector(".sunset").innerHTML = convert24to12NoEnding(sunsetHour)+":"+sunsetMin +"<span>PM</span>"; 
         }
 
         function buildVisibilityWidget(){

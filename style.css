@@ -367,6 +367,9 @@ hr{
 .sunrise{
     font-size: 2em;
 }
+.sunrise span{
+    font-size: 0.78em;
+}
 .sunrise-img{
     display:block;
     margin-left:auto;
@@ -378,6 +381,9 @@ hr{
 /* Sunset card */
 .sunset{
     font-size: 2em;
+}
+.sunset span{
+    font-size: 0.78em;
 }
 .sunset-img{
     display:block;
