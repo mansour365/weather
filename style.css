@@ -188,7 +188,8 @@ hr{
 }
 .hour{
     margin-right: 35px;
-    /*border: solid rgb(221, 224, 14) 2px;*/
+    white-space: nowrap;  /*Make the time to not wrap*/
+    /*border: solid rgb(221, 224, 14) 1px;*/
 }
 .hourNum{
     font-size: 13px;

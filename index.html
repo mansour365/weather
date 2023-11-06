@@ -111,7 +111,7 @@
                 <p class="card-title">AIR QUALITY</p>
             </div>
             <br>
-            <p class="airDesc">Good</p>
+            <p class="airDesc">Unhealthy for sensitive people</p>
             <br>
             <p class="airNote">Based on US EPA Standard</p>
             <img id = aqi-img src="images2/aqi line.png">
@@ -229,6 +229,22 @@
         
         checkForAirQuality();
 
+        //takes a number from 0 to 23 and outputs the string in AM or PM
+        function convert24to12(number){
+            if(number == 0){
+                return "12 AM";
+            }
+            else if(number < 12){
+                return number+" AM";
+            }
+            else if(number == 12){
+                return "12 PM";
+            }
+            else if(number > 12){
+                return (number-12)+" PM";
+            }
+        }
+
         //Save the sunset time, Used for hourly
         let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         const array = sunsetT.split(":"); 
@@ -297,10 +313,12 @@
                 newHour = theHour%24;
             }
 
-            //Fill next hourly slot with information
+            newHour = convert24to12(newHour);
+
+            //Fill next hourly slot with information  (Main one)
             document.querySelector(".hourly-weather").innerHTML +=  
             '<div class="hour">'+
-                '<p class=hourNum>'+newHour+'</p>'+                                             
+                '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature                                          
                 '<img id = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+                                     
                 '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
             '</div>';
@@ -358,6 +376,9 @@
         //Another layout idea
         //https://support.apple.com/en-au/guide/weather-mac/apdw93f0ea3e/mac
 
+        //uv bar
+        //https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fo96neai9ggn91.jpg%3Fwidth%3D1170%26format%3Dpjpg%26auto%3Dwebp%26s%3De5b92beaccb2ebc65034f18d5c385f0384828913
+
 
         /**********Functions**********/
 
@@ -395,9 +416,6 @@
             }
             document.querySelector(".uvDesc").innerHTML = uvDescription;
         }
-
-
-
 
         function checkForAirQuality(){
                 let airQualWord;
@@ -445,7 +463,6 @@
             5 means Very Unhealthy (Purple)
             6 means Hazardous (Maroon) */
         }
-
 
         function getSunriseTime(){
             //Save the sunrise time
@@ -524,7 +541,6 @@
                 dayCounter = dayCounter + 1;
             }
         }
-
 
         function buildSunriseWidget(){
             document.querySelector(".sunrise").innerHTML = sunriseTime; 
