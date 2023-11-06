@@ -311,12 +311,12 @@ hr{
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
 .airQual-card img{
-    width:380px;  /*width of the image inside the air quality card*/
+    width:385px;  /*width of the image inside the air quality card*/
+    border-radius:20px;
 }
 .airDesc{
     font-size: 1.3em;
 }
-
 .airNote{
     padding-top: 30px;
     font-size: 0.95em;
@@ -346,11 +346,12 @@ hr{
 .uvDesc{
     font-size: 1.3em;
 }
-.uvimg{
-    padding-top:50px;
+#uvimg{
+    margin-top:50px;
 }
-.square-card .uvimg{   /*Image inside the UV index card (not sure why this css is weird)*/
-    width: 160px;
+.square-card #uvimg{   /*Image inside the UV index card (not sure why this css is weird)*/
+    width: 163px;
+    border-radius:20px;
 }
 
 

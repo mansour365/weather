@@ -136,7 +136,7 @@
             <br>
             <p class = uvIndex>0</p>
             <p class = uvDesc>Low</p>
-            <img class="uvimg" src = "images2/uv-line.png">
+            <img id="uvimg" src = "images2/uv-line.png">
         </div>
 
         <div class="square-card">
@@ -217,16 +217,14 @@
         document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
 
         document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
-        
         document.querySelector(".wind").innerHTML = Math.round(data.current.wind_kph) + " km/h";
         document.querySelector(".windDirection").innerHTML = "Direction: "+data.current.wind_dir;
         document.querySelector(".windGust").innerHTML = " With wind gusts of <br />"+Math.round(data.current.gust_kph)+" km/h.";
-        document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
-        document.querySelector(".precipitation").innerHTML = Math.round(data.forecast.forecastday[0].day.totalprecip_mm) + " mm";
-        document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected <br /> tomorrow.";
-        document.querySelector(".pressure").innerHTML = data.current.pressure_mb+" hPa"; 
-
-
+        
+        
+        
+        buildPrecipitationWidget();
+       
         buildUVWidget();
         
         checkForAirQuality();
@@ -264,6 +262,8 @@
         let theHour = Number(theTime);      //convert the string into a number
         theHour = theHour + 1;   //Adding plus 1 to the hour (because we want to start hourly on the next hour)
         let dewpointHour = theHour - 1;
+
+
 
         //Get dew point data (It needs the current Hour)
         document.querySelector(".dewpoint").innerHTML = 'The dew point is '+Math.round(data.forecast.forecastday[0].hour[dewpointHour].dewpoint_c)+'° <br />right now.';
@@ -346,23 +346,7 @@
 
         buildVisibilityWidget();
 
-        //For pressure in hPa
-        //min low <= 900
-        //mid low == 950
-        //mid == 1000
-        //mid high == 1050
-        //max high >= 1100
-
-        //5 images
-        // 950,  975,  1000,  1025,  1050
-
-        
-       
-
-        
-       
-
-    
+        buildPressureWidget();
 
         //document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;
         //https://9to5mac.com/2023/01/08/macos-ventura-weather-app/
@@ -371,30 +355,43 @@
         //Source for visbility
         //https://www.semanticscholar.org/paper/Analysis-of-the-atmospheric-visibility-Restoration-Deshpande/662237bb893d2b50a728751880f20cf1f8225aef
 
+        //Another layout idea
+        //https://support.apple.com/en-au/guide/weather-mac/apdw93f0ea3e/mac
 
 
         /**********Functions**********/
 
 
+        function buildPrecipitationWidget(){
+            document.querySelector(".precipitation").innerHTML = Math.round(data.forecast.forecastday[0].day.totalprecip_mm) + " mm";
+            document.querySelector(".future-precipitation").innerHTML = Math.round(data.forecast.forecastday[1].day.totalprecip_mm) + " mm expected <br /> tomorrow.";
+        }
+
         function buildUVWidget()
         {
             //Get UV-index place into its widget
             document.querySelector(".uvIndex").innerHTML = data.current.uv;
+
             let uvDescription;
             if(data.current.uv > 10){
-                uvDescription = "Extreme";
+                uvDescription = "Extreme";  //purple
+                document.getElementById("uvimg").src = "images2/uv/purple.png";
             }
             else if(data.current.uv > 7){
-                uvDescription = "Very High";
+                uvDescription = "Very High";  //red
+                document.getElementById("uvimg").src = "images2/uv/red.png";
             }
             else if(data.current.uv > 5){
-                uvDescription = "High";
+                uvDescription = "High";   //orange
+                document.getElementById("uvimg").src = "images2/uv/orange.png";
             }
             else if(data.current.uv > 2){
-                uvDescription = "Moderate";
+                uvDescription = "Moderate";  //yellow
+                document.getElementById("uvimg").src = "images2/uv/yellow.png";
             }
             else{
-                uvDescription = "Low";
+                uvDescription = "Low";  //green
+                document.getElementById("uvimg").src = "images2/uv/green.png";
             }
             document.querySelector(".uvDesc").innerHTML = uvDescription;
         }
@@ -538,6 +535,8 @@
         }
 
         function buildVisibilityWidget(){
+            //Get main value
+            document.querySelector(".visibility").innerHTML = data.current.vis_km + " km";
             //Choose correct visibility descroption
             let visibility = data.current.vis_km;
             let description = "None";
@@ -554,6 +553,19 @@
                 description = "It's perfectly clear right now.";
             }
             document.querySelector(".visible-note").innerHTML = description;
+        }
+
+        function buildPressureWidget(){
+            document.querySelector(".pressure").innerHTML = data.current.pressure_mb+" hPa"; 
+            //For pressure in hPa
+            //min low <= 900
+            //mid low == 950
+            //mid == 1000
+            //mid high == 1050
+            //max high >= 1100
+
+            //5 images
+            // 950,  975,  1000,  1025,  1050
         }
 
 
