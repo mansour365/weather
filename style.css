@@ -194,6 +194,9 @@ hr{
 .hourNum{
     font-size: 13px;
 }
+.hourNum span{
+    font-size: 11px;
+}
 .hour img{
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
