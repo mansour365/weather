@@ -318,10 +318,10 @@
                 '<div class="hour">'+
                     '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature       
                     '<div class = "iconArea">'+                                   
-                        '<img class = "hourIconRain" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+
-                        '<p class= "rain-chance">'+rainChance+'%</p>'+   
+                        '<img class = "hourIconRain" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+ //weather icon for that hour
+                        '<p class= "rain-chance">'+rainChance+'%</p>'+  //chance of rain percent for that hour
                     '</div>'+                                  
-                    '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
+                    '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+  //temperature for that hour                                                
                 '</div>';
             }
             else{
@@ -330,14 +330,14 @@
                 '<div class="hour">'+
                     '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature       
                     '<div class = "iconArea">'+                                   
-                        '<img class = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+   
+                        '<img class = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+   //weather icon for that hour
                     '</div>'+                                  
-                    '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
+                    '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+  //temperature for that hour                                                
                 '</div>';
             }
 
             
-
+            //If we are at the last hour of day0, then we switch to day1
             if (theHour == 23){
                 currentDay = 1;
                 theHour = -1;
@@ -348,9 +348,9 @@
                 //insert the sunset slot now
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
-                    '<p class=hourNum>'+convert24to12NoEnding(sunsetHour)+":"+sunsetMin+'<span>PM</span></p>'+                                                      
-                    '<img class = "hourIcon" src=images2/sunset.png>'+                                             
-                    '<p class = "sunlabel">Sunset</p>'+                                             
+                    '<p class=hourNum>'+convert24to12NoEnding(sunsetHour)+":"+sunsetMin+'<span>PM</span></p>'+  //time of sunset for hourly                                                   
+                    '<img class = "hourIcon" src=images2/sunset.png>'+  //image of sunset for hourly                                           
+                    '<p class = "sunlabel">Sunset</p>'+   //label for sunset at hourly                                          
                 '</div>';
             }
             //check if next extry should be sunrise time
@@ -358,9 +358,9 @@
                 //insert the sunrise slot now
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
-                    '<p class=hourNum>'+sunriseTime+'<span>AM</span></p>'+                                                      
-                    '<img class = "hourIcon" src=images2/sunrise.png>'+                                             
-                    '<p class = "sunlabel">Sunrise</p>'+                                             
+                    '<p class=hourNum>'+sunriseTime+'<span>AM</span></p>'+   //time of sunrise for hourly                                                   
+                    '<img class = "hourIcon" src=images2/sunrise.png>'+  //image of sunrise for hourly                                           
+                    '<p class = "sunlabel">Sunrise</p>'+   //label for sunrise at hourly                                          
                 '</div>';
             }
             theHour = theHour + 1;
