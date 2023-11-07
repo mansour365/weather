@@ -307,10 +307,12 @@
 
             //Get the cahnce of rain for theHour
             let rainChance = data.forecast.forecastday[currentDay].hour[theHour].chance_of_rain;
+            //Round the number to the nearest 10
+            rainChance = Math.round(rainChance/10) * 10;
 
             // (*** MAIN AREA ***)
             //Check if the next hour will need a precipitation % under the icon
-            if(rainChance > 0){
+            if(rainChance > 9){
                 //Fill next hourly slot with information  (Has chance of rain)
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
