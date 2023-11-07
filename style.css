@@ -189,23 +189,46 @@ hr{
 .hour{
     margin-right: 35px;
     white-space: nowrap;  /*Make the time to not wrap*/
+    
     /*border: solid rgb(221, 224, 14) 1px;*/
 }
 .hourNum{
     font-size: 13px;
+    font-weight: 600;
     margin-bottom: 15px;
     /*border: solid rgb(221, 224, 14) 1px;*/
 }
 .hourNum span{
     font-size: 11px;
 }
-.hour img{
+.iconArea{
+    /*border: solid rgb(221, 224, 14) 1px;*/
+}
+.hourIcon{
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
     margin-bottom: 15px;
-    /*border: solid rgb(224, 21, 14) 1px;*/
+    /*border: solid rgb(38, 224, 14) 1px;*/
 }
-
+.hourIconRain{
+    width: 30px; /*width of image inside col container*/
+    margin-right: 0px; /*margin to the right of image in the col conatiner*/
+    margin-bottom: -5px;
+    margin-top: -9px;
+    /*border: solid rgb(14, 87, 224) 1px;*/
+}
+.rain-chance{
+    color:rgb(136, 199, 252);
+    font-size: 14px;
+    font-weight:600;
+    padding-bottom: 13px;
+    /*margin-top: -20px;*/
+    /*border: solid rgb(224, 45, 14) 1px;*/
+}
+.hourlytemp{
+    font-size: 20px;
+    font-weight:100;
+}
 
 
 

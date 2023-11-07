@@ -9,9 +9,12 @@
     <!--CSS Grid-->
     <!--weather API (rest api or api?)-->
 
+    <!--theweather.pages.dev-->
 
     <!--API KEY: 135f15ba9e1e49d3a64160722231710  -->
     <!--API URL: https://www.weatherapi.com/my/ -->
+
+    <!--Need to use the  HTML Geolocation API to get client location-->
 
 
     <link rel="stylesheet" href="style.css">
@@ -276,8 +279,8 @@
         document.querySelector(".hourly-weather").innerHTML +=  
             '<div class="hour">'+
                 '<p class=hourNum> Now </p>'+                                                      
-                '<img id = "hourIcon" src='+ data.current.condition.icon +'>'+                                             
-                '<p>'+Math.round(data.current.temp_c) +'°</p>'+                                             
+                '<img class = "hourIcon" src='+ data.current.condition.icon +'>'+                                             
+                '<p class = "hourlytemp">'+Math.round(data.current.temp_c) +'°</p>'+                                             
             '</div>';
         
         let currentDay = 0;
@@ -302,13 +305,36 @@
 
             newHour = convert24to12(newHour);
 
-            //Fill next hourly slot with information  (Main one)
-            document.querySelector(".hourly-weather").innerHTML +=  
-            '<div class="hour">'+
-                '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature                                          
-                '<img id = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+                                     
-                '<p>'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
-            '</div>';
+            //Get the cahnce of rain for theHour
+            let rainChance = data.forecast.forecastday[currentDay].hour[theHour].chance_of_rain;
+
+            // (*** MAIN AREA ***)
+            //Check if the next hour will need a precipitation % under the icon
+            if(rainChance > 0){
+                //Fill next hourly slot with information  (Has chance of rain)
+                document.querySelector(".hourly-weather").innerHTML +=  
+                '<div class="hour">'+
+                    '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature       
+                    '<div class = "iconArea">'+                                   
+                        '<img class = "hourIconRain" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+
+                        '<p class= "rain-chance">'+rainChance+'%</p>'+   
+                    '</div>'+                                  
+                    '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
+                '</div>';
+            }
+            else{
+                //Fill next hourly slot with information  (No chance of rain)
+                document.querySelector(".hourly-weather").innerHTML +=  
+                '<div class="hour">'+
+                    '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature       
+                    '<div class = "iconArea">'+                                   
+                        '<img class = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+   
+                    '</div>'+                                  
+                    '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+                                                  
+                '</div>';
+            }
+
+            
 
             if (theHour == 23){
                 currentDay = 1;
@@ -321,7 +347,7 @@
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
                     '<p class=hourNum>'+convert24to12NoEnding(sunsetHour)+":"+sunsetMin+'<span>PM</span></p>'+                                                      
-                    '<img id = "hourIcon" src=images2/sunset.png>'+                                             
+                    '<img class = "hourIcon" src=images2/sunset.png>'+                                             
                     '<p>Sunset</p>'+                                             
                 '</div>';
             }
@@ -331,7 +357,7 @@
                 document.querySelector(".hourly-weather").innerHTML +=  
                 '<div class="hour">'+
                     '<p class=hourNum>'+sunriseTime+'<span>AM</span></p>'+                                                      
-                    '<img id = "hourIcon" src=images2/sunrise.png>'+                                             
+                    '<img class = "hourIcon" src=images2/sunrise.png>'+                                             
                     '<p>Sunrise</p>'+                                             
                 '</div>';
             }
@@ -366,6 +392,8 @@
         //uv bar
         //https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fo96neai9ggn91.jpg%3Fwidth%3D1170%26format%3Dpjpg%26auto%3Dwebp%26s%3De5b92beaccb2ebc65034f18d5c385f0384828913
 
+        //Good view of hourly
+        //https://9to5mac.com/wp-content/uploads/sites/6/2022/11/apple-weather-mac.jpg?quality=82&strip=all
 
         /**********Functions**********/
 
