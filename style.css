@@ -226,11 +226,11 @@ hr{
     /*border: solid rgb(224, 45, 14) 1px;*/
 }
 .hourlytemp{
-    font-size: 20px;
+    font-size: 18px;
     font-weight:100;
 }
 .sunlabel{
-    padding-top: 3px;
+    padding-top: 2px;
     font-size: 17px;
     /*border: solid rgb(224, 45, 14) 1px;**/
 }
