@@ -700,14 +700,25 @@
     const hourlyScroll = document.querySelector(".hourly-weather");
 
     hourlyScroll.addEventListener("scroll", function(event) {
-        let scroll_x = this.scrollX;
-        console.log(scroll_x);
-
         
-        if(this.scrollX > 0)
+        /*let scroll_x = this.scrollX;
+        console.log(scroll_x);
+        console.log(hourlyScroll.scrollHeight);
+        
+        if(hourlyScroll.scrollHeight == 0)
         {
             console.log("Hello");
         }
+        */
+        const conent = document.querySelector(".hourly-weather");
+        if(conent.scrollLeft == 0){   //check if the scroll bar is at the beginning
+            console.log("scrollLeft is now 0");
+            document.querySelector(".left-arrow").style.display = "none";
+        }
+        else{
+            document.querySelector(".left-arrow").style.display = "block";
+        }
+        
     });
 
 
