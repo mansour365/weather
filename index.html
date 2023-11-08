@@ -656,13 +656,15 @@
     }
 
 
-    const searchBox = document.querySelector(".search input");
+    
     const searchBtn = document.querySelector(".search button");
 
     /*Event listener for clicking search button*/
     searchBtn.addEventListener("click", ()=>{
         checkWeather(searchBox.value);
     })
+
+    const searchBox = document.querySelector(".search input");
 
     /*Event listener for pressing the enter key*/
     searchBox.addEventListener("keypress", ()=>{
@@ -671,14 +673,18 @@
         }
     })
 
+
+
+
     const rightBtn = document.querySelector(".right-arrow");
     
     rightBtn.addEventListener("click", function(event) {
         const conent = document.querySelector(".hourly-weather");
         conent.scrollLeft += 300;
         event.preventDefault();
-    });
 
+       
+    });
 
     const leftBtn = document.querySelector(".left-arrow");
 
@@ -686,6 +692,22 @@
         const conent = document.querySelector(".hourly-weather");
         conent.scrollLeft -= 300;
         event.preventDefault();
+    });
+
+    
+
+    //Check position of horizontal scroll bar
+    const hourlyScroll = document.querySelector(".hourly-weather");
+
+    hourlyScroll.addEventListener("scroll", function(event) {
+        let scroll_x = this.scrollX;
+        console.log(scroll_x);
+
+        
+        if(this.scrollX > 0)
+        {
+            console.log("Hello");
+        }
     });
 
 
