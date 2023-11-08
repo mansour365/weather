@@ -180,11 +180,13 @@ hr{
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
     /*border: solid rgb(14, 224, 59) 2px;*/
+    position:relative;
 }
 .hourly-weather{
     display: flex;  /*add flex mode inside the col containers*/
     /*border: solid rgb(221, 224, 14) 2px;*/
     overflow: auto;  /*give the hourly weather a horizontal scroll bar*/
+    scroll-behavior: smooth;
 }
 .hour{
     margin-right: 35px;
@@ -233,6 +235,17 @@ hr{
     padding-top: 2px;
     font-size: 17px;
     /*border: solid rgb(224, 45, 14) 1px;**/
+}
+.right-arrow{
+    position:absolute;
+    right:-3%;
+    top:40%;
+}
+.left-arrow{
+    transform: scaleX(-1);
+    position:absolute;
+    left: -3%;
+    top:40%;
 }
 
 

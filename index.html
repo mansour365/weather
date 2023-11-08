@@ -57,6 +57,8 @@
             <br>
             <div class="hourly-weather">
             </div>
+            <img class = right-arrow src="images2/arrow.png">
+            <img class = left-arrow src="images2/arrow.png">
         </div>
 
         <div class="square-card">
@@ -198,8 +200,7 @@
     const airQual = "&aqi=yes";
     const alerts = "&alerts=yes";
 
-    const searchBox = document.querySelector(".search input");
-    const searchBtn = document.querySelector(".search button");
+    
 
 
     async function checkWeather(city){
@@ -654,6 +655,10 @@
 
     }
 
+
+    const searchBox = document.querySelector(".search input");
+    const searchBtn = document.querySelector(".search button");
+
     /*Event listener for clicking search button*/
     searchBtn.addEventListener("click", ()=>{
         checkWeather(searchBox.value);
@@ -666,8 +671,22 @@
         }
     })
 
+    const rightBtn = document.querySelector(".right-arrow");
+    
+    rightBtn.addEventListener("click", function(event) {
+        const conent = document.querySelector(".hourly-weather");
+        conent.scrollLeft += 300;
+        event.preventDefault();
+    });
 
 
+    const leftBtn = document.querySelector(".left-arrow");
+
+    leftBtn.addEventListener("click", function(event) {
+        const conent = document.querySelector(".hourly-weather");
+        conent.scrollLeft -= 300;
+        event.preventDefault();
+    });
 
 
 
