@@ -184,14 +184,28 @@ hr{
 }
 .hourly-weather{
     display: flex;  /*add flex mode inside the col containers*/
-    /*border: solid rgb(221, 224, 14) 2px;*/
     overflow: auto;  /*give the hourly weather a horizontal scroll bar*/
-    scroll-behavior: smooth;
+    user-select: none;  /*Make text unslectable,*/
+
+    /*change mouse icon to grab icon when hovering over hourly-weather*/
+    cursor: move; /* fallback: no `url()` support or images disabled */
+    cursor: url(images/grab.cur); /* fallback: Internet Explorer */
+    cursor: -webkit-grab; /* Chrome 1-21, Safari 4+ */
+    cursor:    -moz-grab; /* Firefox 1.5-26 */
+    cursor:         grab; /* W3C standards syntax, should come last */
+
+    /*scroll-behavior: smooth;
+    /*border: solid rgb(221, 224, 14) 2px;*/
+}
+.hourly-weather:active{
+    cursor: url(images/grabbing.cur);
+    cursor: -webkit-grabbing;
+    cursor:    -moz-grabbing;
+    cursor:         grabbing;  /*change mouse icon to grabbing mode when clicking on the hourly-weather*/
 }
 .hour{
     margin-right: 35px;
     white-space: nowrap;  /*Make the time to not wrap*/
-    
     /*border: solid rgb(221, 224, 14) 1px;*/
 }
 .hourNum{
@@ -210,6 +224,7 @@ hr{
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
     margin-bottom: 15px;
+    pointer-events: none;  /*Makes images on the hourly widget to not be draggable (helps when using mouse to drage the widget)*/
     /*border: solid rgb(38, 224, 14) 1px;*/
 }
 .hourIconRain{
@@ -470,11 +485,23 @@ hr{
     .my-grid{
         width:1100px;
     }
+    .right-arrow{
+        right:-2.5%;
+    }
+    .left-arrow{
+        left: -2.5%;
+    }
 }
 
 @media screen and (max-width: 1119px){
     .my-grid{
         width:880px;
+    }
+    .right-arrow{
+        right:-3%;
+    }
+    .left-arrow{
+        left: -3%;
     }
 }
 
@@ -485,6 +512,12 @@ hr{
     .hourly-card{
         width: 425px;
         grid-column: span 2 / auto; 
+    }
+    .right-arrow{
+        right:-5%;
+    }
+    .left-arrow{
+        left: -5%;
     }
 }
 

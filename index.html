@@ -680,7 +680,7 @@
     
     rightBtn.addEventListener("click", function(event) {
         const conent = document.querySelector(".hourly-weather");
-        conent.scrollLeft += 300;
+        conent.scrollLeft += 380;
         event.preventDefault();
 
        
@@ -690,17 +690,18 @@
 
     leftBtn.addEventListener("click", function(event) {
         const conent = document.querySelector(".hourly-weather");
-        conent.scrollLeft -= 300;
+        conent.scrollLeft -= 380;
         event.preventDefault();
     });
 
     
 
-    //Check position of horizontal scroll bar
+    //Check position of horizontal scroll bar and choose visibility for arrows
     const hourlyScroll = document.querySelector(".hourly-weather");
 
     hourlyScroll.addEventListener("scroll", function(event) {
         const conent = document.querySelector(".hourly-weather");
+
         //check if the scroll bar is at the beginning
         if(conent.scrollLeft == 0){   
             document.querySelector(".left-arrow").style.display = "none";
@@ -715,6 +716,42 @@
             document.querySelector(".right-arrow").style.display = "block";
         }
     });
+
+
+
+
+    //Code to allow for dragging on the hourly widget
+    let mouseDown = false;
+    let startX, scrollLeft;
+    const slider = document.querySelector('.hourly-weather');
+
+    const startDragging = (e) => {
+        mouseDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        document.querySelector(".hourly-weather").style.scrollBehavior = "auto";  //need to shut off smooth scroll or dragging will be laggy
+    }
+
+    const stopDragging = (e) => {
+        mouseDown = false; 
+        document.querySelector(".hourly-weather").style.scrollBehavior = "smooth"; //turn smooth scroll back on when not dragging anymore
+    }
+
+    const move = (e) => {
+        e.preventDefault();
+        if(!mouseDown) { 
+            return; 
+        }
+        const x = e.pageX - slider.offsetLeft;
+        const scroll = x - startX;
+        slider.scrollLeft = scrollLeft - scroll;
+    }
+
+    // Add the event listeners
+    slider.addEventListener('mousemove', move, false);
+    slider.addEventListener('mousedown', startDragging, false);
+    slider.addEventListener('mouseup', stopDragging, false);
+    slider.addEventListener('mouseleave', stopDragging, false);
 
 
 
