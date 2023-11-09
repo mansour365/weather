@@ -231,29 +231,19 @@
 
         console.log(data);
 
-        /*Put current weather data into website elements*/
-        document.getElementById("icon").src= data.current.condition.icon;
-        document.querySelector(".city").innerHTML = data.location.name;
-        document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
-        document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
-        document.querySelector(".feel").innerHTML = "Feels like " + Math.round(data.current.feelslike_c) + "°";
-        document.querySelector(".condition").innerHTML = data.current.condition.text;
-        document.querySelector(".H").innerHTML = "H:"+Math.round(data.forecast.forecastday[0].day.maxtemp_c) + "°";
-        document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
 
-        document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
-        
-        
-        
+        buildCurrentWeather();
+
+        buildHumidityWidget();
+
         buildPrecipitationWidget();
-       
+
         buildUVWidget();
-        
-        checkForAirQuality();
+
+        buildAirQualityWidget();
 
         
 
-        
         //Save the sunset time, Used for hourly
         let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         const array = sunsetT.split(":"); 
@@ -387,7 +377,6 @@
         
 
         removeOldThreeDayData();
-
         buildThreeDayWidget();
 
         buildWindWidget();
@@ -403,6 +392,22 @@
 
 
         /**********Functions**********/
+
+        function buildCurrentWeather(){
+            /*Put current weather data into website elements*/
+            document.getElementById("icon").src= data.current.condition.icon;
+            document.querySelector(".city").innerHTML = data.location.name;
+            document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
+            document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
+            document.querySelector(".feel").innerHTML = "Feels like " + Math.round(data.current.feelslike_c) + "°";
+            document.querySelector(".condition").innerHTML = data.current.condition.text;
+            document.querySelector(".H").innerHTML = "H:"+Math.round(data.forecast.forecastday[0].day.maxtemp_c) + "°";
+            document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
+        }
+
+        function buildHumidityWidget(){
+            document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
+        }
 
         //takes a number from 0 to 23 and outputs the string in AM or PM
         function convert24to12(number){
@@ -474,7 +479,7 @@
             document.querySelector(".uvDesc").innerHTML = uvDescription;
         }
 
-        function checkForAirQuality(){
+        function buildAirQualityWidget(){
                 let airQualWord;
                 if(data.current.air_quality["us-epa-index"] == "null"){
                     document.querySelector(".airQual").innerHTML = "Air Quality inforation is currently not available for this location";
