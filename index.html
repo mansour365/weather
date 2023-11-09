@@ -43,6 +43,7 @@
 </head>
 
 <body>
+
     <!--current-card is for current weather-->
     <div class = "current-card">
 
@@ -63,6 +64,7 @@
                 <p class="L">L:0°</p>
             </div>
         </div>
+
     </div>
 
     <div class="my-grid">
@@ -208,11 +210,37 @@
     <br>
     <br>
 
-    
+    <p id="demo"></p>
 
     
 
 <script>
+    getlocation();
+    //Automatically get user's location
+    let latitudeNum;
+    let longitudeNum;
+
+    function getlocation() {
+        
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } 
+        else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        latitudeNum = position.coords.latitude;
+        longitudeNum = position.coords.longitude;
+        console.log("latitude is "+latitudeNum);
+        console.log("longitude is "+longitudeNum);
+        //put coordinates into the search query
+        checkWeather(latitudeNum+" , "+longitudeNum);
+    }
+
+
+
     const apiURL = "https://api.weatherapi.com/v1/";
     const forecast = "forecast.json?";
     const key = "key=135f15ba9e1e49d3a64160722231710&q=";
@@ -221,8 +249,6 @@
     const alerts = "&alerts=yes";
 
     
-
-
     async function checkWeather(city){
 
         /*fetch 3 day weather data*/
@@ -243,7 +269,6 @@
         buildAirQualityWidget();
 
         
-
         //Save the sunset time, Used for hourly
         let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         const array = sunsetT.split(":"); 
@@ -403,6 +428,7 @@
             document.querySelector(".condition").innerHTML = data.current.condition.text;
             document.querySelector(".H").innerHTML = "H:"+Math.round(data.forecast.forecastday[0].day.maxtemp_c) + "°";
             document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
+
         }
 
         function buildHumidityWidget(){
