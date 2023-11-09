@@ -194,12 +194,10 @@ hr{
     cursor:    -moz-grab; /* Firefox 1.5-26 */
     cursor:         grab; /* W3C standards syntax, should come last */
 
-    /*Make horizontal scrollbar invisible*/
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /*Make horizontal scrollbar invisible for Internet Explorer 10+ */
+    scrollbar-width: none;  /* Make horizontal scrollbar invisible Firefox */
 
-
-    /*scroll-behavior: smooth;
+    /*scroll-behavior: smooth;*/
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
 

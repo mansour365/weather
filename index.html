@@ -16,6 +16,26 @@
 
     <!--Need to use the  HTML Geolocation API to get client location-->
 
+    <!--
+    //document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;
+    //https://9to5mac.com/2023/01/08/macos-ventura-weather-app/
+    //https://media.idownloadblog.com/wp-content/uploads/2021/07/Air-quality-index.jpeg
+    //https://discuss.tidbyt.com/uploads/db2982/original/2X/a/aac34789ec36960b097645564653eb35b7a4413f.jpeg
+    //Source for visbility
+    //https://www.semanticscholar.org/paper/Analysis-of-the-atmospheric-visibility-Restoration-Deshpande/662237bb893d2b50a728751880f20cf1f8225aef
+
+    //Another layout idea
+    //https://support.apple.com/en-au/guide/weather-mac/apdw93f0ea3e/mac
+
+    //uv bar
+    //https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fo96neai9ggn91.jpg%3Fwidth%3D1170%26format%3Dpjpg%26auto%3Dwebp%26s%3De5b92beaccb2ebc65034f18d5c385f0384828913
+
+    //Good view of hourly
+    //https://9to5mac.com/wp-content/uploads/sites/6/2022/11/apple-weather-mac.jpg?quality=82&strip=all
+
+    //show horizontal scroll bar on hover
+    //https://stackoverflow.com/questions/8631799/make-scrollbars-only-visible-when-a-div-is-hovered-over
+    -->
 
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script> <!--defer makes it execute after body-->
@@ -222,9 +242,6 @@
         document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
 
         document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
-        document.querySelector(".wind").innerHTML = Math.round(data.current.wind_kph) + " km/h";
-        document.querySelector(".windDirection").innerHTML = "Direction: "+data.current.wind_dir;
-        document.querySelector(".windGust").innerHTML = " With wind gusts of <br />"+Math.round(data.current.gust_kph)+" km/h.";
         
         
         
@@ -234,8 +251,9 @@
         
         checkForAirQuality();
 
+        
 
-
+        
         //Save the sunset time, Used for hourly
         let sunsetT = data.forecast.forecastday[0].astro.sunset.replace(/^0+/,"");//format is something like "5:51 PM"
         const array = sunsetT.split(":"); 
@@ -253,7 +271,6 @@
 
 
         
-
         let sunriseTime = getSunriseTime();
 
         let sunriseHour = getSunriseHour(sunriseTime);
@@ -369,10 +386,11 @@
         }
         
 
-
         removeOldThreeDayData();
 
         buildThreeDayWidget();
+
+        buildWindWidget();
 
         buildSunriseWidget();
 
@@ -382,24 +400,7 @@
 
         buildPressureWidget();
 
-        //document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;
-        //https://9to5mac.com/2023/01/08/macos-ventura-weather-app/
-        //https://media.idownloadblog.com/wp-content/uploads/2021/07/Air-quality-index.jpeg
-        //https://discuss.tidbyt.com/uploads/db2982/original/2X/a/aac34789ec36960b097645564653eb35b7a4413f.jpeg
-        //Source for visbility
-        //https://www.semanticscholar.org/paper/Analysis-of-the-atmospheric-visibility-Restoration-Deshpande/662237bb893d2b50a728751880f20cf1f8225aef
 
-        //Another layout idea
-        //https://support.apple.com/en-au/guide/weather-mac/apdw93f0ea3e/mac
-
-        //uv bar
-        //https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fo96neai9ggn91.jpg%3Fwidth%3D1170%26format%3Dpjpg%26auto%3Dwebp%26s%3De5b92beaccb2ebc65034f18d5c385f0384828913
-
-        //Good view of hourly
-        //https://9to5mac.com/wp-content/uploads/sites/6/2022/11/apple-weather-mac.jpg?quality=82&strip=all
-
-        //show horizontal scroll bar on hover
-        //https://stackoverflow.com/questions/8631799/make-scrollbars-only-visible-when-a-div-is-hovered-over
 
         /**********Functions**********/
 
@@ -471,9 +472,6 @@
                 document.querySelector(".uvNote").innerHTML = "Minimal danger from <br /> sun's UV rays.";
             }
             document.querySelector(".uvDesc").innerHTML = uvDescription;
-
-            
-
         }
 
         function checkForAirQuality(){
@@ -521,6 +519,12 @@
             4 means Unhealthy (Red)
             5 means Very Unhealthy (Purple)
             6 means Hazardous (Maroon) */
+        }
+
+        function buildWindWidget(){
+            document.querySelector(".wind").innerHTML = Math.round(data.current.wind_kph) + " km/h";
+            document.querySelector(".windDirection").innerHTML = "Direction: "+data.current.wind_dir;
+            document.querySelector(".windGust").innerHTML = " With wind gusts of <br />"+Math.round(data.current.gust_kph)+" km/h.";
         }
 
         function getSunriseTime(){
@@ -748,10 +752,10 @@
     }
 
     // Add the event listeners
-    slider.addEventListener('mousemove', move, false);
-    slider.addEventListener('mousedown', startDragging, false);
-    slider.addEventListener('mouseup', stopDragging, false);
-    slider.addEventListener('mouseleave', stopDragging, false);
+    slider.addEventListener('mousemove', move, false);  //when mouse is moving, check if the mouse is being pressed down
+    slider.addEventListener('mousedown', startDragging, false);  //When mouse is pressed down, active startDreagging method
+    slider.addEventListener('mouseup', stopDragging, false);  //When mouse is not being pressed activate stop dragging method
+    slider.addEventListener('mouseleave', stopDragging, false);  //active stopDragging method when mouse is not over the houlry-weather div
 
 
 
