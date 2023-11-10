@@ -44,20 +44,29 @@
 
 <body>
 
+    <div class = "searchArea">
+        <div class="search">
+            <input type = "text" placeholder = "Search" spellcheck = "false"> <!--Search bar-->
+            <!--<button><img src="images2/search.png"></button>--> <!--search button-->
+        </div>
+    </div>
+    
+
     <!--current-card is for current weather-->
     <div class = "current-card">
 
-        <div class="search">
-            <input type = "text" placeholder = "enter city name" spellcheck = "false"> <!--Search bar-->
-            <button><img src="images2/search.png"></button> <!--search button-->
-        </div>
-
         <div class="weather">
-            <img id = "icon" src="images2/clear.png" class = "weather-icon"> <!--Current Weather image-->
+            <!--
+            <img id = "icon" src="images2/clear.png" class = "weather-icon"> 
+            -->
             <h2 class="city">Location</h2>   <!--Current Weather location-->
             <p class="region">Region</p> <!---->
-            <h1 class="temp">0°C</h1>    <!--Current weather temperature-->
-            <h3 class="feel">Feels like 0°</h3>    <!--Feels like temperature-->
+            <div class = "temps">
+                <p class="space"></p>
+                <h1 class="temp">0°C</h1>    <!--Current weather temperature-->
+                <h3 class="feel">Feels like 0°</h3>    <!--Feels like temperature-->
+            </div>
+            
             <h3 class="condition">Condition</h3>  <!--Current Condition-->
             <div class = "HL">
                 <p class="H">H:0°</p>
@@ -420,7 +429,7 @@
 
         function buildCurrentWeather(){
             /*Put current weather data into website elements*/
-            document.getElementById("icon").src= data.current.condition.icon;
+            //document.getElementById("icon").src= data.current.condition.icon;
             document.querySelector(".city").innerHTML = data.location.name;
             document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
             document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
@@ -691,14 +700,15 @@
     }
 
 
-    
+    /*
     const searchBtn = document.querySelector(".search button");
 
     /*Event listener for clicking search button*/
+    /*
     searchBtn.addEventListener("click", ()=>{
         checkWeather(searchBox.value);
     })
-
+    */
     const searchBox = document.querySelector(".search input");
 
     /*Event listener for pressing the enter key*/
@@ -714,6 +724,7 @@
     const rightBtn = document.querySelector(".right-arrow");
     
     rightBtn.addEventListener("click", function(event) {
+        document.querySelector(".hourly-weather").style.scrollBehavior = "smooth";
         const conent = document.querySelector(".hourly-weather");
         conent.scrollLeft += 380;
         event.preventDefault();
@@ -724,6 +735,7 @@
     const leftBtn = document.querySelector(".left-arrow");
 
     leftBtn.addEventListener("click", function(event) {
+        document.querySelector(".hourly-weather").style.scrollBehavior = "smooth";
         const conent = document.querySelector(".hourly-weather");
         conent.scrollLeft -= 380;
         event.preventDefault();

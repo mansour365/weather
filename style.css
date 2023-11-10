@@ -23,13 +23,26 @@ hr{
     text-align: center;   /*Move elements to center*/
 }
 
+.searchArea{
+    border: solid rgb(221, 224, 14) 1px;
+    width:100%;
+    height: 58px;
+    margin: auto;
 
+    position: relative;
+}
 
 .search{
-    width: 100%;
-    display: flex;
     align-items: center; /*on the vertical axis of the card align it to center*/
     justify-content: space-between; /*Even distribute items in the horizontal axis of the card*/
+    padding-top: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: solid rgb(31, 224, 14) 1px;
+    width:400px;
+
+    position:absolute;
+    right: 0;
 }
 .search input{
     border: 0; /*remove border around the text input box*/
@@ -37,27 +50,30 @@ hr{
     background: rgb(19, 71, 117); /*background color inside the text input box*/
     color: white; /*color of text inside the search input*/
     padding: 10px 25px; /*padding the text inside the search input box*/
-    height:60px;  /*height of text input box*/
-    border-radius: 30px;  /*cureve the edges of the text box*/
+    height:40px;  /*height of text input box*/
+    border-radius: 11px;  /*cureve the edges of the text box*/
     flex: 1; 
     margin-right: 16px;  /*space on right of text input box*/
     font-size: 18px; /*size of text inside text input box*/
+    width: 280px;
 }
 ::placeholder {    /*Color of the search placeholder text*/
     color: white;
     opacity: 0.7; /* Firefox */
   }
+/*
 .search button{
     border: 0; /*remove border around the search button*/
-    background: #ebfffc; /*Color of the search button*/
-    border-radius: 50%;  /*curve the edge of the button*/
-    width: 60px; /*width of the button*/
-    height: 60px; /*height of the button*/
-    cursor: pointer;  /*when hover mouse of button the mouse pointer becomes a finger*/
-}
+    /*background: #ebfffc; /*Color of the search button*/
+    /*border-radius: 50%;  /*curve the edge of the button*/
+    /*width: 60px; /*width of the button*/
+    /*height: 60px; /*height of the button*/
+    /*cursor: pointer;  /*when hover mouse of button the mouse pointer becomes a finger*/
+/*}*/
+/*
 .search button img{
     width: 16px; /*width of the image in the button*/
-}
+/*}*/
 
 
 
@@ -78,6 +94,26 @@ hr{
     font-weight:100;
     margin-bottom: 10px;
 }
+
+.temps{
+    display: flex;
+    width:1340px;
+    margin: auto;
+}
+.space{
+    width:33.33%;
+    border: solid rgb(224, 45, 14) 1px;
+}
+.temp{
+    width:33.33%;
+    border: solid rgb(224, 150, 14) 1px;
+}
+.feel{
+    width:33.33%;
+    border: solid rgb(221, 224, 14) 1px;
+}
+
+
 /*Current Temperature*/
 .weather .temp{
     font-size: 80px; /*font size of the temperature*/
@@ -162,7 +198,7 @@ hr{
     width: 200px;  /*width of the card*/
     background: rgb(37, 113, 181);
     color: #fff;    /*text color inside the card*/
-    border-radius:20px;   /*make the card have curved edges*/
+    border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: left;   /*Move elements to center*/
     /*border: solid rgb(224, 56, 14) 1px;*/
@@ -176,7 +212,7 @@ hr{
     width: 877px;  /*width of the card*/
     background: rgb(37, 113, 181); /*background color of hourly card*/
     color: #fff;    /*text color inside the card*/
-    border-radius:20px;   /*make the card have curved edges*/
+    border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
     /*border: solid rgb(14, 224, 59) 2px;*/
@@ -303,7 +339,7 @@ hr{
     width: 425px;  /*width of the card*/
     background: rgb(37, 113, 181); /*background color of the daily card*/
     color: #fff;    /*text color inside the card*/
-    border-radius:20px;   /*make the card have curved edges*/
+    border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
     /*border: solid rgb(221, 224, 14) 1px;*/
@@ -377,7 +413,7 @@ hr{
     width: 425px;  /*width of the card*/
     background: rgb(37, 113, 181);
     color: #fff;    /*text color inside the card*/
-    border-radius:20px;   /*make the card have curved edges*/
+    border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
     text-align: left;   /*Move elements to center*/
     position: relative;
@@ -498,6 +534,9 @@ hr{
     .left-arrow{
         left: -2.5%;
     }
+    .temps{
+        width:1100px;
+    }
 }
 
 @media screen and (max-width: 1119px){
@@ -509,6 +548,9 @@ hr{
     }
     .left-arrow{
         left: -3%;
+    }
+    .temps{
+        width:800px;
     }
 }
 
@@ -526,5 +568,18 @@ hr{
     .left-arrow{
         left: -5%;
     }
+    .temps{
+        width:430px;
+    }
+    .search{
+        margin: auto;
+        width: 75%;
+        padding: 10px;
+        left:0;
+    }
+    .search input{
+        width:100%;
+    }
+
 }
 
