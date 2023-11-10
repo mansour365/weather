@@ -12,8 +12,7 @@ body{
 
 hr{
     height: 1px;
-    /*Setting border to 0 and border-top to 1px, get a true 1px hr*/
-    border:0;
+    border:0;  /*Setting border to 0 and border-top to 1px, get a true 1px hr*/
     border-top: 1px solid rgb(136, 199, 252); /*For light mode*/
 }
 
@@ -99,20 +98,36 @@ hr{
     display: flex;
     width:400px;
     margin: auto;
+    justify-content: center;
 }
 .space{
     width:25%;
     border: solid rgb(224, 45, 14) 1px;
 }
 .temp{
-    width:50%;
+    width:auto;
     border: solid rgb(224, 150, 14) 1px;
+    padding-left:20px;
+    padding-right:10px;
+    
 }
 .feel{
     width:25%;
     border: solid rgb(221, 224, 14) 1px;
     text-align: left;
-    padding-top: 23px;
+    padding-top: 33px;
+    display:flex;
+}
+.feel-text{
+    /*border: solid rgb(14, 224, 77) 1px;*/
+    font-size: 0.7em;
+    padding-right:3px;
+
+}
+.feel-temp{
+    /*border: solid rgb(224, 14, 24) 1px;*/
+    font-size:1.6em;
+
 }
 
 

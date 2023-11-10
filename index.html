@@ -68,7 +68,14 @@
             <div class = "temps">
                 <p class="space"></p>
                 <h1 class="temp">0°C</h1>    <!--Current weather temperature-->
-                <h3 class="feel">Feels <br > like 0°</h3>    <!--Feels like temperature-->
+                <div class="feel">
+                    <div class = "feel-text">
+                        Feels <br > like
+                    </div>
+                    <div class = "feel-temp">
+                        0
+                    </div>
+                </div>    <!--Feels like temperature-->
             </div>
             
             <h3 class="condition">Condition</h3>  <!--Current Condition-->
@@ -436,8 +443,8 @@
             //document.getElementById("icon").src= data.current.condition.icon;
             document.querySelector(".city").innerHTML = data.location.name;
             document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
-            document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
-            document.querySelector(".feel").innerHTML = "Feels <br > like " + Math.round(data.current.feelslike_c) + "°";
+            document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°";
+            document.querySelector(".feel-temp").innerHTML =  Math.round(data.current.feelslike_c);
             document.querySelector(".condition").innerHTML = data.current.condition.text;
             document.querySelector(".H").innerHTML = "H:"+Math.round(data.forecast.forecastday[0].day.maxtemp_c) + "°";
             document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
