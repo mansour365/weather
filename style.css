@@ -97,20 +97,22 @@ hr{
 
 .temps{
     display: flex;
-    width:1340px;
+    width:400px;
     margin: auto;
 }
 .space{
-    width:33.33%;
+    width:25%;
     border: solid rgb(224, 45, 14) 1px;
 }
 .temp{
-    width:33.33%;
+    width:50%;
     border: solid rgb(224, 150, 14) 1px;
 }
 .feel{
-    width:33.33%;
+    width:25%;
     border: solid rgb(221, 224, 14) 1px;
+    text-align: left;
+    padding-top: 23px;
 }
 
 
@@ -534,9 +536,6 @@ hr{
     .left-arrow{
         left: -2.5%;
     }
-    .temps{
-        width:1100px;
-    }
 }
 
 @media screen and (max-width: 1119px){
@@ -548,9 +547,6 @@ hr{
     }
     .left-arrow{
         left: -3%;
-    }
-    .temps{
-        width:800px;
     }
 }
 
@@ -567,9 +563,6 @@ hr{
     }
     .left-arrow{
         left: -5%;
-    }
-    .temps{
-        width:430px;
     }
     .search{
         margin: auto;
