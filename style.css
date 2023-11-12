@@ -540,6 +540,17 @@ hr{
 .pressure{
     font-size: 2em;
 }
+.pressure-note{
+    font-size: 0.95em;
+    position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
+    bottom: 15px;  /*Position in the parent div*/
+}
+#pressure-img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width: 40px;
+}
 
 .bottom{
     display:flex;

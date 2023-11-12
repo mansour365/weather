@@ -224,6 +224,8 @@
             </div>
             <br>
             <p class="pressure">0 hPa</p>
+            <img id="pressure-img" src = "images2/arrow-up.png">
+            <p class="pressure-note">Standard sea-level pressure is 1013 hPa.</p>
         </div>
 
     </div>
@@ -691,7 +693,17 @@
         }
 
         function buildPressureWidget(){
-            document.querySelector(".pressure").innerHTML = data.current.pressure_mb+" hPa"; 
+            let currentPressure = data.current.pressure_mb;
+            document.querySelector(".pressure").innerHTML = currentPressure+"hPa"; 
+
+            if(currentPressure >= 1013)
+            {
+                document.getElementById("pressure-img").src = "images2/arrow-up.png";
+            }
+            else{
+                document.getElementById("pressure-img").src = "images2/arrow-down.png";
+            }
+
             //For pressure in hPa
             //min low <= 900
             //mid low == 950
