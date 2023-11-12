@@ -7,7 +7,9 @@
 }
 
 body{
-    background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148)); /*Background color of entire page*/
+    background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148));
+    /*background-image: url('images2/backgrounds/overcast.png');*/
+    background-size: cover;
 }
 
 hr{
@@ -46,7 +48,9 @@ hr{
 .search input{
     border: 0; /*remove border around the text input box*/
     outline:0; /*remove border around text input when click on text box*/
-    background: rgb(19, 71, 117); /*background color inside the text input box*/
+    /*background: rgb(19, 71, 117); /*background color inside the text input box*/
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
     color: white; /*color of text inside the search input*/
     padding: 10px 25px; /*padding the text inside the search input box*/
     height:40px;  /*height of text input box*/
@@ -213,7 +217,9 @@ hr{
 
 .square-card {
     width: 200px;  /*width of the card*/
-    background: rgb(37, 113, 181);
+    /*background: rgb(37, 113, 181);*/
+    /*background: rgba(32, 101, 161, 0.7);*/
+    backdrop-filter: blur(100px);
     color: #fff;    /*text color inside the card*/
     border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
@@ -227,7 +233,9 @@ hr{
 
 .hourly-card{
     width: 877px;  /*width of the card*/
-    background: rgb(37, 113, 181); /*background color of hourly card*/
+    /*background: rgb(37, 113, 181); /*background color of hourly card*/
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
     color: #fff;    /*text color inside the card*/
     border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
@@ -356,7 +364,9 @@ hr{
 /* The three day card (should probably rename the div for this card)*/
 .daily-card{
     width: 425px;  /*width of the card*/
-    background: rgb(37, 113, 181); /*background color of the daily card*/
+    /*background: rgb(37, 113, 181); /*background color of the daily card*/
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
     color: #fff;    /*text color inside the card*/
     border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/
@@ -430,7 +440,9 @@ hr{
 /* Air quality card */
 .airQual-card{
     width: 425px;  /*width of the card*/
-    background: rgb(37, 113, 181);
+    /*background: rgb(37, 113, 181);*/
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
     color: #fff;    /*text color inside the card*/
     border-radius:11px;   /*make the card have curved edges*/
     padding: 20px 20px;  /*Internal padding from the border of the card*/

@@ -282,6 +282,25 @@
 
         console.log(data);
 
+        //need to get correct background according to condition
+       
+        buildBackgroundImage();
+        function buildBackgroundImage(){
+            let currentCondition = data.current.condition.text;
+            let sky = "clear";
+            let sky2 = "overcast";
+            let sky3 = "night"
+            /*document.body.style.backgroundColor = "#f3f3f3";*/
+            /*document.body.style.backgroundImage = "url('images2/backgrounds/overcast.png')";*/
+            if(sky == "clear")
+            {
+                divColor = "rgba(32, 101, 161, 0.7)";
+                titleColor = "rgb(136, 199, 252)";
+            }
+            document.querySelector(".square-card").style.background = divColor;
+
+        }
+
 
         buildCurrentWeather();
 
