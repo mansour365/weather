@@ -64,7 +64,7 @@
             <img id = "icon" src="images2/clear.png" class = "weather-icon"> 
             -->
             <h2 class="city">Location</h2>   <!--Current Weather location-->
-            <p class="region">Region</p> <!---->
+            <!--<p class="region">Region</p>--> <!---->
             <div class = "temps">
                 <p class="space"></p>
                 <h1 class="temp">0°C</h1>    <!--Current weather temperature-->
@@ -230,7 +230,10 @@
     <br>
     <br>
 
-    <p id="demo"></p>
+    <div class = "bottom">
+        <p>Region: </p> 
+        <div class = "region"></div>
+    </div>
 
     
 
@@ -442,7 +445,7 @@
             /*Put current weather data into website elements*/
             //document.getElementById("icon").src= data.current.condition.icon;
             document.querySelector(".city").innerHTML = data.location.name;
-            document.querySelector(".region").innerHTML = data.location.region +" "+data.location.country;
+            document.querySelector(".region").innerHTML = data.location.region +" , "+data.location.country;
             document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°";
             document.querySelector(".feel-temp").innerHTML =  Math.round(data.current.feelslike_c);
             document.querySelector(".condition").innerHTML = data.current.condition.text;
