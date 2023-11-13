@@ -71,6 +71,7 @@ async function checkWeather(city){
             searchColor = "rgba(5, 69, 124, 0.7)";
             titleColor = "rgb(136, 199, 252)";
             wallpaper = "linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148))";
+            document.querySelectorAll(".full-title .icon").forEach(e => e.style.filter = "grayscale(0%)");
         }
         //Overcast theme
         else{
@@ -218,7 +219,7 @@ hr{
             document.querySelector(".hourly-weather").innerHTML +=  
             '<div class="hour">'+
                 '<p class=hourNum>'+convert24to12NoEnding(sunsetHour)+":"+sunsetMin+'<span>PM</span></p>'+  //time of sunset for hourly                                                   
-                '<img class = "hourIcon" src=images2/sunset.png>'+  //image of sunset for hourly                                           
+                '<img class = "hourIcon" src=images/sunset.png>'+  //image of sunset for hourly                                           
                 '<p class = "sunlabel">Sunset</p>'+   //label for sunset at hourly                                          
             '</div>';
         }
@@ -228,7 +229,7 @@ hr{
             document.querySelector(".hourly-weather").innerHTML +=  
             '<div class="hour">'+
                 '<p class=hourNum>'+sunriseTime+'<span>AM</span></p>'+   //time of sunrise for hourly                                                   
-                '<img class = "hourIcon" src=images2/sunrise.png>'+  //image of sunrise for hourly                                           
+                '<img class = "hourIcon" src=images/sunrise.png>'+  //image of sunrise for hourly                                           
                 '<p class = "sunlabel">Sunrise</p>'+   //label for sunrise at hourly                                          
             '</div>';
         }
@@ -316,27 +317,27 @@ hr{
         let uvDescription;
         if(data.current.uv > 10){
             uvDescription = "Extreme";  //purple
-            document.getElementById("uvimg").src = "images2/uv/purple.png";
+            document.getElementById("uvimg").src = "images/uv/purple.png";
             document.querySelector(".uvNote").innerHTML = "Very high risk of harm <br /> from sun exposure.";
         }
         else if(data.current.uv > 7){
             uvDescription = "Very High";  //red
-            document.getElementById("uvimg").src = "images2/uv/red.png";
+            document.getElementById("uvimg").src = "images/uv/red.png";
             document.querySelector(".uvNote").innerHTML = "High risk of harm <br />from sun exposure.";
         }
         else if(data.current.uv > 5){
             uvDescription = "High";   //orange
-            document.getElementById("uvimg").src = "images2/uv/orange.png";
+            document.getElementById("uvimg").src = "images/uv/orange.png";
             document.querySelector(".uvNote").innerHTML = "Moderate risk of harm <br /> from sun exposure.";
         }
         else if(data.current.uv > 2){
             uvDescription = "Moderate";  //yellow
-            document.getElementById("uvimg").src = "images2/uv/yellow.png";
+            document.getElementById("uvimg").src = "images/uv/yellow.png";
             document.querySelector(".uvNote").innerHTML = "Low risk of harm from <br /> sun exposure.";
         }
         else{
             uvDescription = "Low";  //green
-            document.getElementById("uvimg").src = "images2/uv/green.png";
+            document.getElementById("uvimg").src = "images/uv/green.png";
             document.querySelector(".uvNote").innerHTML = "Minimal danger from <br /> sun's UV rays.";
         }
         document.querySelector(".uvDesc").innerHTML = uvDescription;
@@ -351,27 +352,27 @@ hr{
                 switch(data.current.air_quality["us-epa-index"]){
                     case 1:
                         airQualWord = "Good";
-                        document.getElementById("aqi-img").src = "images2/aqi/green.png";
+                        document.getElementById("aqi-img").src = "images/aqi/green.png";
                         break;
                     case 2:
                         airQualWord = "Moderate";
-                        document.getElementById("aqi-img").src = "images2/aqi/yellow.png";
+                        document.getElementById("aqi-img").src = "images/aqi/yellow.png";
                         break;
                     case 3:
                         airQualWord = "Unhealthy for sensitive people";
-                        document.getElementById("aqi-img").src = "images2/aqi/orange.png";
+                        document.getElementById("aqi-img").src = "images/aqi/orange.png";
                         break;
                     case 4:
                         airQualWord = "Unhealthy";
-                        document.getElementById("aqi-img").src = "images2/aqi/red.png";
+                        document.getElementById("aqi-img").src = "images/aqi/red.png";
                         break;
                     case 5:
                         airQualWord = "Very Unhealthy";
-                        document.getElementById("aqi-img").src = "images2/aqi/purple.png";
+                        document.getElementById("aqi-img").src = "images/aqi/purple.png";
                         break;
                     case 6:
                         airQualWord = "Hazardous";
-                        document.getElementById("aqi-img").src = "images2/aqi/maroon.png";
+                        document.getElementById("aqi-img").src = "images/aqi/maroon.png";
                         break;
                     default:
                         airQualWord = "No info";
@@ -510,10 +511,10 @@ hr{
 
         if(currentPressure >= 1013)
         {
-            document.getElementById("pressure-img").src = "images2/arrow-up.png";
+            document.getElementById("pressure-img").src = "images/arrow-up.png";
         }
         else{
-            document.getElementById("pressure-img").src = "images2/arrow-down.png";
+            document.getElementById("pressure-img").src = "images/arrow-down.png";
         }
 
         //For pressure in hPa

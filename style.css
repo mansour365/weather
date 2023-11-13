@@ -11,7 +11,7 @@ body{
     /*background: linear-gradient(0deg, rgb(226, 226, 226), rgb(114, 114, 114)); /*day overcast or cloudy*/
     /*background: linear-gradient(0deg, rgb(8, 0, 77), rgb(54, 13, 75)); /*night*/
 
-    /*background-image: url('images2/backgrounds/overcast.png');*/
+    /*background-image: url('images/backgrounds/overcast.png');*/
     background-size: cover;
 }
 
