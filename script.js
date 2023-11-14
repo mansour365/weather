@@ -256,7 +256,7 @@ hr{
 
     buildPressureWidget();
 
-
+    buildBackgroundImage();
 
     /**********Functions**********/
 
@@ -349,50 +349,58 @@ hr{
     }
 
     function buildAirQualityWidget(){
-            let airQualWord;
+            let airDesc= "";
+            let airNote = "";
             if(data.current.air_quality["us-epa-index"] == "null"){
-                document.querySelector(".airQual").innerHTML = "Air Quality inforation is currently not available for this location";
+                document.querySelector(".airNote").innerHTML = "Air Quality inforation is currently not available for this location";
             } 
             else{
                 switch(data.current.air_quality["us-epa-index"]){
                     case 1:
-                        airQualWord = "Good";
+                        airDesc = "Good";
+                        airNote = "Air quality poses little or no health risk.";
                         document.getElementById("aqi-img").src = "images/aqi/green.png";
                         break;
                     case 2:
-                        airQualWord = "Moderate";
+                        airDesc = "Moderate";
+                        airNote = "Acceptable air quality, however, may pose moderate health concerns for a very small number of individuals.";
                         document.getElementById("aqi-img").src = "images/aqi/yellow.png";
                         break;
                     case 3:
-                        airQualWord = "Unhealthy for sensitive people";
+                        airDesc = "Unhealthy for sensitive people";
+                        airNote = "Children, older adults, and sensitive individuals are at greater risk.";
                         document.getElementById("aqi-img").src = "images/aqi/orange.png";
                         break;
                     case 4:
-                        airQualWord = "Unhealthy";
+                        airDesc = "Unhealthy";
+                        airNote = "Most people may experience negative health effects. Sensitive people may experience more serious health effects.";
                         document.getElementById("aqi-img").src = "images/aqi/red.png";
                         break;
                     case 5:
-                        airQualWord = "Very Unhealthy";
+                        airDesc = "Very Unhealthy";
+                        airNote = "Warning. Most people may experience negative health effects.";
                         document.getElementById("aqi-img").src = "images/aqi/purple.png";
                         break;
                     case 6:
-                        airQualWord = "Hazardous";
+                        airDesc = "Hazardous";
+                        airNote = "Emergency. Very poor air quality. Population at risk of serious health effects.";
                         document.getElementById("aqi-img").src = "images/aqi/maroon.png";
                         break;
                     default:
-                        airQualWord = "No info";
+                        airDesc = "No info";
                 }
-                document.querySelector(".airDesc").innerHTML = airQualWord;
-                document.querySelector(".airNote").innerHTML = "Based on US EPA Standard";
+                document.querySelector(".airDesc").innerHTML = airDesc;
+                document.querySelector(".airNote").innerHTML = airNote;
+                document.querySelector(".airBottom").innerHTML = "Based on US EPA Standard";
             }
         
         /*Based on the US - EPA standard
-        1 means Good (Green)
-        2 means Moderate (Yellow)
-        3 means Unhealthy for sensitive group (Orange)
-        4 means Unhealthy (Red)
-        5 means Very Unhealthy (Purple)
-        6 means Hazardous (Maroon) */
+        1 means Good (Green)  -- Air quality poses little or no health risk.
+        2 means Moderate (Yellow)  -- Acceptable air quality, however may pose moderate health concerns of very small number of individuals.
+        3 means Unhealthy for sensitive group (Orange)  -- Children, Older adults and sensitive individuals are at greater risk.
+        4 means Unhealthy (Red)  -- Most people may experience nedgative health effects. Sensitive poeple may experience more serious health effects.
+        5 means Very Unhealthy (Purple)  -- Warning. Most people may expeirnce negative health effects.
+        6 means Hazardous (Maroon)  -- Emergency. Very poor air quality. Population at risk of serious health effects.*/
     }
 
     function buildWindWidget(){
@@ -485,9 +493,11 @@ hr{
         document.querySelector(".sunrise").innerHTML = sunriseTime +"<span>AM</span>"; 
     }
 
+
     function buildSunsetWidget(){
         document.querySelector(".sunset").innerHTML = convert24to12NoEnding(sunsetHour)+":"+sunsetMin +"<span>PM</span>"; 
     }
+
 
     function buildVisibilityWidget(){
         //Get main value
@@ -509,6 +519,7 @@ hr{
         }
         document.querySelector(".visible-note").innerHTML = description;
     }
+
 
     function buildPressureWidget(){
         let currentPressure = data.current.pressure_mb;
@@ -533,7 +544,7 @@ hr{
         // 950,  975,  1000,  1025,  1050
     }
 
-    buildBackgroundImage();
+    
 
 
 }

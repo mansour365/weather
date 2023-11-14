@@ -21,24 +21,27 @@
     
 
     <!--
-    //document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;
-    //https://9to5mac.com/2023/01/08/macos-ventura-weather-app/
-    //https://media.idownloadblog.com/wp-content/uploads/2021/07/Air-quality-index.jpeg
-    //https://discuss.tidbyt.com/uploads/db2982/original/2X/a/aac34789ec36960b097645564653eb35b7a4413f.jpeg
-    //Source for visbility
-    //https://www.semanticscholar.org/paper/Analysis-of-the-atmospheric-visibility-Restoration-Deshpande/662237bb893d2b50a728751880f20cf1f8225aef
+    document.getElementById("hourIcon").src = data.forecast.forecastday[0].hour[i].condition.icon;
+    https://9to5mac.com/2023/01/08/macos-ventura-weather-app/
+    https://media.idownloadblog.com/wp-content/uploads/2021/07/Air-quality-index.jpeg
+    https://discuss.tidbyt.com/uploads/db2982/original/2X/a/aac34789ec36960b097645564653eb35b7a4413f.jpeg
+    Source for visbility
+    https://www.semanticscholar.org/paper/Analysis-of-the-atmospheric-visibility-Restoration-Deshpande/662237bb893d2b50a728751880f20cf1f8225aef
 
-    //Another layout idea
-    //https://support.apple.com/en-au/guide/weather-mac/apdw93f0ea3e/mac
+    Another layout idea
+    https://support.apple.com/en-au/guide/weather-mac/apdw93f0ea3e/mac
 
-    //uv bar
-    //https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fo96neai9ggn91.jpg%3Fwidth%3D1170%26format%3Dpjpg%26auto%3Dwebp%26s%3De5b92beaccb2ebc65034f18d5c385f0384828913
+    uv bar
+    https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2Fo96neai9ggn91.jpg%3Fwidth%3D1170%26format%3Dpjpg%26auto%3Dwebp%26s%3De5b92beaccb2ebc65034f18d5c385f0384828913
 
-    //Good view of hourly
-    //https://9to5mac.com/wp-content/uploads/sites/6/2022/11/apple-weather-mac.jpg?quality=82&strip=all
+    Good view of hourly
+    https://9to5mac.com/wp-content/uploads/sites/6/2022/11/apple-weather-mac.jpg?quality=82&strip=all
 
-    //show horizontal scroll bar on hover
-    //https://stackoverflow.com/questions/8631799/make-scrollbars-only-visible-when-a-div-is-hovered-over
+    Show horizontal scroll bar on hover
+    https://stackoverflow.com/questions/8631799/make-scrollbars-only-visible-when-a-div-is-hovered-over
+
+    AQI information
+    https://www.airnow.gov/sites/default/files/2018-04/aqi_brochure_02_14_0.pdf
     -->
 
     <link rel="stylesheet" href="style.css">
@@ -159,9 +162,9 @@
             </div>
             <br>
             <p class="airDesc">Unhealthy for sensitive people</p>
-            <br>
+            <p class = "airNote">Description for air quality</p>
             <img id = aqi-img src="images/aqi line.png">
-            <p class="airNote">Based on US EPA Standard</p>
+            <p class="airBottom">Based on US EPA Standards</p>
         </div>
 
         <div class="square-card">

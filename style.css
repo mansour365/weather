@@ -454,19 +454,29 @@ hr{
     position: relative;
     /*border: solid rgb(221, 224, 14) 2px;*/
 }
+.airDesc{
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    /*border: solid rgb(14, 224, 14) 1px;*/
+}
+.airNote{
+    /*border: solid rgb(221, 224, 14) 1px;*/
+    font-size: 0.95em;
+}
 #aqi-img{
     width:385px;  /*width of the image inside the air quality card*/
     border-radius:20px;
     margin-top: 50px;
+    /*border: solid rgb(224, 14, 14) 1px;*/
+    position: absolute;
+    bottom: 40px;
 }
-.airDesc{
-    font-size: 1.3em;
-}
-.airNote{
-    padding-top: 30px;
+.airBottom{
+    padding-top: 0px;
     font-size: 0.95em;
     position: absolute;
     bottom: 15px;
+    /*border: solid rgb(182, 14, 224) 1px;*/
 }
 
 
