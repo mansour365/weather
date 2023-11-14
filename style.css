@@ -431,6 +431,7 @@ hr{
 }
 .dayprecip{
     color:rgb(136, 199, 252);
+    font-weight: 600;
 }
 .daily-condition{   /*the condition text portion of the daily card*/
     text-align:left;

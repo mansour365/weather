@@ -57,13 +57,17 @@ async function checkWeather(city){
         let searchColor = "";
         let titleColor = "";
         let wallpaper = "";
-        hrColor = "";
 
         //Night theme
         if(isday == false){
-            divColor = "rgba(32, 101, 161, 0.9)";
-            titleColor = "rgb(136, 199, 252)";
-            wallpaper = "linear-gradient(0deg, rgb(8, 0, 77), rgb(54, 13, 75))";
+            searchColor = "rgb(45, 51, 81)";
+            divColor = "rgb(45, 51, 81)";
+            titleColor = "rgb(110, 124, 156)";
+            wallpaper = "linear-gradient(0deg, rgb(51, 65, 95), rgb(11, 12, 33))";
+            document.querySelectorAll(".full-title .icon").forEach(e => e.style.filter = "grayscale(100%)");
+            document.querySelectorAll("hr").forEach(e => e.style.borderTop = "1px solid rgb(110, 124, 156)");
+            document.querySelectorAll(".daylow").forEach(e => e.style.color = "rgb(110, 124, 156)");
+
         }
         //Clear theme
         else if(code == 1000 || code == 1003 || code == 1063 || code == 1066 || code == 1069 || code == 1072 || code == 1087 || code == 1150 || code == 1180 || code == 1210 || code == 1216){
@@ -77,10 +81,11 @@ async function checkWeather(city){
         else{
             divColor = "rgb(77, 90, 103)";
             searchColor = "rgb(104, 115, 128)";
-            titleColor = "rgb(158, 173, 194)";
+            titleColor = "rgb(141, 154, 167)";
             wallpaper = "linear-gradient(0deg, rgb(87, 96, 108), rgb(148, 155, 168))";
+            document.querySelectorAll(".daylow").forEach(e => e.style.color = "rgb(141, 154, 167)");
             document.querySelectorAll(".full-title .icon").forEach(e => e.style.filter = "grayscale(100%)");
-            document.querySelectorAll("hr").forEach(e => e.style.filter = "grayscale(100%)");
+            document.querySelectorAll("hr").forEach(e => e.style.borderTop = "1px solid rgb(141, 154, 167)");
         }
 
         document.body.style.background = wallpaper;
