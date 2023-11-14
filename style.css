@@ -21,6 +21,45 @@ hr{
     border-top: 1px solid rgb(136, 199, 252); /*For light mode*/
 }
 
+
+
+.initialScreen{
+    width:100%;
+    height: 58px;
+    margin: auto;
+    position: relative;
+    display:none;
+}
+.initialSearch{
+    align-items: center; /*on the vertical axis of the card align it to center*/
+    justify-content: space-between; /*Even distribute items in the horizontal axis of the card*/
+    padding-top: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    /*border: solid rgb(31, 224, 14) 1px;*/
+    width:400px;
+
+    position:absolute;
+    right: 0;
+}
+.initialSearch input{
+    border: 0; /*remove border around the text input box*/
+    outline:0; /*remove border around text input when click on text box*/
+    /*background: rgb(19, 71, 117); /*background color inside the text input box*/
+    background: rgba(5, 69, 124, 0.7);
+    backdrop-filter: blur(100px);
+    color: white; /*color of text inside the search input*/
+    padding: 10px 25px; /*padding the text inside the search input box*/
+    height:40px;  /*height of text input box*/
+    border-radius: 11px;  /*cureve the edges of the text box*/
+    flex: 1; 
+    margin-right: 16px;  /*space on right of text input box*/
+    font-size: 18px; /*size of text inside text input box*/
+    width: 280px;
+}
+
+
+
 .current-card{
     color: #fff;    /*text color inside the card*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/

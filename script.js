@@ -272,11 +272,9 @@ hr{
         document.querySelector(".L").innerHTML = "L:"+Math.round(data.forecast.forecastday[0].day.mintemp_c) + "°";
     }
 
-
     function buildHumidityWidget(){
         document.querySelector(".humidity").innerHTML = data.current.humidity + "%";
     }
-
 
     //takes a number from 0 to 23 and outputs the string in AM or PM
     function convert24to12(number){
