@@ -282,7 +282,7 @@ hr{
 .hourNum{
     font-size: 13px;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     /*border: solid rgb(221, 224, 14) 1px;*/
 }
 .hourNum span{
@@ -316,9 +316,11 @@ hr{
 .hourlytemp{
     font-size: 18px;
     font-weight:100;
+    padding-top: 1px;
+    /*border: solid rgb(224, 45, 14) 1px;*/
 }
 .sunlabel{
-    padding-top: 2px;
+    padding-top: 1px;
     font-size: 17px;
     /*border: solid rgb(224, 45, 14) 1px;**/
 }
@@ -350,6 +352,7 @@ hr{
 }
 
 
+
 /* Precipitation card */
 .precipitation{
     font-size: 2em;
@@ -362,6 +365,7 @@ hr{
 .precipitation-desc{
     font-size: 1.3em;
 }
+
 
 
 /* The three day card (should probably rename the div for this card)*/
@@ -439,6 +443,7 @@ hr{
     padding-left: 12px;
     padding-bottom: 10px;
 }
+
 
 
 /* Air quality card */
@@ -623,7 +628,7 @@ hr{
     }
     .search{
         margin: auto;
-        width: 75%;
+        width: 430px;
         padding: 10px;
         left:0;
     }
