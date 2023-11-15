@@ -52,17 +52,52 @@ hr{
 
 
 .search{
+    position:absolute;
+    left:25%;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: solid rgb(31, 224, 14) 1px;
+    width:50%;
+
+    /*position:absolute;
+    right: 0;*/
+
+    
+    
+}
+.searchBar{
+    position:absolute;
+    left:75%;
     padding-top: 15px;
     padding-left: 50px;
     padding-right: 50px;
     border: solid rgb(31, 224, 14) 1px;
-    width:400px;
+    width: 50%;
 
-    position:absolute;
+    /*position:absolute;
     right: 0;
-    
+    */
+    transition: 0.5s all;
 }
 .search input{
+    border: 0; /*remove border around the text input box*/
+    outline:0; /*remove border around text input when click on text box*/
+    /*background: rgb(19, 71, 117); /*background color inside the text input box*/
+    background: rgba(5, 69, 124, 0.7);
+    backdrop-filter: blur(100px);
+    color: white; /*color of text inside the search input*/
+    padding: 10px 25px; /*padding the text inside the search input box*/
+    height:40px;  /*height of text input box*/
+    border-radius: 11px;  /*cureve the edges of the text box*/
+    flex: 1; 
+    margin-right: 16px;  /*space on right of text input box*/
+    font-size: 18px; /*size of text inside text input box*/
+    width: 100%;  /*original is 280px*/
+    
+}
+
+.searchBar input{
     border: 0; /*remove border around the text input box*/
     outline:0; /*remove border around text input when click on text box*/
     /*background: rgb(19, 71, 117); /*background color inside the text input box*/
@@ -621,6 +656,7 @@ hr{
     .left-arrow{
         left: -2.5%;
     }
+
 }
 
 @media screen and (max-width: 1119px){
@@ -649,13 +685,13 @@ hr{
     .left-arrow{
         left: -5%;
     }
-    .search{
+    .searchBar{
         margin: auto;
         width: 430px;
         padding: 10px;
         left:0;
     }
-    .search input{
+    .searchBar input{
         width:100%;
     }
 

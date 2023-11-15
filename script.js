@@ -266,6 +266,13 @@ hr{
         document.querySelector(".my-grid").style.visibility = "visible";
     }
 
+    moveSearchBar()
+    function moveSearchBar(){
+        let f = document.querySelector(".search");
+
+        f.className = "searchBar";
+    }
+
     /**********Functions**********/
 
     function buildCurrentWeather(){
