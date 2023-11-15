@@ -23,48 +23,22 @@ hr{
 
 
 
-.initialScreen{
-    width:100%;
-    height: 58px;
-    margin: auto;
-    position: relative;
-    display:none;
-}
-.initialSearch{
-    align-items: center; /*on the vertical axis of the card align it to center*/
-    justify-content: space-between; /*Even distribute items in the horizontal axis of the card*/
-    padding-top: 15px;
-    padding-left: 50px;
-    padding-right: 50px;
-    /*border: solid rgb(31, 224, 14) 1px;*/
-    width:400px;
 
-    position:absolute;
-    right: 0;
-}
-.initialSearch input{
-    border: 0; /*remove border around the text input box*/
-    outline:0; /*remove border around text input when click on text box*/
-    /*background: rgb(19, 71, 117); /*background color inside the text input box*/
-    background: rgba(5, 69, 124, 0.7);
-    backdrop-filter: blur(100px);
-    color: white; /*color of text inside the search input*/
-    padding: 10px 25px; /*padding the text inside the search input box*/
-    height:40px;  /*height of text input box*/
-    border-radius: 11px;  /*cureve the edges of the text box*/
-    flex: 1; 
-    margin-right: 16px;  /*space on right of text input box*/
-    font-size: 18px; /*size of text inside text input box*/
-    width: 280px;
-}
 
 
 
 .current-card{
+    visibility:hidden; /*Hide the element*/
     color: #fff;    /*text color inside the card*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
 }
+
+
+
+
+
+
 
 .searchArea{
     /*border: solid rgb(221, 224, 14) 1px;*/
@@ -75,17 +49,18 @@ hr{
     position: relative;
 }
 
+
+
 .search{
-    align-items: center; /*on the vertical axis of the card align it to center*/
-    justify-content: space-between; /*Even distribute items in the horizontal axis of the card*/
     padding-top: 15px;
     padding-left: 50px;
     padding-right: 50px;
-    /*border: solid rgb(31, 224, 14) 1px;*/
+    border: solid rgb(31, 224, 14) 1px;
     width:400px;
 
     position:absolute;
     right: 0;
+    
 }
 .search input{
     border: 0; /*remove border around the text input box*/
@@ -100,7 +75,8 @@ hr{
     flex: 1; 
     margin-right: 16px;  /*space on right of text input box*/
     font-size: 18px; /*size of text inside text input box*/
-    width: 280px;
+    width: 280px;  /*original is 280px*/
+    
 }
 ::placeholder {    /*Color of the search placeholder text*/
     color: white;
@@ -122,11 +98,16 @@ hr{
 
 
 
+
+
+
 /*Current weather Icon*/
+/*
 .weather-icon{
-    width: 75px;  /*width of the current weather image*/
-    margin-top: 30px; /*Space on top of weather image*/
-}
+    /*width: 75px;  /*width of the current weather image*/
+    /*margin-top: 30px; /*Space on top of weather image*/
+/*}*/
+
 /*City Text*/
 .weather .city{
     font-size: 45px; /*font size of the city*/
@@ -134,11 +115,13 @@ hr{
     margin-top: -10px; /*Space above the city text*/
 }
 /*Country region text*/
+/*
 .region{
     font-size: 15px;
     font-weight:100;
     margin-bottom: 10px;
 }
+*/
 
 .temps{
     display: flex;
@@ -217,6 +200,7 @@ hr{
 /*The rest of the elements belong to the CSS Grid layout*/
 /*Basic setup for my grid layout*/
 .my-grid{
+    visibility:hidden;
     display:grid;  /*set grid mode for the my-grid div*/
     width:1340px;  /*width of the grid*/
     gap: 1.5rem;  /*Space between each element in the grid*/

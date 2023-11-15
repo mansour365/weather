@@ -2,7 +2,7 @@
 
 
 
-getlocation();
+//getlocation();
 //Automatically get user's location
 let latitudeNum;
 let longitudeNum;
@@ -41,6 +41,7 @@ const alerts = "&alerts=yes";
 
 async function checkWeather(city){
 
+    
     /*fetch 3 day weather data*/
     const response = await fetch(apiURL + forecast + key + city + days + airQual + alerts);
     var data = await response.json();
@@ -257,6 +258,13 @@ hr{
     buildPressureWidget();
 
     buildBackgroundImage();
+
+    makeElementsVisible();
+
+    function makeElementsVisible(){
+        document.querySelector(".current-card").style.visibility = "visible";
+        document.querySelector(".my-grid").style.visibility = "visible";
+    }
 
     /**********Functions**********/
 
