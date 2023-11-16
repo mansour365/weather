@@ -132,12 +132,12 @@ https://codepen.io/anon/pen/vwOpBP
 }
 
 .searchCenter input{
-    border: 1; /*remove border around the text input box*/
+    border: 1px solid rgb(110, 110, 115); /*remove border around the text input box*/
     outline:0; /*remove border around text input when click on text box*/
     /*background: rgb(19, 71, 117); /*background color inside the text input box*/
     background: rgba(255, 255, 255, 1);
     backdrop-filter: blur(100px);
-    color: white; /*color of text inside the search input*/
+    color: black; /*color of text inside the search input*/
     padding: 10px 25px; /*padding the text inside the search input box*/
     height:54px;  /*height of text input box*/
     border-radius: 11px;  /*cureve the edges of the text box*/
@@ -170,7 +170,7 @@ https://codepen.io/anon/pen/vwOpBP
 }
 
 .searchCenter ::placeholder{
-    color:black;
+    color:rgb(110, 110, 115);
 }
 /*
 .search button{
