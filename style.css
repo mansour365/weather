@@ -69,15 +69,19 @@ https://codepen.io/anon/pen/vwOpBP
 }
 
 .searchCenter{
-    position:absolute;
+    margin:auto;
+    /*position:absolute;*/
     background-color: rgb(255, 255, 255); /*Color of card background*/
     border-radius: 20px;
     margin-top: 100px;
     left:25%;
+    right:25%;
     padding-top: 40px;
     padding-left: 50px;
     padding-right: 50px;
-    width:50%;
+    /*width:50%;*/
+    max-width:640px;  /*May need to delete*/
+    min-width: 640px;
     border: solid rgb(31, 224, 14) 1px;
     /*position:absolute;
     right: 0;*/
@@ -743,15 +747,20 @@ https://codepen.io/anon/pen/vwOpBP
     .left-arrow{
         left: -5%;
     }
-    .searchBar{
-        margin: auto;
-        width: 430px;
-        padding: 10px;
-        left:0;
-    }
-    .searchBar input{
-        width:100%;
-    }
 
 }
 
+@media screen and (max-width: 640px){
+    .searchCenter{
+        border-radius: 0px;
+        margin-top: 0px;
+        left:0%;
+        right:0%;
+        padding-top: 140px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom:100%;
+        min-width: 450px;
+    }
+
+}

@@ -563,6 +563,18 @@ hr{
 }
 
 
+
+
+
+const locateMeBtn = document.querySelector(".locateMe");
+
+locateMeBtn.addEventListener("click", function(event) {
+    getlocation();
+});
+
+
+
+
 /*
 const searchBtn = document.querySelector(".search button");
 
@@ -572,6 +584,7 @@ searchBtn.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
 })
 */
+
 const searchBox = document.querySelector(".searchCenter input");
 
 /*Event listener for pressing the enter key*/
@@ -584,11 +597,7 @@ searchBox.addEventListener("keypress", ()=>{
     }
 })
 
-const locateMeBtn = document.querySelector(".locateMe");
 
-locateMeBtn.addEventListener("click", function(event) {
-    getlocation();
-});
 
 
 const rightBtn = document.querySelector(".right-arrow");
