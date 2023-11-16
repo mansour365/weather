@@ -64,6 +64,7 @@ https://codepen.io/anon/pen/vwOpBP
     font-size: 2em;
     font-weight: 600;
     color: black;
+    letter-spacing: -0.8px;
     text-align: center;
     padding-bottom: 40px;
     /*border: solid rgb(224, 63, 14) 1px;*/
@@ -72,6 +73,7 @@ https://codepen.io/anon/pen/vwOpBP
 .searchCenter{
     margin:auto;
     background-color: rgb(255, 255, 255); /*Color of card background*/
+    box-shadow: rgba(0, 0, 0, 0.2) 10px 20.015px 19.236px 0px;
     border-radius: 20px;
     margin-top: 100px;
     left:25%;
