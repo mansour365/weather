@@ -268,9 +268,9 @@ hr{
 
     moveSearchBar()
     function moveSearchBar(){
-        let f = document.querySelector(".search");
+        let f = document.querySelector(".searchCenter");
 
-        f.className = "searchBar";
+        f.className = "searchCorner";
     }
 
     /**********Functions**********/
@@ -572,12 +572,15 @@ searchBtn.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
 })
 */
-const searchBox = document.querySelector(".search input");
+const searchBox = document.querySelector(".searchCenter input");
 
 /*Event listener for pressing the enter key*/
 searchBox.addEventListener("keypress", ()=>{
     if(event.key === "Enter"){
         checkWeather(searchBox.value);
+        
+        //also empty the search bar text
+        searchBox.value = "";
     }
 })
 
