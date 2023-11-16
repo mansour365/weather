@@ -1,6 +1,9 @@
 
-
-
+//Make the page start at the top from a refresh
+history.scrollRestoration = "manual";
+window.onbeforeunload = function(){
+      window.scrollTop(0);
+}
 
 //getlocation();
 //Automatically get user's location
@@ -561,6 +564,7 @@ hr{
 
 
 }
+
 
 
 
