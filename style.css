@@ -64,7 +64,7 @@ https://codepen.io/anon/pen/vwOpBP
     font-size: 2em;
     font-weight: 600;
     color: black;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.8px; /*Make letters a bit closer to each other*/
     text-align: center;
     padding-bottom: 40px;
     /*border: solid rgb(224, 63, 14) 1px;*/
