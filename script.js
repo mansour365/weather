@@ -578,13 +578,17 @@ const searchBox = document.querySelector(".searchCenter input");
 searchBox.addEventListener("keypress", ()=>{
     if(event.key === "Enter"){
         checkWeather(searchBox.value);
-        
+
         //also empty the search bar text
         searchBox.value = "";
     }
 })
 
+const locateMeBtn = document.querySelector(".locateMe");
 
+locateMeBtn.addEventListener("click", function(event) {
+    getlocation();
+});
 
 
 const rightBtn = document.querySelector(".right-arrow");

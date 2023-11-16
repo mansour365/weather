@@ -147,6 +147,9 @@ https://codepen.io/anon/pen/vwOpBP
     width: 100%;  /*original is 280px*/
     
 }
+.searchCenter input:focus {
+    border: 2px solid rgb(22, 114, 223);
+  }
 
 .searchCorner input{
     border: 0; /*remove border around the text input box*/
