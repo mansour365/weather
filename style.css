@@ -169,8 +169,6 @@ https://codepen.io/anon/pen/vwOpBP
     margin-right: 16px;  /*space on right of text input box*/
     font-size: 18px; /*size of text inside text input box*/
     width: 280px;  /*original is 280px*/
-    placeholder: ""
-    
 }
 .searchCorner ::placeholder {    /*Color of the search placeholder text*/
     color: white;

@@ -64,8 +64,8 @@ async function checkWeather(city){
 
         //Night theme
         if(isday == false){
-            searchColor = "rgb(45, 51, 81)";
             divColor = "rgb(45, 51, 81)";
+            searchColor = "rgb(45, 51, 81)";
             titleColor = "rgb(110, 124, 156)";
             wallpaper = "linear-gradient(0deg, rgb(51, 65, 95), rgb(11, 12, 33))";
             document.querySelectorAll(".full-title .icon").forEach(e => e.style.filter = "grayscale(100%)");
@@ -93,7 +93,7 @@ async function checkWeather(city){
         }
 
         document.body.style.background = wallpaper;
-        document.querySelectorAll(".search input").forEach(e => e.style.background = searchColor);
+        document.querySelectorAll(".searchCorner input").forEach(e => e.style.background = searchColor);
         document.querySelectorAll(".square-card").forEach(e => e.style.background = divColor);
         document.querySelectorAll(".hourly-card").forEach(e => e.style.background = divColor);
         document.querySelectorAll(".daily-card").forEach(e => e.style.background = divColor);
@@ -260,23 +260,27 @@ hr{
 
     buildPressureWidget();
 
+    makeElementsVisible();
+
+    moveSearchBar()
+
     buildBackgroundImage();
 
-    makeElementsVisible();
+
+
+    /**********Functions**********/
+
 
     function makeElementsVisible(){
         document.querySelector(".current-card").style.visibility = "visible";
         document.querySelector(".my-grid").style.visibility = "visible";
     }
 
-    moveSearchBar()
     function moveSearchBar(){
         let f = document.querySelector(".searchCenter");
 
         f.className = "searchCorner";
     }
-
-    /**********Functions**********/
 
     function buildCurrentWeather(){
         /*Put current weather data into website elements*/
