@@ -277,6 +277,12 @@ hr{
         document.querySelector(".settingsIcon").style.display = "block";
     }
 
+    function makeElementsInvisible(){
+        document.querySelector(".current-card").style.visibility = "hidden";
+        document.querySelector(".my-grid").style.visibility = "hidden";
+        document.querySelector(".settingsIcon").style.display = "none";
+    }
+
     function moveSearchBar(){
         let f = document.querySelector(".searchCenter");
 
@@ -584,6 +590,8 @@ locateMeBtn.addEventListener("click", function(event) {
 
 
 
+
+
 /*
 const searchBtn = document.querySelector(".search button");
 
@@ -620,6 +628,8 @@ rightBtn.addEventListener("click", function(event) {
     
 });
 
+
+
 const leftBtn = document.querySelector(".left-arrow");
 
 leftBtn.addEventListener("click", function(event) {
@@ -628,6 +638,31 @@ leftBtn.addEventListener("click", function(event) {
     conent.scrollLeft -= 380;
     event.preventDefault();
 });
+
+
+
+
+function showCenterSearch(){
+    document.querySelector(".current-card").style.visibility = "hidden";
+    document.querySelector(".my-grid").style.visibility = "hidden";
+    document.querySelector(".settingsIcon").style.display = "none";
+    let f = document.querySelector(".searchCorner");
+    f.className = "searchCenter";
+    document.querySelectorAll(".searchCenter input").forEach(e => e.style.background = "rgba(255, 255, 255, 1)");
+}
+
+
+
+
+
+const settingsBtn = document.querySelector(".settingsIcon");
+
+settingsBtn.addEventListener("click", function(event) {
+    showCenterSearch();
+});
+
+
+
 
 
 
