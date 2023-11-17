@@ -274,6 +274,7 @@ hr{
     function makeElementsVisible(){
         document.querySelector(".current-card").style.visibility = "visible";
         document.querySelector(".my-grid").style.visibility = "visible";
+        document.querySelector(".settingsIcon").style.display = "block";
     }
 
     function moveSearchBar(){
