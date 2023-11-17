@@ -49,7 +49,7 @@ https://codepen.io/anon/pen/vwOpBP
     height: 58px;
     margin: auto;
     position: relative;
-    border: solid rgb(224, 63, 14) 1px;
+    /*border: solid rgb(224, 63, 14) 1px;*/
     display:flex;
 }
 
@@ -59,7 +59,7 @@ https://codepen.io/anon/pen/vwOpBP
     margin-left:20px;
     display:none;
     cursor: pointer;
-    border: solid rgb(14, 224, 31) 1px;
+    /*border: solid rgb(14, 224, 31) 1px;*/
 }
 
 
@@ -120,7 +120,8 @@ https://codepen.io/anon/pen/vwOpBP
 
 .searchCorner{
     position:absolute;
-    left:75%;
+    left: 75%;
+    /*margin-left:auto;*/
     padding-top: 15px;
     padding-left: 50px;
     padding-right: 50px;
@@ -465,13 +466,15 @@ https://codepen.io/anon/pen/vwOpBP
     right:-3%;
     top:40%;
     cursor:pointer;
+    visibility: hidden;
+    
 }
 .left-arrow{
     transform: scaleX(-1);
     position:absolute;
     left: -3%;
     top:40%;
-    display:none;
+    visibility: hidden;
     cursor: pointer;
 }
 
@@ -734,6 +737,9 @@ https://codepen.io/anon/pen/vwOpBP
     .left-arrow{
         left: -2.5%;
     }
+    .searchCorner{
+        left: 70%;
+    }
 
 }
 
@@ -747,11 +753,16 @@ https://codepen.io/anon/pen/vwOpBP
     .left-arrow{
         left: -3%;
     }
+    .searchCorner{
+        left: 60%;
+    }
 }
 
 @media screen and (max-width: 900px){
     .my-grid{
         width:430px;
+        margin-left: auto;
+        margin-right:auto;
     }
     .hourly-card{
         width: 425px;
@@ -762,6 +773,10 @@ https://codepen.io/anon/pen/vwOpBP
     }
     .left-arrow{
         left: -5%;
+    }
+    .searchCorner{
+        left: 20%;
+
     }
 
 }

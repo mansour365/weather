@@ -275,6 +275,7 @@ hr{
         document.querySelector(".current-card").style.visibility = "visible";
         document.querySelector(".my-grid").style.visibility = "visible";
         document.querySelector(".settingsIcon").style.display = "block";
+        
     }
 
     function makeElementsInvisible(){
@@ -287,6 +288,8 @@ hr{
         let f = document.querySelector(".searchCenter");
 
         f.className = "searchCorner";
+        document.querySelector(".right-arrow").style.visibility = "visible";
+        
     }
 
     function buildCurrentWeather(){
@@ -646,9 +649,14 @@ function showCenterSearch(){
     document.querySelector(".current-card").style.visibility = "hidden";
     document.querySelector(".my-grid").style.visibility = "hidden";
     document.querySelector(".settingsIcon").style.display = "none";
+
     let f = document.querySelector(".searchCorner");
     f.className = "searchCenter";
+
     document.querySelectorAll(".searchCenter input").forEach(e => e.style.background = "rgba(255, 255, 255, 1)");
+    document.querySelector(".right-arrow").style.visibility = "hidden";
+    document.querySelector(".left-arrow").style.visibility = "hidden";
+
 }
 
 
@@ -674,16 +682,16 @@ hourlyScroll.addEventListener("scroll", function(event) {
 
     //check if the scroll bar is at the beginning
     if(conent.scrollLeft == 0){   
-        document.querySelector(".left-arrow").style.display = "none";
+        document.querySelector(".left-arrow").style.visibility = "hidden";
     }
     //if the scrollbar is all the way on the right
     else if(Math.abs(conent.scrollLeft) === conent.scrollWidth - conent.clientWidth){
-        document.querySelector(".right-arrow").style.display = "none";
+        document.querySelector(".right-arrow").style.visibility = "hidden";
     }
     //when the scrollbar is not on the extremes
     else{
-        document.querySelector(".left-arrow").style.display = "block";
-        document.querySelector(".right-arrow").style.display = "block";
+        document.querySelector(".left-arrow").style.visibility = "visible";
+        document.querySelector(".right-arrow").style.visibility = "visible";
     }
 });
 
