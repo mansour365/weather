@@ -275,19 +275,23 @@ hr{
         document.querySelector(".current-card").style.visibility = "visible";
         document.querySelector(".my-grid").style.visibility = "visible";
         document.querySelector(".settingsIcon").style.display = "block";
+
+        //move hourly widget scroll bar back to beginning
+        hourlyScroll.scrollLeft -= 1000;
         
     }
 
-    function makeElementsInvisible(){
-        document.querySelector(".current-card").style.visibility = "hidden";
-        document.querySelector(".my-grid").style.visibility = "hidden";
-        document.querySelector(".settingsIcon").style.display = "none";
-    }
-
     function moveSearchBar(){
-        let f = document.querySelector(".searchCenter");
+        //Check if the class name is currently called "searchCenter"
+        let nameExists = document.querySelector(".searchCenter") != null;
+        //If it is called searchCenter name exists, chage it to "searchCorner"
+        if(nameExists){
+            f = document.querySelector(".searchCenter");
+            f.className = "searchCorner";
+        }
 
-        f.className = "searchCorner";
+        
+
         document.querySelector(".right-arrow").style.visibility = "visible";
         
     }
@@ -296,7 +300,7 @@ hr{
         /*Put current weather data into website elements*/
         //document.getElementById("icon").src= data.current.condition.icon;
         document.querySelector(".city").innerHTML = data.location.name;
-        document.querySelector(".region").innerHTML = data.location.region +" , "+data.location.country;
+        //document.querySelector(".region").innerHTML = data.location.region +" , "+data.location.country;
         document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°";
         document.querySelector(".feel-temp").innerHTML =  Math.round(data.current.feelslike_c);
         document.querySelector(".condition").innerHTML = data.current.condition.text;
@@ -668,6 +672,7 @@ const settingsBtn = document.querySelector(".settingsIcon");
 settingsBtn.addEventListener("click", function(event) {
     showCenterSearch();
 });
+
 
 
 
