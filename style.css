@@ -106,7 +106,7 @@ https://codepen.io/anon/pen/vwOpBP
     text-align: center;
     margin:auto;
     margin-top:100px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     font-size: 16px;
     color:rgb(19, 103, 200);
     width: 80px;
@@ -116,6 +116,16 @@ https://codepen.io/anon/pen/vwOpBP
 
 .locateMe:hover{
     text-decoration: underline;
+}
+
+.checkArea{
+    text-align: center;
+    margin-bottom: 100px;
+    border: solid rgb(31, 224, 14) 1px;
+}
+
+.searchcenter input#check{
+    text-align: center;
 }
 
 .searchCorner{
@@ -152,7 +162,13 @@ https://codepen.io/anon/pen/vwOpBP
     transition: 0.5s all;
 }
 
-.searchCenter input{
+
+.searchCorner .checkArea{
+    display:none;
+    transition: 0.5s all;
+}
+
+.searchCenter input#bar{
     border: 1px solid rgb(110, 110, 115); /*remove border around the text input box*/
     outline:0; /*remove border around text input when click on text box*/
     /*background: rgb(19, 71, 117); /*background color inside the text input box*/
@@ -169,9 +185,12 @@ https://codepen.io/anon/pen/vwOpBP
     
     
 }
-.searchCenter input:focus {
+.searchCenter input#bar:focus {
     border: 2px solid rgb(22, 114, 223);
-  }
+}
+
+
+
 
 .searchCorner input{
     border: 0; /*remove border around the text input box*/
