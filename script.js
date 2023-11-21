@@ -5,7 +5,7 @@ window.onbeforeunload = function(){
       window.scrollTop(0);
 }
 
-//getlocation();
+getlocation();
 //Automatically get user's location
 let latitudeNum;
 let longitudeNum;
