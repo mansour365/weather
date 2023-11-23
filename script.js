@@ -262,7 +262,7 @@ hr{
 
     makeElementsVisible();
 
-    moveSearchBar()
+    moveSearchBar();
 
     buildBackgroundImage();
 
