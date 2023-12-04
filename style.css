@@ -97,8 +97,7 @@ https://codepen.io/anon/pen/vwOpBP
     padding-top: 40px;
     padding-left: 50px;
     padding-right: 50px;
-    max-width:640px;  /*May need to delete*/
-    min-width: 640px;
+    width:640px;  /*May need to delete*/
     border: solid rgba(0, 0, 0, 0) 1px; /*border needed otherwise the locateMe bottom margin wil collapse*/
     transition: 0.5s all;
 }
@@ -778,6 +777,7 @@ https://codepen.io/anon/pen/vwOpBP
     .searchCorner{
         left: 60%;
     }
+    
 }
 
 @media screen and (max-width: 900px){
@@ -798,8 +798,14 @@ https://codepen.io/anon/pen/vwOpBP
     }
     .searchCorner{
         left: 20%;
-
+        padding-left:0;
+        width:80%;
     }
+    .searchCorner input{
+        width:80%;
+        
+    }
+    
 
 }
 
@@ -813,7 +819,8 @@ https://codepen.io/anon/pen/vwOpBP
         padding-left: 30px;
         padding-right: 30px;
         padding-bottom:100%;
-        min-width: 450px;
+        width: 450px;
     }
+
 
 }
