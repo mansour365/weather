@@ -32,6 +32,7 @@ hr{
     color: #fff;    /*text color inside the card*/
     padding: 40px 35px;  /*Internal padding from the border of the card*/
     text-align: center;   /*Move elements to center*/
+    /*border: solid 1px red;*/
 }
 
 
@@ -258,9 +259,11 @@ https://codepen.io/anon/pen/vwOpBP
 
 .temps{
     display: flex;
-    width:400px;
-    margin: auto;
+    width:100%;
+    margin-left: 0;
+    margin-right: 0;
     justify-content: center;
+    /*border: solid 1px red;*/
 }
 .space{
     width:25%;
@@ -340,7 +343,7 @@ https://codepen.io/anon/pen/vwOpBP
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));  /*auto the number of columns, each element minimum 200px wide*/
     grid-auto-rows: 200px; /*the grid rows are 200px tall*/
     margin: auto;
-    /*border: solid rgb(221, 224, 14) 2px;*/
+    /*border: solid rgb(221, 224, 14) 1px;*/
 }
 .hourly-card{
     grid-column: span 4 / auto; /*hourly card spans 4 columns*/      
