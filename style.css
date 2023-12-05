@@ -56,7 +56,6 @@ https://codepen.io/anon/pen/vwOpBP
     height: 58px;
     margin: auto;
     position: relative;
-    /*border: solid rgb(224, 63, 14) 1px;*/
     display:flex;
 }
 
@@ -880,14 +879,7 @@ https://codepen.io/anon/pen/vwOpBP
         padding-top: 1px;
         font-size: 12px;
     }
-    /*
-    .right-arrow{
-        display: none;
-    }
-    .left-arrow{
-        display:none;
-    }
-    */
+
     
     .humidity{
         font-size: 180%;
@@ -934,7 +926,17 @@ https://codepen.io/anon/pen/vwOpBP
     }
     .daily-condition{   /*the condition text portion of the daily card*/
         font-size: 90%;
-        padding-bottom: 6%;
+        padding-top: 3%;
+        padding-bottom: 2%;
+    }
+    .dailycol1{  /*First column of daily-card*/
+        width: 33.33%;
+    }
+    .dailycol2{  /*Second column of daily card*/
+        width: 33.33%;
+    }
+    .dailycol3{
+        width: 22%;
     }
 
 
