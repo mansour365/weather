@@ -24,6 +24,8 @@ hr{
 .author{
     text-align: left;
     color: white;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
 
 
@@ -57,6 +59,7 @@ https://codepen.io/anon/pen/vwOpBP
     margin: auto;
     position: relative;
     display:flex;
+    /*border:solid 1px purple;*/
 }
 
 .settingsIcon{
@@ -123,11 +126,6 @@ https://codepen.io/anon/pen/vwOpBP
     text-decoration: underline;
 }
 
-.checkArea{
-    text-align: center;
-    margin-bottom: 100px;
-    border: solid rgb(31, 224, 14) 1px;
-}
 
 .searchcenter input#check{
     text-align: center;
@@ -168,10 +166,7 @@ https://codepen.io/anon/pen/vwOpBP
 }
 
 
-.searchCorner .checkArea{
-    display:none;
-    transition: 0.5s all;
-}
+
 
 .searchCenter input#bar{
     border: 1px solid rgb(110, 110, 115); /*remove border around the text input box*/
@@ -220,31 +215,11 @@ https://codepen.io/anon/pen/vwOpBP
 .searchCenter ::placeholder{
     color:rgb(110, 110, 115);
 }
-/*
-.search button{
-    border: 0; /*remove border around the search button*/
-    /*background: #ebfffc; /*Color of the search button*/
-    /*border-radius: 50%;  /*curve the edge of the button*/
-    /*width: 60px; /*width of the button*/
-    /*height: 60px; /*height of the button*/
-    /*cursor: pointer;  /*when hover mouse of button the mouse pointer becomes a finger*/
-/*}*/
-/*
-.search button img{
-    width: 16px; /*width of the image in the button*/
-/*}*/
 
 
 
 
 
-
-/*Current weather Icon*/
-/*
-.weather-icon{
-    /*width: 75px;  /*width of the current weather image*/
-    /*margin-top: 30px; /*Space on top of weather image*/
-/*}*/
 
 /*City Text*/
 .weather .city{
@@ -806,15 +781,18 @@ https://codepen.io/anon/pen/vwOpBP
         left: -5%;
     }
     .searchCorner{
-        left: 20%;
+        left: 0;
+        right:0;
+        margin-left: auto;
+        margin-right: auto;
         padding-left:0;
-        width:80%;
+        padding-right:0;
+        width:60%;
+        max-width: 430px;
     }
     .searchCorner input{
-        width:80%;
-        
+        width:100%;
     }
-    
 
 }
 
@@ -830,6 +808,7 @@ https://codepen.io/anon/pen/vwOpBP
         padding-bottom:100%;
         width: 450px;
     }
+
 }
 
 
@@ -840,10 +819,11 @@ https://codepen.io/anon/pen/vwOpBP
         grid-auto-rows: 160px; /*the grid rows are 150px tall*/
         gap: 1rem; /*slightly smaller gap in mobile view*/
     }
+
     .author{
         text-align: center;
+        padding-left:0;
     }
-    
     
     .card-title{
         font-size: 12px;
