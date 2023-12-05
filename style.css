@@ -21,6 +21,11 @@ hr{
     border-top: 1px solid rgb(136, 199, 252); /*For light mode*/
 }
 
+.author{
+    text-align: left;
+    color: white;
+}
+
 
 
 
@@ -362,6 +367,7 @@ https://codepen.io/anon/pen/vwOpBP
 /*Title of cards setup*/
 .full-title{
     display: flex;
+    padding-bottom: 12px;
 }
 .card-title{
     font-size: 14px;
@@ -677,9 +683,10 @@ https://codepen.io/anon/pen/vwOpBP
     margin-top:50px;
 }
 .square-card #uvimg{   /*Image inside the UV index card (not sure why this css is weird)*/
-    width: 100%;
+    width: 82%;
     border-radius:20px;
-    margin-top: 25px;
+    position: absolute;
+    bottom:55px;
 }
 .uvNote{
     position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
@@ -831,21 +838,33 @@ https://codepen.io/anon/pen/vwOpBP
     .my-grid{
         width:350px;
         grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
-        grid-auto-rows: 150px; /*the grid rows are 200px tall*/
+        grid-auto-rows: 160px; /*the grid rows are 150px tall*/
+        gap: 1rem; /*slightly smaller gap in mobile view*/
     }
+    .author{
+        text-align: center;
+    }
+    
     
     .card-title{
         font-size: 12px;
+        font-weight:700;
     }
     .full-title .icon{
         width: 13px;
     }
+    .full-title{
+        padding-bottom: 5px;
+    }
 
 
     /*hourly-card*/
+
     .hourNum{
+        margin-top:-2px;
         margin-bottom: 30%;
-        font-size:11px;
+        font-size:14px;
+        /*font-weight:400;*/
     }
     .hourIcon{
         width: 25px; 
@@ -854,6 +873,7 @@ https://codepen.io/anon/pen/vwOpBP
     }
     .rain-chance{
         font-size: 12px;
+        font-weight: 100;
         padding-bottom: 1%;
     }
     .sunlabel{
@@ -870,7 +890,7 @@ https://codepen.io/anon/pen/vwOpBP
     */
     
     .humidity{
-        font-size: 150%;
+        font-size: 180%;
     }
     .dewpoint{
         font-size: 80%;
@@ -878,13 +898,14 @@ https://codepen.io/anon/pen/vwOpBP
 
 
     .precipitation{
-        font-size: 150%;
+        font-size: 180%;
+    }
+
+    .precipitation-desc{
+        font-size: 120%;
     }
     .future-precipitation{
         font-size: 80%;
-    }
-    .precipitation-desc{
-        font-size: 130%;
     }
 
 
@@ -913,62 +934,63 @@ https://codepen.io/anon/pen/vwOpBP
     }
     .daily-condition{   /*the condition text portion of the daily card*/
         font-size: 90%;
-        padding-bottom: 1%;
+        padding-bottom: 6%;
     }
 
 
     
     .airDesc{
-        font-size: 150%;
-        margin-bottom: 10px;
+        font-size: 180%;
+        margin-bottom: 0px;
     }
     .airNote{
-        font-size: 90%;
+        font-size: 80%;
     }
     #aqi-img{
         width:90%;  /*width of the image inside the air quality card*/
+        margin-top: 0px;
     }
     .airBottom{
-        font-size: 90%;
+        font-size: 80%;
     }
 
 
     /* Wind card */
     .wind{
-        font-size: 150%;
+        font-size: 180%;
     }
     .windDirection{
         font-size: 100%;
     }
     .windGust{
-        font-size: 90%;
+        font-size: 80%;
     }
 
 
     /* UV-index card */
     .uvIndex{
-        font-size:150%;
+        font-size:180%;
     }
     .uvDesc{
-        font-size: 120%;
+        font-size: 110%;
     }
     #uvimg{
         margin-top:50px;
     }
     .square-card #uvimg{   /*Image inside the UV index card (not sure why this css is weird)*/
-        width: 100%;
+        width: 78%;
     }
     .uvNote{
         position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
         bottom: 15px;  /*Position in the parent div*/
-        font-size: 90%;
+        font-size: 80%;
     }
 
 
 
     /* Sunrise card */
     .sunrise{
-        font-size: 150%;
+        font-size: 180%;
     }
     .sunrise span{
         font-size: 0.78em;
@@ -983,7 +1005,7 @@ https://codepen.io/anon/pen/vwOpBP
 
     /* Sunset card */
     .sunset{
-        font-size: 150%;
+        font-size: 180%;
     }
     .sunset span{
         font-size: 0.78em;
@@ -998,10 +1020,10 @@ https://codepen.io/anon/pen/vwOpBP
 
     /* Visibility card */
     .visibility{
-        font-size: 150%;;
+        font-size: 180%;
     }
     .visible-note{
-        font-size: 90%;
+        font-size: 80%;
         position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
         bottom: 15px;  /*Position in the parent div*/
         /*border: solid rgb(221, 224, 14) 1px;*/
@@ -1010,10 +1032,10 @@ https://codepen.io/anon/pen/vwOpBP
 
     /* Pressure card */
     .pressure{
-        font-size: 150%;
+        font-size: 180%;
     }
     .pressure-note{
-        font-size: 90%;
+        font-size: 80%;
         position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
         bottom: 15px;  /*Position in the parent div*/
     }
