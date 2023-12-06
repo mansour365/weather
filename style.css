@@ -771,6 +771,7 @@ https://codepen.io/anon/pen/vwOpBP
     }
 
     .author{
+        font-size:70%;
         text-align: center;
         padding-left:0;
     }
@@ -873,7 +874,7 @@ https://codepen.io/anon/pen/vwOpBP
 
     
     .airDesc{
-        font-size: 180%;
+        font-size: 130%;
         margin-bottom: 0px;
     }
     .airNote{
@@ -975,5 +976,230 @@ https://codepen.io/anon/pen/vwOpBP
     #pressure-img{
         display:none;
     }
+
+}
+
+/*col 150 , row 160 , and width 350px*/
+
+@media screen and (max-width: 385px){
+    hr{
+        padding-bottom:0;
+        margin-bottom:0;
+    }
+    .my-grid{
+        width:300px;
+        grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+        grid-auto-rows: 135px; /*the grid rows are 150px tall*/
+    }
+
+    .author{
+        text-align: center;
+        padding-left:0;
+    }
+    
+    .card-title{
+        font-size: 10px;
+        font-weight:700;
+    }
+    .full-title .icon{
+        width: 12px;
+    }
+    .full-title{
+        padding-bottom: 4px;
+        margin-top:-8px;
+    }
+
+
+    /*hourly-card*/
+    .hourNum{
+        font-size:12px;
+        margin-bottom: 11px;
+        margin-top: -2px;
+    }
+    .hourIcon{
+        width: 26px; 
+        margin-bottom: 8px;
+    }
+    .rain-chance{
+        font-size: 12px;
+        font-weight: 400;
+        padding-bottom: 4px;
+    }
+    .sunlabel{
+        padding-top: 0px;
+        font-size: 14px;
+    }
+    .hourlytemp{
+        font-size: 14px;
+        padding-top: 0px;
+    }
+
+
+
+    .humidity{
+        font-size: 160%;
+    }
+    .dewpoint{
+        font-size: 70%;
+    }
+
+
+    .precipitation{
+        font-size: 160%;
+    }
+
+    .precipitation-desc{
+        font-size: 110%;
+    }
+    .future-precipitation{
+        font-size: 70%;
+    }
+
+
+    .dayWeather{
+        margin-bottom: 1%;
+    }
+    .theDay{   
+        font-size: 90%;
+    }
+    .dayWeather img{  /*Weather icon associated with the day*/
+        width: 20%; /*width of image inside col container*/
+    }
+    .dayhigh{  /*the high temperature of the daily card*/
+        margin-bottom: 5%;
+        font-size: 80%;
+    }
+    .daylow{   /*The low temperature of the daily card*/
+        font-size: 80%;
+    }
+    .daypop{   /*The POP % portion of the daily card*/
+        margin-bottom: 5%;
+        font-size: 80%;
+    }
+    .dayprecip{
+        font-size: 80%;
+    }
+    .daily-condition{   /*the condition text portion of the daily card*/
+        font-size: 80%;
+        padding-left: 7px;
+        padding-top: 1.5%;
+        padding-bottom: 2%;
+    }
+    .dailycol1{  /*First column of daily-card*/
+        width: 33.33%;
+    }
+    .dailycol2{  /*Second column of daily card*/
+        width: 33.33%;
+    }
+    .dailycol3{
+        width: 22%;
+    }
+
+    
+    .airDesc{
+        font-size: 110%;
+        margin-bottom: 0px;
+    }
+    .airNote{
+        font-size: 70%;
+    }
+    #aqi-img{
+        width:87%;  /*width of the image inside the air quality card*/
+        margin-top: 0px;
+        bottom: 35px;
+    }
+    .airBottom{
+        font-size: 70%;
+    }
+
+
+    /* Wind card */
+    .wind{
+        font-size: 160%;
+    }
+    .windDirection{
+        font-size: 90%;
+    }
+    .windGust{
+        font-size: 70%;
+    }
+
+
+    /* UV-index card */
+    .uvIndex{
+        font-size:160%;
+    }
+    .uvDesc{
+        font-size: 110%;
+    }
+    #uvimg{
+        margin-top:60px;
+    }
+    .square-card #uvimg{   /*Image inside the UV index card (not sure why this css is weird)*/
+        width: 74%;
+        bottom: 48px;
+    }
+    .uvNote{
+        position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
+        bottom: 15px;  /*Position in the parent div*/
+        font-size: 70%;
+    }
+
+
+    /* Sunrise card */
+    .sunrise{
+        font-size: 160%;
+    }
+    .sunrise span{
+        font-size: 0.78em;
+    }
+    .sunrise-img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width: 50%;
+    }
+
+
+    /* Sunset card */
+    .sunset{
+        font-size: 160%;
+    }
+    .sunset span{
+        font-size: 0.78em;
+    }
+    .sunset-img{
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width: 50%;
+    }
+
+
+    /* Visibility card */
+    .visibility{
+        font-size: 160%;
+    }
+    .visible-note{
+        font-size: 70%;
+        position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
+        bottom: 15px;  /*Position in the parent div*/
+        /*border: solid rgb(221, 224, 14) 1px;*/
+    }
+
+
+    /* Pressure card */
+    .pressure{
+        font-size: 160%;
+    }
+    .pressure-note{
+        font-size: 70%;
+        position: absolute;   /*Parent div is square-card, with use position:absolute to specify where in parent*/
+        bottom: 15px;  /*Position in the parent div*/
+    }
+    #pressure-img{
+        display:none;
+    }
+
 
 }

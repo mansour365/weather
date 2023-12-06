@@ -557,7 +557,7 @@ hr{
 
     function buildPressureWidget(){
         let currentPressure = data.current.pressure_mb;
-        document.querySelector(".pressure").innerHTML = currentPressure+"hPa"; 
+        document.querySelector(".pressure").innerHTML = currentPressure+" hPa"; 
 
         if(currentPressure >= 1013)
         {
