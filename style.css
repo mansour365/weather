@@ -2,7 +2,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Poppins', sans-serif;*/
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 
@@ -47,7 +48,6 @@ https://codepen.io/anon/pen/vwOpBP
 */
 
 .searchArea{
-    /*border: solid rgb(221, 224, 14) 1px;*/
     width:100%;
     height: 58px;
     margin: auto;
@@ -231,7 +231,6 @@ https://codepen.io/anon/pen/vwOpBP
     /*border: solid rgb(224, 150, 14) 1px;*/
     padding-left:20px;
     padding-right:10px;
-    
 }
 .feel{
     width:25%;
@@ -244,6 +243,7 @@ https://codepen.io/anon/pen/vwOpBP
     /*border: solid rgb(14, 224, 77) 1px;*/
     font-size: 0.7em;
     padding-right:3px;
+    font-weight:500;
 
 }
 .feel-temp{
@@ -256,19 +256,19 @@ https://codepen.io/anon/pen/vwOpBP
 /*Current Temperature*/
 .weather .temp{
     font-size: 80px; /*font size of the temperature*/
-    font-weight:100; /*font weight of the temperature*/
+    font-weight:300; /*font weight of the temperature*/
     color: #fee962; /*Color of the temperature output*/
 }
 /*Feels like text*/
 .weather .feel{
     font-size: 20px; /*Font size of the feels like*/
-    font-weight: 100; /*font weight of the feels like*/
+    font-weight: 400; /*font weight of the feels like*/
     margin-top: 10px; /*margin-top of the feels like*/
     margin-bottom: 10px; /*margin-bottom of the feels like*/
 }
 /*Current Condition*/
 .weather .condition{
-    font-weight: 100;
+    font-weight: 400;
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -389,7 +389,7 @@ https://codepen.io/anon/pen/vwOpBP
     /*border: solid rgb(221, 224, 14) 1px;*/
 }
 .hourNum{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     margin-bottom: 20px;
     /*border: solid rgb(221, 224, 14) 1px;*/
@@ -420,13 +420,14 @@ https://codepen.io/anon/pen/vwOpBP
 }
 .hourlytemp{
     font-size: 18px;
-    font-weight:100;
+    font-weight:500;
     padding-top: 1px;
     /*border: solid rgb(224, 45, 14) 1px;*/
 }
 .sunlabel{
     padding-top: 1px;
     font-size: 17px;
+    font-weight: 400;
     /*border: solid rgb(224, 45, 14) 1px;**/
 }
 .right-arrow{
@@ -545,7 +546,7 @@ https://codepen.io/anon/pen/vwOpBP
 .daily-condition{   /*the condition text portion of the daily card*/
     text-align:left;
     font-size: 0.95em;
-    padding-left: 12px;
+    padding-left: 9px;
     padding-bottom: 10px;
 }
 
@@ -806,7 +807,6 @@ https://codepen.io/anon/pen/vwOpBP
     }
     .hourlytemp{
         font-size: 18px;
-        font-weight:100;
         padding-top: 1px;
     }
 
@@ -856,7 +856,8 @@ https://codepen.io/anon/pen/vwOpBP
     }
     .daily-condition{   /*the condition text portion of the daily card*/
         font-size: 90%;
-        padding-top: 3%;
+        padding-left: 7px;
+        padding-top: 1.5%;
         padding-bottom: 2%;
     }
     .dailycol1{  /*First column of daily-card*/
