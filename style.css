@@ -7,14 +7,17 @@
     box-sizing: border-box;
 }
 
-html{
-    height:100%;
-}
 
 body{
     height:100%;
     background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148)); /*day clear or partly*/
-    /*background-size: cover;*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /*background: linear-gradient(0deg, rgb(226, 226, 226), rgb(114, 114, 114)); /*day overcast or cloudy*/
+    /*background: linear-gradient(0deg, rgb(8, 0, 77), rgb(54, 13, 75)); /*night*/
+
+    /*background-image: url('images/backgrounds/overcast.png');*/
+    background-size: cover;
 }
 
 hr{
