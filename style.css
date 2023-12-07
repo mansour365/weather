@@ -7,7 +7,7 @@
 }
 
 html{
-    min-height:100%;   /*Need this so background does repeat in desktop or mobile view*/
+    min-height:100%;   /*Need this so background gradient does repeat in desktop or mobile view*/
 }
 
 body{
