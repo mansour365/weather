@@ -158,7 +158,7 @@ hr{
     document.querySelector(".hourly-weather").innerHTML +=  
         '<div class="hour">'+
             '<p class=hourNum> Now </p>'+                                                      
-            '<img class = "hourIcon" src='+ data.current.condition.icon +'>'+                                             
+            '<img crossorigin="anonymous" class = "hourIcon" src='+ data.current.condition.icon +'>'+                                             
             '<p class = "hourlytemp">'+Math.round(data.current.temp_c) +'°</p>'+                                             
         '</div>';
     
@@ -197,7 +197,7 @@ hr{
             '<div class="hour">'+
                 '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature       
                 '<div class = "iconArea">'+                                   
-                    '<img class = "hourIconRain" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+ //weather icon for that hour
+                    '<img crossorigin="anonymous" class = "hourIconRain" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+ //weather icon for that hour
                     '<p class= "rain-chance">'+rainChance+'%</p>'+  //chance of rain percent for that hour
                 '</div>'+                                  
                 '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+  //temperature for that hour                                                
@@ -209,7 +209,7 @@ hr{
             '<div class="hour">'+
                 '<p class=hourNum>'+newHour+'</p>'+   //The time on top of temperature       
                 '<div class = "iconArea">'+                                   
-                    '<img class = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+   //weather icon for that hour
+                    '<img crossorigin="anonymous" class = "hourIcon" src='+ data.forecast.forecastday[currentDay].hour[theHour].condition.icon +'>'+   //weather icon for that hour
                 '</div>'+                                  
                 '<p class = "hourlytemp">'+Math.round(data.forecast.forecastday[currentDay].hour[theHour].temp_c) +'°</p>'+  //temperature for that hour                                                
             '</div>';
@@ -501,7 +501,7 @@ hr{
                 '<div class="dayWeather">'+
                     '<div class = "dailycol1">'+
                         '<p class = "theDay">'+theDay+'</p>'+
-                        '<img src='+data.forecast.forecastday[dayCounter].day.condition.icon+'>'+  
+                        '<img crossorigin="anonymous" src='+data.forecast.forecastday[dayCounter].day.condition.icon+'>'+  
                     '</div>'+
                     '<div class = "dailycol2">'+    
                         '<p class="dayhigh">H: '+Math.round(data.forecast.forecastday[dayCounter].day.maxtemp_c)+'°</p>'+  
