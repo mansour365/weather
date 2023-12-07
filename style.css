@@ -2,22 +2,20 @@
 *{
     margin: 0;
     padding: 0;
-    /*font-family: 'Poppins', sans-serif;*/
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 
+html{
+    min-height:100%;   /*Need this so background does repeat in desktop or mobile view*/
+}
 
 body{
-    height:100%;
-    background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148)); /*day clear or partly*/
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /*background: linear-gradient(0deg, rgb(226, 226, 226), rgb(114, 114, 114)); /*day overcast or cloudy*/
-    /*background: linear-gradient(0deg, rgb(8, 0, 77), rgb(54, 13, 75)); /*night*/
-
-    /*background-image: url('images/backgrounds/overcast.png');*/
-    background-size: cover;
+    /*height:100%;*/
+    background: linear-gradient(0deg, rgb(169, 199, 230), rgb(25, 85, 148)) ; /*day clear or partly*/
+    /*background-attachment: fixed;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
 }
 
 hr{
