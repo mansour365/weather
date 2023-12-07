@@ -811,6 +811,13 @@ https://codepen.io/anon/pen/vwOpBP
         padding-top: 0px;
     }
 
+    .right-arrow{
+        display:none;
+    }
+    .left-arrow{
+        display:none;
+    }
+
 
 
     .humidity{
