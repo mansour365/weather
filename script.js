@@ -278,6 +278,9 @@ hr{
 
         //move hourly widget scroll bar back to beginning
         hourlyScroll.scrollLeft -= 1000;
+
+        //hide the loader
+        document.getElementById("loader").style.display = "none";
         
     }
 
@@ -615,6 +618,9 @@ const searchBox = document.querySelector(".searchCenter input");
 searchBox.addEventListener("keypress", ()=>{
     if(event.key === "Enter"){
         checkWeather(searchBox.value);
+        
+        //display the loader
+        document.getElementById("loader").style.display = "block";
 
         //also empty the search bar text
         searchBox.value = "";
