@@ -80,9 +80,9 @@ https://codepen.io/anon/pen/vwOpBP
 }
 .titleCenter{
     font-size: 2em;
-    font-weight: 600;
+    font-weight: 500;
     color: black;
-    letter-spacing: -0.8px; /*Make letters a bit closer to each other*/
+    letter-spacing: -0.1px; /*Make letters a bit closer to each other*/
     text-align: center;
     padding-bottom: 40px;
     transition: 0.5s all;
@@ -101,18 +101,47 @@ https://codepen.io/anon/pen/vwOpBP
     width:640px;  /*May need to delete*/
     border: solid rgba(0, 0, 0, 0) 1px; /*border needed otherwise the locateMe bottom margin wil collapse*/
     transition: 0.5s all;
+    height: 610px;
 }
-.locateMe{
+input::placeholder {
+    font-size: 18px;
+    font-weight: 300;
+}
+#location{
+    padding-top:60px;
+    
+    /*border:red 1px solid;*/
+}
+#automatically{
+    color:rgb(73, 73, 73);
+    font-size: 17px;
+    font-weight: 300;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    /*border: red 1px solid;*/
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.3); /* IE */
+  -moz-transform: scale(1.3); /* FF */
+  -webkit-transform: scale(1.3); /* Safari and Chrome */
+  -o-transform: scale(1.3); /* Opera */
+  transform: scale(1.3);
+  padding: 10px;
+}
+#locateMe{
     text-align: center;
     margin:auto;
-    margin-top:100px;
-    margin-bottom: 100px;
+    margin-top:30px;
+    margin-bottom: 0px;
     font-size: 16px;
     color:rgb(19, 103, 200);
     width: 80px;
     cursor: pointer;
 }
-.locateMe:hover{
+#locateMe:hover{
     text-decoration: underline;
 }
 .searchcenter input#check{
@@ -144,6 +173,7 @@ https://codepen.io/anon/pen/vwOpBP
 #loader{
     display:none;
     margin:auto;
+    margin-top:10px;
     z-index: 1;
     width: 60px;
     height: 60px;
@@ -181,13 +211,21 @@ https://codepen.io/anon/pen/vwOpBP
     display: none;
     transition: 0.5s all;
 }
-.searchCorner .locateMe{  /*Make the locate me button shrink to disappear*/
+.searchCorner #locateMe{  /*Make the locate me button shrink to disappear*/
     margin-top:0px;
     margin-bottom: 0px;
     font-size:0px;
     color:rgba(19, 103, 200, 0);
     width:0px;
     transition: 0.5s all;
+}
+.searchCorner #location{
+    padding-top:0px;
+
+}
+
+.searchCorner #automatically{
+    display:none;
 }
 .searchCorner{
     position:absolute;
@@ -197,6 +235,7 @@ https://codepen.io/anon/pen/vwOpBP
     padding-right: 50px;
     width: 350px;
     transition: 0.5s all;
+    font-weight:400;
     /*border: solid rgb(31, 224, 14) 1px;*/
 }
 .searchCorner input{
@@ -356,7 +395,8 @@ https://codepen.io/anon/pen/vwOpBP
     color: rgb(136, 199, 252);
 }
 .full-title .icon{
-    width: 15px;
+    width: 16px;
+    height:16px;
     margin-right: 5px;
     margin-left: -5px;
 }
@@ -429,7 +469,7 @@ https://codepen.io/anon/pen/vwOpBP
     width: 30px; /*width of image inside col container*/
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
     margin-bottom: 15px;
-    pointer-events: none;  /*Makes images on the hourly widget to not be draggable (helps when using mouse to drage the widget)*/
+    pointer-events: none;  /*Makes images on the hourly widget to not be draggable (helps when using mouse to drag the widget)*/
     /*border: solid rgb(38, 224, 14) 1px;*/
 }
 .hourIconRain{
@@ -437,6 +477,7 @@ https://codepen.io/anon/pen/vwOpBP
     margin-right: 0px; /*margin to the right of image in the col conatiner*/
     margin-bottom: -5px;
     margin-top: -9px;
+    pointer-events: none; /*Makes images on the hourly widget to not be draggable*/
     /*border: solid rgb(14, 87, 224) 1px;*/
 }
 .rain-chance{
@@ -551,6 +592,7 @@ https://codepen.io/anon/pen/vwOpBP
     width: 30px; /*width of image inside col container*/
     margin:0;
 }
+
 .dayhigh{  /*the high temperature of the daily card*/
     font-weight: 600;
     margin: auto;

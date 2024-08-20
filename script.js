@@ -5,15 +5,21 @@ window.onbeforeunload = function(){
       window.scrollTop(0);
 }
 
-getlocation();
+
+//First step is to check Cookies to see if automatic location is TRUE
+checkCookie();
+//If automatic location is true 
+//getlocation();
+
 //Automatically get user's location
 let latitudeNum;
 let longitudeNum;
 
 function getlocation() {
-    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
+        //display the loader
+        document.getElementById("loader").style.display = "block";
     } 
     else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
@@ -287,7 +293,7 @@ hr{
     function moveSearchBar(){
         //Check if the class name is currently called "searchCenter"
         let nameExists = document.querySelector(".searchCenter") != null;
-        //If it is called searchCenter name exists, chage it to "searchCorner"
+        //If it is called searchCenter name exists, change it to "searchCorner"
         if(nameExists){
             f = document.querySelector(".searchCenter");
             f.className = "searchCorner";
@@ -591,7 +597,7 @@ hr{
 
 
 
-const locateMeBtn = document.querySelector(".locateMe");
+const locateMeBtn = document.querySelector("#locateMe");
 
 locateMeBtn.addEventListener("click", function(event) {
     getlocation();
@@ -743,7 +749,51 @@ slider.addEventListener('mouseup', stopDragging, false);  //When mouse is not be
 slider.addEventListener('mouseleave', stopDragging, false);  //active stopDragging method when mouse is not over the houlry-weather div
 
 
+const checkbox = document.getElementById("checkbox");
+
+checkbox.addEventListener('change', (event) =>{
+    if(event.currentTarget.checked){
+        //create a cookie here
+        setCookie("autoLocate", "true", 365);
+    }
+    else{
+        //delete cookie here
+        document.cookie = "autoLocate=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+})
 
 
+function setCookie(cname, cvalue, exdays){
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
+function getCookie(cname) {
+    let value = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(value) == 0) {
+        return c.substring(value.length, c.length);
+      }
+    }
+    return "";
+  }
 
+function checkCookie(){
+    let element = getCookie("autoLocate");
+    if(element != ""){
+        //make checkbox to be checked
+        check();
+        getlocation();
+    }
+}
+
+function check(){
+    document.getElementById("checkbox").checked = true;
+}
